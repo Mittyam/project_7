@@ -1,0 +1,465 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ClothONOFF",
+			"GroupId": "ParamGroup8",
+			"Name": "私服 - パジャマ"
+		},
+		{
+			"Id": "glasses",
+			"GroupId": "ParamGroup12",
+			"Name": "眼鏡"
+		},
+		{
+			"Id": "surprised",
+			"GroupId": "ParamGroup12",
+			"Name": "驚き"
+		},
+		{
+			"Id": "heartEyes",
+			"GroupId": "ParamGroup12",
+			"Name": "ハート目"
+		},
+		{
+			"Id": "sickFace",
+			"GroupId": "ParamGroup12",
+			"Name": "病み顔"
+		},
+		{
+			"Id": "embFace",
+			"GroupId": "ParamGroup12",
+			"Name": "照れ"
+		},
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "ParamGroup6",
+			"Name": "<角度X調整"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "ParamGroup6",
+			"Name": ">角度X調整"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleX2",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　X追従"
+		},
+		{
+			"Id": "ParamBodyAngleY2",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　Y2"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "ParamGroup2",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "ParamGroup2",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "ParamGroup2",
+			"Name": "左眉　変形"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup2",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "ParamGroup2",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "ParamGroup2",
+			"Name": "目玉X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "ParamGroup2",
+			"Name": "目玉Y"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup2",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup2",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "Param118",
+			"GroupId": "ParamGroup20",
+			"Name": "＞肩回転"
+		},
+		{
+			"Id": "Param119",
+			"GroupId": "ParamGroup20",
+			"Name": "＞前腕回転"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "ParamGroup20",
+			"Name": "＞手回転"
+		},
+		{
+			"Id": "Param110",
+			"GroupId": "ParamGroup20",
+			"Name": "＜肩回転"
+		},
+		{
+			"Id": "Param111",
+			"GroupId": "ParamGroup20",
+			"Name": "＜前腕回転"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "ParamGroup20",
+			"Name": "＜手回転"
+		},
+		{
+			"Id": "Param12",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れx1"
+		},
+		{
+			"Id": "Param13",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れx2"
+		},
+		{
+			"Id": "Param14",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れx3"
+		},
+		{
+			"Id": "Param21",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れx4"
+		},
+		{
+			"Id": "Param15",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れy1"
+		},
+		{
+			"Id": "Param16",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れy2"
+		},
+		{
+			"Id": "Param17",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れy3"
+		},
+		{
+			"Id": "Param20",
+			"GroupId": "ParamGroup7",
+			"Name": "前髪揺れy4"
+		},
+		{
+			"Id": "Param303",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れx1"
+		},
+		{
+			"Id": "Param304",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れx2"
+		},
+		{
+			"Id": "Param305",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れx3"
+		},
+		{
+			"Id": "Param309",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れx4"
+		},
+		{
+			"Id": "Param306",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れy1"
+		},
+		{
+			"Id": "Param308",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れy2"
+		},
+		{
+			"Id": "Param307",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れy3"
+		},
+		{
+			"Id": "Param313",
+			"GroupId": "ParamGroup31",
+			"Name": "後髪揺れy4"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "ParamGroup9",
+			"Name": "服揺れx1"
+		},
+		{
+			"Id": "Param8",
+			"GroupId": "ParamGroup9",
+			"Name": "服揺れx2"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "ParamGroup9",
+			"Name": "服揺れy1"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "ParamGroup9",
+			"Name": "服揺れy2"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "ParamGroup3",
+			"Name": ">袖揺れ1"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "ParamGroup3",
+			"Name": ">袖揺れ2"
+		},
+		{
+			"Id": "Param18",
+			"GroupId": "ParamGroup3",
+			"Name": "<袖揺れ1"
+		},
+		{
+			"Id": "Param11",
+			"GroupId": "ParamGroup3",
+			"Name": "<袖揺れ2"
+		},
+		{
+			"Id": "Param61",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｘ１"
+		},
+		{
+			"Id": "Param62",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｘ２"
+		},
+		{
+			"Id": "Param63",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｘ３"
+		},
+		{
+			"Id": "Param64",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｙ１"
+		},
+		{
+			"Id": "Param65",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｙ２"
+		},
+		{
+			"Id": "Param66",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート揺れｙ３"
+		},
+		{
+			"Id": "Param78",
+			"GroupId": "ParamGroup11",
+			"Name": "スカート波揺れ"
+		},
+		{
+			"Id": "onoff",
+			"GroupId": "",
+			"Name": "onoff"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup8",
+			"GroupId": "",
+			"Name": "差分"
+		},
+		{
+			"Id": "ParamGroup12",
+			"GroupId": "",
+			"Name": "表情差分"
+		},
+		{
+			"Id": "ParamGroup6",
+			"GroupId": "",
+			"Name": "角度 XYZ / 体の回転 XYZ"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "表情"
+		},
+		{
+			"Id": "ParamGroup20",
+			"GroupId": "",
+			"Name": "腕回転"
+		},
+		{
+			"Id": "ParamGroup7",
+			"GroupId": "",
+			"Name": "前髪揺れ"
+		},
+		{
+			"Id": "ParamGroup31",
+			"GroupId": "",
+			"Name": "後髪揺れ"
+		},
+		{
+			"Id": "ParamGroup9",
+			"GroupId": "",
+			"Name": "服揺れ"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "袖揺れ"
+		},
+		{
+			"Id": "ParamGroup11",
+			"GroupId": "",
+			"Name": "スカート揺れ"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "フォルダー 6"
+		},
+		{
+			"Id": "Part2",
+			"Name": "前髪"
+		},
+		{
+			"Id": "Part3",
+			"Name": "顔"
+		},
+		{
+			"Id": "Part10",
+			"Name": "パジャマ"
+		},
+		{
+			"Id": "Part13",
+			"Name": "服"
+		},
+		{
+			"Id": "Part17",
+			"Name": "体"
+		},
+		{
+			"Id": "Part19",
+			"Name": "後ろ髪"
+		},
+		{
+			"Id": "Part4",
+			"Name": "口"
+		},
+		{
+			"Id": "Part5",
+			"Name": "眉"
+		},
+		{
+			"Id": "Part6",
+			"Name": ">まつ毛"
+		},
+		{
+			"Id": "Part8",
+			"Name": "<まつ毛"
+		},
+		{
+			"Id": "Part11",
+			"Name": "フォルダー 3"
+		},
+		{
+			"Id": "Part12",
+			"Name": "グループ 6"
+		},
+		{
+			"Id": "Part14",
+			"Name": "フォルダー 4"
+		},
+		{
+			"Id": "Part15",
+			"Name": "グループ 3 のコピー"
+		},
+		{
+			"Id": "Part16",
+			"Name": "グループ 4"
+		},
+		{
+			"Id": "Part18",
+			"Name": "フォルダー 1"
+		},
+		{
+			"Id": "Part7",
+			"Name": ">まつ毛"
+		},
+		{
+			"Id": "Part9",
+			"Name": "<まつ毛"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamEyeBallX",
+			"ParamEyeBallY"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
+		]
+	]
+}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315faaaf76464fe47b11a2176eb5088f, type: 3}
+  m_Name: Action
+  m_EditorClassIdentifier: 
+  stateID: 9
+  displayName: "\u4F1A\u8A71"
+  startPrefabs:
+  - {fileID: 3986392447400567429, guid: 3bfcb8f9a8012f341a6e22691b398f47, type: 3}
+  - {fileID: 2940658619952592056, guid: fe9147c29e61fb54687813990266178a, type: 3}
+  - {fileID: 6318531902583438229, guid: 535f662ac0bc5cb419be8a89370d7808, type: 3}
+  endPrefabs: []
+  consumeActionPoint: 1
+  actionPointCost: 1
+  affectionChange: 0
+  loveChange: 0
+  moneyChange: 0
