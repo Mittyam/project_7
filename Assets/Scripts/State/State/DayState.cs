@@ -61,6 +61,15 @@ public class DayState : StateBase, IPausableState
         // ステートに入ったら現在の日付に1日加算
         StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
 
+        // MiniEventSelectionHandler コンポーネントの取得とイベントリスナーの設定
+        MiniEventSelectionHandler miniEventHandler = GetComponent<MiniEventSelectionHandler>();
+        if (miniEventHandler == null)
+        {
+            // コンポーネントがなければ追加
+            miniEventHandler = gameObject.AddComponent<MiniEventSelectionHandler>();
+            Debug.Log("DayState: MiniEventSelectionHandler を追加しました");
+        }
+
         // 平日/休日に応じたイベント発火
         if (isWeekday)
         {

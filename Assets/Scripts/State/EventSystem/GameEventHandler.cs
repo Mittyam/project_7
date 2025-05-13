@@ -18,14 +18,14 @@ public class GameEventHandler : MonoBehaviour
     private void SubscribeToEvents()
     {
         // 各ボタンイベントのサブスクライブ
-        TypedEventManager.Instance.Subscribe<GameEvents.TalkButtonClicked>(OnTalkButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.OutingButtonClicked>(OnOutingButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.GameButtonClicked>(OnGameButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.LibraryButtonClicked>(OnLibraryButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.CafeButtonClicked>(OnCafeButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.WorkButtonClicked>(OnWorkButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.WalkButtonClicked>(OnWalkButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.SleepButtonClicked>(OnSleepButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.TalkButtonClicked>(OnTalkButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.OutingButtonClicked>(OnOutingButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.GameButtonClicked>(OnGameButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.LibraryButtonClicked>(OnLibraryButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.CafeButtonClicked>(OnCafeButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.WorkButtonClicked>(OnWorkButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.WalkButtonClicked>(OnWalkButtonClicked);
+        //TypedEventManager.Instance.Subscribe<GameEvents.SleepButtonClicked>(OnSleepButtonClicked);
 
         // 特殊ボタン
         TypedEventManager.Instance.Subscribe<GameEvents.BathButtonClicked>(OnBathButtonClicked);
@@ -42,14 +42,14 @@ public class GameEventHandler : MonoBehaviour
         if (TypedEventManager.Instance == null) return;
 
         // 各ボタンイベントのサブスクライブ解除
-        TypedEventManager.Instance.Unsubscribe<GameEvents.TalkButtonClicked>(OnTalkButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.OutingButtonClicked>(OnOutingButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.GameButtonClicked>(OnGameButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.LibraryButtonClicked>(OnLibraryButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.CafeButtonClicked>(OnCafeButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.WorkButtonClicked>(OnWorkButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.WalkButtonClicked>(OnWalkButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.SleepButtonClicked>(OnSleepButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.TalkButtonClicked>(OnTalkButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.OutingButtonClicked>(OnOutingButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.GameButtonClicked>(OnGameButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.LibraryButtonClicked>(OnLibraryButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.CafeButtonClicked>(OnCafeButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.WorkButtonClicked>(OnWorkButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.WalkButtonClicked>(OnWalkButtonClicked);
+        //TypedEventManager.Instance.Unsubscribe<GameEvents.SleepButtonClicked>(OnSleepButtonClicked);
 
         // 特殊ボタン
         TypedEventManager.Instance.Unsubscribe<GameEvents.BathButtonClicked>(OnBathButtonClicked);

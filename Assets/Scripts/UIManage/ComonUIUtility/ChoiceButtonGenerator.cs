@@ -3,11 +3,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
+/// <summary>
+/// 選択肢データ構造体
+/// </summary>
 public class ChoiceOption
 {
-    public string choiceText;              // ボタンに表示する文章
-    public System.Action onSelected;       // ボタンを押した時の処理
+    public string choiceText;
+    public System.Action onSelected;
 }
 
 /// <summary>
@@ -15,44 +17,60 @@ public class ChoiceOption
 /// </summary>
 public class ChoiceButtonGenerator : MonoBehaviour
 {
-    [SerializeField] private Transform content; // ボタンを生成する親オブジェクト
-    [SerializeField] private GameObject choiceButtonPrefab;
+    [Header("選択肢パネル設定")]
+    [SerializeField] private GameObject choicePanel;
+    [SerializeField] private Button choiceButtonPrefab;
+    [SerializeField] private Transform choiceContainer;
+
+    private List<Button> activeButtons = new List<Button>();
 
     // 選択肢のボタンを動的に生成
-    public void ShowChoices(List<ChoiceOption> options)
+    public void ShowChoices(List<ChoiceOption> choices)
     {
-        // すでにボタンが残っていたら削除
-        foreach (Transform child in content)
+        // 既存ボタンのクリア
+        ClearButtons();
+
+        // パネル表示
+        choicePanel.SetActive(true);
+
+        // 選択肢ボタンの生成
+        foreach (var choice in choices)
         {
-            Destroy(child.gameObject);
-        }
+            Button newButton = Instantiate(choiceButtonPrefab, choiceContainer);
 
-        // パネル自体をアクティブ化
-        gameObject.SetActive(true);
-
-        // 選択肢のボタンを生成
-        foreach (var option in options)
-        {
-            var buttonObj = Instantiate(choiceButtonPrefab, content);
-            var button = buttonObj.GetComponent<Button>();
-
-            // ボタンのテキストを設定
-            var textComp = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
-            textComp.text = option.choiceText;
-
-            // ボタンが押された時の処理を設定
-            button.onClick.AddListener(() =>
+            // ボタンテキストの設定
+            TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+            if (buttonText != null)
             {
-                // コールバックを実行
-                option.onSelected?.Invoke();
-                // 選択後はパネルを閉じるなど
-                ClosePanel();
+                buttonText.text = choice.choiceText;
+            }
+
+            // クリックイベントの登録
+            System.Action choiceAction = choice.onSelected;
+            newButton.onClick.AddListener(() => {
+                choiceAction?.Invoke();
             });
+
+            activeButtons.Add(newButton);
         }
     }
 
     public void ClosePanel()
     {
-        gameObject.SetActive(false);
+        choicePanel.SetActive(false);
+        ClearButtons();
+    }
+
+    private void ClearButtons()
+    {
+        foreach (var button in activeButtons)
+        {
+            if (button != null)
+            {
+                button.onClick.RemoveAllListeners();
+                Destroy(button.gameObject);
+            }
+        }
+        activeButtons.Clear();
     }
 }

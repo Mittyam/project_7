@@ -2,6 +2,9 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
+/// <summary>
+/// メッセージパネル制御クラス
+/// </summary>
 public class MessagePanelController : MonoBehaviour
 {
     [Header("パネル参照")]
