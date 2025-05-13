@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2447739417352327937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3238,8 +3238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePanel: {fileID: 8848643807804718616}
   selectPanel: {fileID: 3926084015809818833}
-  animDuration: 0.2
-  choicePanelHideOffset: -200
+  animDuration: 0.3
+  choicePanelHideOffset: -300
 --- !u!114 &4502963609238756694
 MonoBehaviour:
   m_ObjectHideFlags: 0
