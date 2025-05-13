@@ -6338,7 +6338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967223d908bf07b4f90945995bdca68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maskTexture: {fileID: 0}
+  _maskTexture: {fileID: 11400000, guid: 16bf142754640ab4487bb625c30931fd, type: 2}
 --- !u!114 &7304244142734823681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6401,7 +6401,7 @@ Animator:
   m_GameObject: {fileID: 3362998852098367508}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df1d7b23570eeb04c93afa8ea4e4a068, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6424,7 +6424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd9e6647bfff7542acb0200ab74bdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubismFadeMotionList: {fileID: 0}
+  CubismFadeMotionList: {fileID: 11400000, guid: dbe60ce5327ee1b4f8849bd4d2cc69ed, type: 2}
 --- !u!114 &8266788535998747630
 MonoBehaviour:
   m_ObjectHideFlags: 0

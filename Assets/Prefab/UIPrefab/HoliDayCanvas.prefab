@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messagePanel: {fileID: 6667295641676186873}
-  choicePanel: {fileID: 3398865350541996466}
+  selectPanel: {fileID: 3398865350541996466}
   animDuration: 0.2
   choicePanelHideOffset: -200
 --- !u!114 &2271007436839644848
@@ -2854,7 +2854,7 @@ GameObject:
   - component: {fileID: 826549630742001557}
   - component: {fileID: 2633474382923218915}
   m_Layer: 5
-  m_Name: SelectButtonsPanel
+  m_Name: ChoiceButtonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

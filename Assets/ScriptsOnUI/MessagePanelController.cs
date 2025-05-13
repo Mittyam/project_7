@@ -6,7 +6,7 @@ public class MessagePanelController : MonoBehaviour
 {
     [Header("パネル参照")]
     [SerializeField] private RectTransform messagePanel;
-    [SerializeField] private RectTransform choicePanel;
+    [SerializeField] private RectTransform selectPanel;
 
     [Header("アニメーション設定")]
     [SerializeField] private float animDuration = 0.3f;
@@ -39,12 +39,12 @@ public class MessagePanelController : MonoBehaviour
         cancelMessageTween = false;
 
         // 1) 選択肢パネルを初期位置から下方向へ移動させ、完了後非表示にする
-        choicePanel
+        selectPanel
             .DOAnchorPosY(initialChoicePanelPos.y + choicePanelHideOffset, animDuration)
             .SetEase(Ease.InQuad)
             .OnComplete(() =>
             {
-                choicePanel.gameObject.SetActive(false);
+                selectPanel.gameObject.SetActive(false);
 
                 // キャンセルされている場合は処理を中断
                 if (cancelMessageTween)
@@ -76,7 +76,7 @@ public class MessagePanelController : MonoBehaviour
     {
         // もし choicePanel が既にアクティブで、かつ正しい初期位置にあるなら
         // 追加のアニメーションは不要として、即座に onComplete を呼び出す
-        if (choicePanel.gameObject.activeSelf && Mathf.Abs(choicePanel.anchoredPosition.y - initialChoicePanelPos.y) < 0.1f)
+        if (selectPanel.gameObject.activeSelf && Mathf.Abs(selectPanel.anchoredPosition.y - initialChoicePanelPos.y) < 0.1f)
         {
             onComplete?.Invoke();
             return;
@@ -84,15 +84,15 @@ public class MessagePanelController : MonoBehaviour
 
         cancelMessageTween = true;
         DOTween.Kill(messagePanel);
-        DOTween.Kill(choicePanel);
+        DOTween.Kill(selectPanel);
         messagePanel.gameObject.SetActive(false);
 
         // choicePanel を「閉じた状態」の位置にリセット
-        choicePanel.anchoredPosition = new Vector2(initialChoicePanelPos.x, initialChoicePanelPos.y + choicePanelHideOffset);
-        choicePanel.gameObject.SetActive(true);
+        selectPanel.anchoredPosition = new Vector2(initialChoicePanelPos.x, initialChoicePanelPos.y + choicePanelHideOffset);
+        selectPanel.gameObject.SetActive(true);
 
         // choicePanel を初期位置にアニメーションで移動する
-        choicePanel
+        selectPanel
             .DOAnchorPosY(initialChoicePanelPos.y, animDuration)
             .SetEase(Ease.OutQuad)
             .OnComplete(() =>
