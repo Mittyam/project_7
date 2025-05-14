@@ -249,7 +249,7 @@ public class MiniEventState : StateBase, IPausableState
     /// <summary>
     /// I—¹UI‚Ì•\¦
     /// </summary>
-    protected void ShowEndUI()
+    protected virtual void ShowEndUI()
     {
         // ‚·‚Å‚ÉI—¹UI‚ª¶¬‚³‚ê‚Ä‚¢‚éê‡‚Íˆ—‚µ‚È‚¢
         if (endUIs.Count > 0) return;

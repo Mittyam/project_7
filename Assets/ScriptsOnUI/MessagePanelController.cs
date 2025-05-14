@@ -13,73 +13,111 @@ public class MessagePanelController : MonoBehaviour
 
     [Header("アニメーション設定")]
     [SerializeField] private float animDuration = 0.3f;
-    [SerializeField] private float choicePanelHideOffset = -300f; // 下へ移動させるオフセット
+    [SerializeField] private float choicePanelHideOffset = -300f;
 
-    // 選択肢パネルの初期位置を記録する変数
+    // 初期位置の保存
+    private Vector2 initialMessagePanelPos;
     private Vector2 initialChoicePanelPos;
+    private bool isInitialized = false;
 
     // Tweenキャンセル用フラグ
     private bool cancelMessageTween = false;
 
-    private void Start()
+    private void Awake()
     {
+        InitializePanels();
+    }
+
+    private void OnEnable()
+    {
+        InitializePanels();
+    }
+
+    // パネルの初期化
+    private void InitializePanels()
+    {
+        if (isInitialized) return;
+
         // 初期位置を記録
-        // initialChoicePanelPos = choicePanel.anchoredPosition;
+        if (messagePanel != null)
+            initialMessagePanelPos = messagePanel.anchoredPosition;
+
+        if (selectPanel != null)
+            initialChoicePanelPos = selectPanel.anchoredPosition;
 
         // MessagePanelは初期状態で非表示
-        messagePanel.gameObject.SetActive(false);
+        if (messagePanel != null)
+            messagePanel.gameObject.SetActive(false);
+
+        isInitialized = true;
     }
 
-    /// <summary>
-    /// メッセージパネルを表示し、選択肢パネルを下にアニメーションで隠す
-    /// </summary>
+    // メッセージパネルを表示
     public void ShowMessagePanel(Action onComplete = null)
     {
-        // 既に表示されている場合は何もしない
-        if (messagePanel.gameObject.activeSelf) return;
+        // 初期化確認
+        if (!isInitialized)
+            InitializePanels();
 
-        // 開始時はキャンセル状態にしていない
+        // すでに表示されている場合は何もしない
+        if (messagePanel != null && messagePanel.gameObject.activeSelf)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
         cancelMessageTween = false;
 
-        // 1) 選択肢パネルを初期位置から下方向へ移動させ、完了後非表示にする
-        selectPanel
-            .DOAnchorPosY(initialChoicePanelPos.y + choicePanelHideOffset, animDuration)
-            .SetEase(Ease.InQuad)
-            .OnComplete(() =>
-            {
-                selectPanel.gameObject.SetActive(false);
+        // 選択肢パネルを非表示
+        if (selectPanel != null)
+        {
+            // 位置をリセット
+            selectPanel.anchoredPosition = initialChoicePanelPos;
 
-                // キャンセルされている場合は処理を中断
-                if (cancelMessageTween)
-                    return;
+            // アニメーションで下に移動
+            selectPanel
+                .DOAnchorPosY(initialChoicePanelPos.y + choicePanelHideOffset, animDuration)
+                .SetEase(Ease.InQuad)
+                .OnComplete(() => {
+                    selectPanel.gameObject.SetActive(false);
 
-                // 2) メッセージパネルをアクティブにして、Yスケールを0に設定
-                messagePanel.gameObject.SetActive(true);
-                messagePanel.localScale = new Vector3(1, 0, 1);
+                    // キャンセルされた場合は処理中断
+                    if (cancelMessageTween)
+                        return;
 
-                // 3) MessagePanelを上辺を基準に下へ伸びる（スケールYを0→1に補間）アニメーションで表示
-                messagePanel
-                    .DOScaleY(1f, animDuration)
-                    .SetEase(Ease.OutQuad)
-                    .OnComplete(() =>
+                    // メッセージパネルを表示
+                    if (messagePanel != null)
                     {
-                        // キャンセルされていない場合のみonCompleteを呼ぶ
-                        if (!cancelMessageTween)
-                        {
-                            onComplete?.Invoke();
-                        }
-                    });
-            });
+                        // 位置をリセット
+                        messagePanel.anchoredPosition = initialMessagePanelPos;
+                        messagePanel.gameObject.SetActive(true);
+                        messagePanel.localScale = new Vector3(1, 0, 1);
+
+                        // アニメーションで表示
+                        messagePanel
+                            .DOScaleY(1f, animDuration)
+                            .SetEase(Ease.OutQuad)
+                            .OnComplete(() => {
+                                if (!cancelMessageTween)
+                                {
+                                    onComplete?.Invoke();
+                                }
+                            });
+                    }
+                });
+        }
     }
 
-    /// <summary>
-    /// メッセージパネルが閉じた後に選択肢パネルを再表示する
-    /// </summary>
+    // 選択肢パネルを表示
     public void ShowChoicePanel(Action onComplete = null)
     {
-        // もし choicePanel が既にアクティブで、かつ正しい初期位置にあるなら
-        // 追加のアニメーションは不要として、即座に onComplete を呼び出す
-        if (selectPanel.gameObject.activeSelf && Mathf.Abs(selectPanel.anchoredPosition.y - initialChoicePanelPos.y) < 0.1f)
+        // 初期化確認
+        if (!isInitialized)
+            InitializePanels();
+
+        // すでに表示状態で正しい位置にある場合は何もしない
+        if (selectPanel != null && selectPanel.gameObject.activeSelf &&
+            Mathf.Abs(selectPanel.anchoredPosition.y - initialChoicePanelPos.y) < 0.1f)
         {
             onComplete?.Invoke();
             return;
@@ -88,19 +126,24 @@ public class MessagePanelController : MonoBehaviour
         cancelMessageTween = true;
         DOTween.Kill(messagePanel);
         DOTween.Kill(selectPanel);
-        messagePanel.gameObject.SetActive(false);
 
-        // choicePanel を「閉じた状態」の位置にリセット
-        selectPanel.anchoredPosition = new Vector2(initialChoicePanelPos.x, initialChoicePanelPos.y + choicePanelHideOffset);
-        selectPanel.gameObject.SetActive(true);
+        // メッセージパネルを非表示
+        if (messagePanel != null)
+            messagePanel.gameObject.SetActive(false);
 
-        // choicePanel を初期位置にアニメーションで移動する
-        selectPanel
-            .DOAnchorPosY(initialChoicePanelPos.y, animDuration)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() =>
-            {
-                onComplete?.Invoke();
-            });
+        // 選択肢パネルをリセット
+        if (selectPanel != null)
+        {
+            selectPanel.anchoredPosition = new Vector2(initialChoicePanelPos.x, initialChoicePanelPos.y + choicePanelHideOffset);
+            selectPanel.gameObject.SetActive(true);
+
+            // アニメーションで元の位置に戻す
+            selectPanel
+                .DOAnchorPosY(initialChoicePanelPos.y, animDuration)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() => {
+                    onComplete?.Invoke();
+                });
+        }
     }
 }

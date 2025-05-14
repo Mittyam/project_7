@@ -442,6 +442,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 845042166927929799}
+  - {fileID: 3958236284635313870}
   - {fileID: 545967263932827975}
   - {fileID: 3926084015809818833}
   - {fileID: 2447739417352327937}
@@ -529,6 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845042166927929799}
   - component: {fileID: 5660091235883461578}
+  - component: {fileID: 6623497472310590043}
   m_Layer: 0
   m_Name: MiniEventSelectionHandler
   m_TagString: Untagged
@@ -567,10 +569,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7e083b90f96a14cb88a8d9bbb5b126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePanel: {fileID: 1458788820797600274}
-  choicePanel: {fileID: 3738640883453567488}
-  messagePrinter: {fileID: 4502963609238756694}
-  bookItemId: 1
+  messagePanel: {fileID: 4381354055697687374}
+  choicePanel: {fileID: 6623497472310590043}
+  messagePrinter: {fileID: 1760858060122443606}
+  currentStateID: 0
+  bookItemStartId: 1
+  bookItemEndId: 3
+  gameItemStartId: 4
+  gameItemEndId: 5
+--- !u!114 &6623497472310590043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809756613495460765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf247d70bbce3d47827241854bfa01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choicePanel: {fileID: 868596890425421319}
+  choiceButtonPrefab: {fileID: 1134961448256432974, guid: 477ab79d6b1b8374c8a0ef3ad1dbc966, type: 3}
+  choiceContainer: {fileID: 2447739417352327937}
 --- !u!1 &868596890425421319
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +604,6 @@ GameObject:
   - component: {fileID: 7632780911474933280}
   - component: {fileID: 2103506402397681297}
   - component: {fileID: 1760435891185649486}
-  - component: {fileID: 3738640883453567488}
   m_Layer: 5
   m_Name: ChoiceButtonsPanel
   m_TagString: Untagged
@@ -674,21 +694,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &3738640883453567488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868596890425421319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf247d70bbce3d47827241854bfa01a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choicePanel: {fileID: 868596890425421319}
-  choiceButtonPrefab: {fileID: 1134961448256432974, guid: 477ab79d6b1b8374c8a0ef3ad1dbc966, type: 3}
-  choiceContainer: {fileID: 2447739417352327937}
 --- !u!1 &1043810599730915558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1112,75 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1569922979384846690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3958236284635313870}
+  - component: {fileID: 4381354055697687374}
+  - component: {fileID: 1760858060122443606}
+  m_Layer: 0
+  m_Name: MessagePanelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3958236284635313870
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569922979384846690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7678818278752467896}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4381354055697687374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569922979384846690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00742246bb9615f43b00a2ceb429a9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagePanel: {fileID: 8848643807804718616}
+  selectPanel: {fileID: 3926084015809818833}
+  animDuration: 0.2
+  choicePanelHideOffset: -200
+--- !u!114 &1760858060122443606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569922979384846690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcfc7448b9a5624bab73379ee116c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 4134855876972388334}
+  characterDelay: 0.05
+  messageDisplayTime: 2
+  autoClearMessage: 0
 --- !u!1 &1580860564500443770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1708,7 @@ MonoBehaviour:
   panelName: 
   itemID: 0
   itemName: 
-  actionPointCost: 0
+  actionPointCost: 3
   targetButton: {fileID: 0}
 --- !u!1 &3022450595532472965
 GameObject:
@@ -2404,7 +2478,7 @@ MonoBehaviour:
   panelName: 
   itemID: 0
   itemName: 
-  actionPointCost: 0
+  actionPointCost: 3
   targetButton: {fileID: 0}
 --- !u!1 &4748728136698837009
 GameObject:
@@ -3157,8 +3231,6 @@ GameObject:
   - component: {fileID: 8848643807804718616}
   - component: {fileID: 9148893082883133689}
   - component: {fileID: 3026899446133839460}
-  - component: {fileID: 1458788820797600274}
-  - component: {fileID: 4502963609238756694}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -3224,38 +3296,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1458788820797600274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6580649477138606591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00742246bb9615f43b00a2ceb429a9a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messagePanel: {fileID: 8848643807804718616}
-  selectPanel: {fileID: 3926084015809818833}
-  animDuration: 0.3
-  choicePanelHideOffset: -300
---- !u!114 &4502963609238756694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6580649477138606591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcfc7448b9a5624bab73379ee116c40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageText: {fileID: 4134855876972388334}
-  characterDelay: 0.05
-  messageDisplayTime: 2
-  autoClearMessage: 0
 --- !u!1 &7648898425931668696
 GameObject:
   m_ObjectHideFlags: 0

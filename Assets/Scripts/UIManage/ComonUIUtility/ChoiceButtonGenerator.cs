@@ -23,15 +23,53 @@ public class ChoiceButtonGenerator : MonoBehaviour
     [SerializeField] private Transform choiceContainer;
 
     private List<Button> activeButtons = new List<Button>();
+    private bool isInitialized = false;
 
-    // 選択肢のボタンを動的に生成
+    // OnEnableで初期化
+    private void OnEnable()
+    {
+        EnsureInitialized();
+    }
+
+    // 初期化確認メソッド
+    private void EnsureInitialized()
+    {
+        if (isInitialized) return;
+
+        // コンポーネントがない場合は検索
+        if (choicePanel == null)
+            choicePanel = gameObject;
+
+        if (choiceContainer == null)
+            choiceContainer = transform.Find("ChoiceContainer");
+
+        if (choiceButtonPrefab == null)
+        {
+            Debug.LogWarning("ChoiceButtonGenerator: 選択肢ボタンプレハブが設定されていません");
+            return;
+        }
+
+        isInitialized = true;
+    }
+
+    // 選択肢の表示
     public void ShowChoices(List<ChoiceOption> choices)
     {
+        // 初期化確認
+        EnsureInitialized();
+
         // 既存ボタンのクリア
         ClearButtons();
 
         // パネル表示
-        choicePanel.SetActive(true);
+        if (choicePanel != null)
+            choicePanel.SetActive(true);
+
+        if (choiceContainer == null || choiceButtonPrefab == null)
+        {
+            Debug.LogError("ChoiceButtonGenerator: 必要なコンポーネントが見つかりません");
+            return;
+        }
 
         // 選択肢ボタンの生成
         foreach (var choice in choices)
@@ -55,12 +93,16 @@ public class ChoiceButtonGenerator : MonoBehaviour
         }
     }
 
+    // パネルを閉じる
     public void ClosePanel()
     {
-        choicePanel.SetActive(false);
+        if (choicePanel != null)
+            choicePanel.SetActive(false);
+
         ClearButtons();
     }
 
+    // ボタンのクリア
     private void ClearButtons()
     {
         foreach (var button in activeButtons)

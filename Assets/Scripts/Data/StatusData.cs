@@ -9,12 +9,12 @@ using UnityEngine;
 [System.Serializable]
 public class StatusData
 {
-    public int day;
-    public int affection;
-    public int love;
-    public int money;
+    public int day;         // 経過日数
+    public int affection;   // 好感度
+    public int love;        // H度
+    public int money;       // 所持金
     public int actionPoint; // 行動ポイント追加
-    public string saveDate;
+    public string saveDate; // セーブ日時
     public List<ItemData> ownedItems = new List<ItemData>();
     public List<ToyData> ownedToys = new List<ToyData>();
 }
@@ -30,6 +30,11 @@ public class ItemData
     public bool isConsumable;       // 使用するごとに減少するか
     public bool isUniquePurchase;   // 一度だけ購入可能か（売り切れになるか）
     public ItemType itemType;       // アイテムの種類
+
+    // アイテム効果パラメータを追加
+    public int affectionBonus;      // 好感度上昇ボーナス
+    public int loveBonus;           // 愛情上昇ボーナス
+    public int moneyBonus;          // お金上昇ボーナス
 
     // アイテムの種類を定義するenum
     public enum ItemType
@@ -54,7 +59,11 @@ public class ItemData
     /// <param name="consumable">消費されないかどうか</param>
     /// <param name="uniquePurchase">一度だけ購入可能かどうか</param>
     /// <param name="type">アイテムタイプ</param>
-    public ItemData(int id, string name, int price, string desc, bool consumable, bool uniquePurchase, ItemType type)
+    /// <param name="affectionBonus">好感度上昇ボーナス</param>
+    /// <param name="loveBonus">愛情上昇ボーナス</param>
+    /// <param name="moneyBonus">お金上昇ボーナス</param>
+    public ItemData(int id, string name, int price, string desc, bool consumable, bool uniquePurchase,
+                    ItemType type, int affectionBonus = 0, int loveBonus = 0, int moneyBonus = 0)
     {
         this.itemId = id;
         this.itemName = name;
@@ -64,6 +73,11 @@ public class ItemData
         this.isUniquePurchase = uniquePurchase;
         this.itemType = type;
         this.quantity = 0;
+
+        // ボーナスパラメータを設定
+        this.affectionBonus = affectionBonus;
+        this.loveBonus = loveBonus;
+        this.moneyBonus = moneyBonus;
     }
 
     /// <summary>
@@ -81,6 +95,11 @@ public class ItemData
         this.isUniquePurchase = source.isUniquePurchase;
         this.itemType = source.itemType;
         this.quantity = source.quantity;
+
+        // ボーナスパラメータもコピー
+        this.affectionBonus = source.affectionBonus;
+        this.loveBonus = source.loveBonus;
+        this.moneyBonus = source.moneyBonus;
     }
 }
 

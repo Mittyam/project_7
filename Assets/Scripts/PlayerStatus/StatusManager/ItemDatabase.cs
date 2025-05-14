@@ -39,48 +39,74 @@ public class ItemDatabase : Singleton<ItemDatabase>
     /// </summary>
     private void InitializeItemDatabase()
     {
-        // コップ
+        // 本屋
         allItems.Add(new ItemData(
             1,
-            "コップ",
-            4000,
-            "かわいいコップ。飲み物を入れることができます。",
+            "ちょっとエッチな本",
+            1000,
+            "図書館で一緒に読むとエッチ度が１上がります。",
             false,   // 消費されない
             false,    // 一度だけ購入可能
-            ItemData.ItemType.Drink
+            ItemData.ItemType.Book,
+            0,    // 好感度上昇ボーナス
+            1,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
         ));
 
-        // ぬいぐるみ
+        // 本屋
         allItems.Add(new ItemData(
             2,
-            "うさぎのぬいぐるみ",
-            10000,
-            "かわいいうさぎのぬいぐるみ。大切にしてね。",
+            "凄くエッチな本",
+            2500,
+            "図書館で一緒に読むとエッチ度が３上がります。",
             false,   // 消費されない
-            true,    // 一度だけ購入可能
-            ItemData.ItemType.Toy
+            false,    // 一度だけ購入可能
+            ItemData.ItemType.Book,
+            0,    // 好感度上昇ボーナス
+            3,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
         ));
 
-        // ヘアピン
+        // 本屋
         allItems.Add(new ItemData(
             3,
-            "ヘアピン",
+            "恋愛小説",
             2000,
-            "かわいいヘアピン。身につけるとかわいさアップ！",
+            "図書館で一緒に読むと好感度が２上がります。",
             false,   // 消費されない
-            true,    // 一度だけ購入可能
-            ItemData.ItemType.Accessory
+            false,    // 一度だけ購入可能
+            ItemData.ItemType.Book,
+            1,    // 好感度上昇ボーナス
+            1,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
         ));
 
-        // ヘアゴム
+        // おもちゃ屋
         allItems.Add(new ItemData(
             4,
-            "ヘアゴム",
-            2000,
-            "おしゃれなヘアゴム。髪をまとめるのに便利。",
-            false,   // 消費されない
+            "エッチなゲーム",
+            6000,
+            "使用するとエッチ度が３上がります。",
+            true,   // 消費されない
             true,    // 一度だけ購入可能
-            ItemData.ItemType.Accessory
+            ItemData.ItemType.Game,
+            1,    // 好感度上昇ボーナス
+            3,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
+        ));
+
+        // おもちゃ屋
+        allItems.Add(new ItemData(
+            5,
+            "パーティーゲーム",
+            4000,
+            "使用すると好感度が３上がります。",
+            true,   // 消費されない
+            true,    // 一度だけ購入可能
+            ItemData.ItemType.Game,
+            3,    // 好感度上昇ボーナス
+            0,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
         ));
 
         // 辞書の更新

@@ -208,8 +208,6 @@ GameObject:
   - component: {fileID: 6667295641676186873}
   - component: {fileID: 7593784525503156388}
   - component: {fileID: 4351808486200793339}
-  - component: {fileID: 1967697257699419526}
-  - component: {fileID: 2271007436839644848}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -275,38 +273,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1967697257699419526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772825010916090528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00742246bb9615f43b00a2ceb429a9a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messagePanel: {fileID: 6667295641676186873}
-  selectPanel: {fileID: 3398865350541996466}
-  animDuration: 0.2
-  choicePanelHideOffset: -200
---- !u!114 &2271007436839644848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772825010916090528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcfc7448b9a5624bab73379ee116c40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageText: {fileID: 3107164408837972216}
-  characterDelay: 0.05
-  messageDisplayTime: 2
-  autoClearMessage: 0
 --- !u!1 &1181690058718254729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1026,7 @@ MonoBehaviour:
   panelName: 
   itemID: 0
   itemName: 
-  actionPointCost: 0
+  actionPointCost: 3
   targetButton: {fileID: 0}
 --- !u!1 &3272300099188103332
 GameObject:
@@ -1931,6 +1897,75 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5869635881155014481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3850949360537718496}
+  - component: {fileID: 7216764176006879319}
+  - component: {fileID: 5986869767820308689}
+  m_Layer: 0
+  m_Name: MessagePanelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3850949360537718496
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869635881155014481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8275607606389685620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7216764176006879319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869635881155014481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00742246bb9615f43b00a2ceb429a9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagePanel: {fileID: 6667295641676186873}
+  selectPanel: {fileID: 3398865350541996466}
+  animDuration: 0.2
+  choicePanelHideOffset: -200
+--- !u!114 &5986869767820308689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869635881155014481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcfc7448b9a5624bab73379ee116c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 3107164408837972216}
+  characterDelay: 0.05
+  messageDisplayTime: 2
+  autoClearMessage: 0
 --- !u!1 &6080350827718297594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,10 +2439,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5810921035555921496}
+  - {fileID: 3850949360537718496}
   - {fileID: 3913595822430064618}
   - {fileID: 3398865350541996466}
-  - {fileID: 6667295641676186873}
   - {fileID: 5469368813686911377}
+  - {fileID: 6667295641676186873}
   - {fileID: 9127919110437707648}
   - {fileID: 855989809262673379}
   - {fileID: 4127028117026286960}
@@ -2853,7 +2889,6 @@ GameObject:
   - component: {fileID: 2167816743885070609}
   - component: {fileID: 4481752300067515222}
   - component: {fileID: 826549630742001557}
-  - component: {fileID: 2633474382923218915}
   m_Layer: 5
   m_Name: ChoiceButtonsPanel
   m_TagString: Untagged
@@ -2944,21 +2979,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2633474382923218915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7608363271213067496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf247d70bbce3d47827241854bfa01a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choicePanel: {fileID: 7608363271213067496}
-  choiceButtonPrefab: {fileID: 1134961448256432974, guid: 477ab79d6b1b8374c8a0ef3ad1dbc966, type: 3}
-  choiceContainer: {fileID: 5469368813686911377}
 --- !u!1 &7701408138566182690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,6 +3905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5810921035555921496}
   - component: {fileID: 4182521245619131979}
+  - component: {fileID: 3994008047717347582}
   m_Layer: 0
   m_Name: MiniEventSelectionHandler
   m_TagString: Untagged
@@ -3923,10 +3944,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7e083b90f96a14cb88a8d9bbb5b126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePanel: {fileID: 1967697257699419526}
-  choicePanel: {fileID: 2633474382923218915}
-  messagePrinter: {fileID: 2271007436839644848}
-  bookItemId: 1
+  messagePanel: {fileID: 7216764176006879319}
+  choicePanel: {fileID: 3994008047717347582}
+  messagePrinter: {fileID: 5986869767820308689}
+  currentStateID: 0
+  bookItemStartId: 1
+  bookItemEndId: 3
+  gameItemStartId: 4
+  gameItemEndId: 5
+--- !u!114 &3994008047717347582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200297234648033732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf247d70bbce3d47827241854bfa01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choicePanel: {fileID: 7608363271213067496}
+  choiceButtonPrefab: {fileID: 1134961448256432974, guid: 477ab79d6b1b8374c8a0ef3ad1dbc966, type: 3}
+  choiceContainer: {fileID: 5469368813686911377}
 --- !u!1 &9212541152131347820
 GameObject:
   m_ObjectHideFlags: 0
