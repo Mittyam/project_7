@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// アイテムを使用するためのマネージャークラス
+/// </summary>
 public class ItemManager : Singleton<ItemManager>
 {
     // アイテム使用イベント

@@ -16,6 +16,35 @@ public class ProgressManager : MonoBehaviour
     // イベントがunlockされた際に通知するイベント
     public event Action<int> OnEventUnlocked;
 
+    // イベント状態をStatusDataに保存
+    public void SaveEventStatesToStatus(StatusData statusData)
+    {
+        statusData.eventStates.Clear();
+
+        foreach (var pair in eventStates)
+        {
+            statusData.eventStates.Add(new EventStateData(pair.Key, pair.Value));
+        }
+
+        Debug.Log($"ProgressManager: {eventStates.Count}件のイベント状態を保存しました");
+    }
+
+    // StatusDataからイベント状態を復元
+    public void LoadEventStatesFromStatus(StatusData statusData)
+    {
+        eventStates.Clear();
+
+        if (statusData.eventStates != null)
+        {
+            foreach (var eventStateData in statusData.eventStates)
+            {
+                eventStates[eventStateData.eventId] = eventStateData.state;
+            }
+
+            Debug.Log($"ProgressManager: {statusData.eventStates.Count}件のイベント状態を読み込みました");
+        }
+    }
+
     // イベントの状態を取得して返却
     // もしイベントが存在しない場合は、デフォルトでLockedを設定して返却
     public EventState GetEventState(int eventID)

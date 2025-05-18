@@ -18,7 +18,6 @@ public class DayState : StateBase, IPausableState
     public GameEvent holiDayStateEventSO;
 
     private bool isWeekday; // 平日判定用
-    private float dayProgress; // 昼の進行度 (0.0 〜 0.5 〜 1.0)
 
     private MainStateData activeStateData;
 
@@ -51,9 +50,6 @@ public class DayState : StateBase, IPausableState
         // UI要素のセットアップ
         SetupUI();
         ShowDayUI();
-
-        // 進捗度の初期化
-        dayProgress = 0f;
 
         // イベント購読のセットアップ - 進行度更新とボタン状態更新のみに絞る
         SubscribeToEvents();
@@ -88,13 +84,7 @@ public class DayState : StateBase, IPausableState
 
     public override void OnUpdate()
     {
-        // 昼の進行度を更新する処理を追加
-        // 進行度が 1.0を超えたら次のステートに移行する
-        if (dayProgress >= 1.0f)
-        {
-            Debug.Log("昼の進行度が1.0を超えました。次のステートに移行します。");
-            MainStateMachine.AdvanceToNextState();
-        }
+        
     }
 
     public override void OnExit()
@@ -502,7 +492,6 @@ public class DayState : StateBase, IPausableState
     private void SubscribeToEvents()
     {
         // 進行度更新とボタン状態更新のみを購読
-        TypedEventManager.Instance.Subscribe<GameEvents.DayProgressUpdated>(OnDayProgressUpdated);
         TypedEventManager.Instance.Subscribe<GameEvents.ButtonStateUpdateRequested>(OnButtonStateUpdateRequested);
     }
 
@@ -511,18 +500,7 @@ public class DayState : StateBase, IPausableState
     {
         if (TypedEventManager.Instance == null) return;
 
-        TypedEventManager.Instance.Unsubscribe<GameEvents.DayProgressUpdated>(OnDayProgressUpdated);
         TypedEventManager.Instance.Unsubscribe<GameEvents.ButtonStateUpdateRequested>(OnButtonStateUpdateRequested);
-    }
-
-    // 新しいイベントハンドラー
-    private void OnDayProgressUpdated(GameEvents.DayProgressUpdated eventData)
-    {
-        // このステートのIDと一致する場合のみ処理
-        if (eventData.SourceStateID == StateID.Day)
-        {
-            UpdateDayProgress(eventData.ProgressValue);
-        }
     }
 
     private void OnButtonStateUpdateRequested(GameEvents.ButtonStateUpdateRequested eventData)
@@ -532,13 +510,6 @@ public class DayState : StateBase, IPausableState
         {
             UpdateButtonStates();
         }
-    }
-
-    // 日の進行度を更新（既存のメソッドを維持）
-    private void UpdateDayProgress(float progressValue)
-    {
-        // 実装省略（既存の進行度更新処理を使用）
-        dayProgress += progressValue;
     }
 
     // ボタン状態の更新（既存のメソッドを維持）

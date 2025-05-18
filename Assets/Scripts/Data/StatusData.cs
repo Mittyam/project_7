@@ -16,7 +16,8 @@ public class StatusData
     public int actionPoint; // 行動ポイント追加
     public string saveDate; // セーブ日時
     public List<ItemData> ownedItems = new List<ItemData>();
-    public List<ToyData> ownedToys = new List<ToyData>();
+    public List<EventStateData> eventStates = new List<EventStateData>();
+    public StateID savedStateID = StateID.None; // セーブ時のメインステートID
 }
 
 [System.Serializable]
@@ -103,12 +104,16 @@ public class ItemData
     }
 }
 
+// イベント状態をシリアライズするためのクラス
 [System.Serializable]
-public class ToyData
+public class EventStateData
 {
-    public int toyId;
-    public string toyName;
-    public bool isOwned;
-    public string description; // 説明文追加
-    public Sprite icon; // アイコン追加
+    public int eventId;
+    public EventState state;
+
+    public EventStateData(int id, EventState eventState)
+    {
+        eventId = id;
+        state = eventState;
+    }
 }

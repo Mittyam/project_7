@@ -16,7 +16,7 @@ public class MiniEventStateData : ScriptableObject
 
     [Header("イベント設定")]
     public bool consumeActionPoint = true;  // アクションポイントを消費するか
-    public int actionPointCost = 1;         // 消費するアクションポイント数
+    public int actionPointCost = 0;         // 消費するアクションポイント数
 
     [Header("ステータス変化")]
     public int affectionChange;             // 好感度変化量

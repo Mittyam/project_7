@@ -83,6 +83,13 @@ public class PushdownStateMachine : MonoBehaviour
 
         Debug.Log($"PushdownStateMachine: {poppedState.GetType().Name} をスタックから Pop します");
 
+        // ミニイベントステートの場合、メインステート遷移フラグをチェック
+        bool shouldAdvanceMainState = false;
+        if (poppedState is MiniEventState miniEventState)
+        {
+            shouldAdvanceMainState = miniEventState.ShouldAdvanceMainStateOnCompletion;
+        }
+
         poppedState.OnExit();
         poppedState.gameObject.SetActive(false);
 
@@ -98,7 +105,7 @@ public class PushdownStateMachine : MonoBehaviour
             // まずGameObjectをアクティブ化
             nextState.gameObject.SetActive(true);
 
-            // ResumeメソッドがあればRaumemを呼び出す
+            // Resumeメソッドがあれば、Raumeを呼び出す
             if (nextState is IPausableState pausable)
             {
                 pausable.OnResume();
@@ -118,6 +125,13 @@ public class PushdownStateMachine : MonoBehaviour
             if (mainStateMachine.CurrentState is IPausableState pausable)
             {
                 pausable.OnResume();
+            }
+
+            // ミニイベントが完了し、フラグが設定されていればメインステートを次に進める
+            if (shouldAdvanceMainState)
+            {
+                Debug.Log("PushdownStateMachine: ミニイベント完了によりメインステートを遷移します");
+                mainStateMachine.AdvanceToNextState();
             }
         }
 

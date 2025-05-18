@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// ミニイベント（お話/お出かけ/思い出など）の基本クラス
+/// ミニイベント（お話/お出かけ/アイテム/思い出など）の基本クラス
 /// </summary>
 public class MiniEventState : StateBase, IPausableState
 {
@@ -24,6 +24,10 @@ public class MiniEventState : StateBase, IPausableState
 
     // パラメータ格納用のディクショナリ
     protected Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+    // ミニイベント完了時にメインステートを遷移させるかどうかのフラグ
+    // デフォルトでは遷移させない
+    public bool ShouldAdvanceMainStateOnCompletion { get; set; } = false;
 
     /// <summary>
     /// イベントデータの設定
@@ -56,10 +60,18 @@ public class MiniEventState : StateBase, IPausableState
             EventName = stateData.displayName
         });
 
-        // アクションポイントの消費
+        // アクションポイントの消費（パラメータから取得した値を優先）
+        int actionPointCost = GetParameter<int>("ActionPointCost", stateData.actionPointCost);
         if (stateData.consumeActionPoint)
         {
-            StatusManager.Instance.ConsumeActionPoint(stateData.actionPointCost);
+            StatusManager.Instance.ConsumeActionPoint(actionPointCost);
+
+            // アクションポイントが0になったらメインステート遷移フラグを立てる
+            if (StatusManager.Instance.GetCurrentActionPoints() == 0)
+            {
+                Debug.Log("アクションポイントが0になりました。次のメインステートに進みます。");
+                ShouldAdvanceMainStateOnCompletion = true;
+            }
         }
     }
 

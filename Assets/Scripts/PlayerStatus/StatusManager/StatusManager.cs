@@ -11,6 +11,9 @@ public class StatusManager : Singleton<StatusManager>
     [SerializeField] private int maxActionPoints = 3;
     [SerializeField] private int dailyActionPointRecovery = 3;
 
+    [Header("External References")]
+    [SerializeField] private ProgressManager progressManager;
+
     // ステータス更新時に発火するイベント
     public event Action OnStatusUpdated;
     // アクションポイント更新時に発火するイベント
@@ -19,6 +22,16 @@ public class StatusManager : Singleton<StatusManager>
     protected override void Awake()
     {
         base.Awake();
+
+        // ProgressManagerが設定されていない場合は自動検索
+        if (progressManager == null)
+        {
+            progressManager = FindObjectOfType<ProgressManager>();
+            if (progressManager == null)
+            {
+                Debug.LogWarning("StatusManager: ProgressManagerが見つかりません");
+            }
+        }
 
         // 新規ゲーム開始時の初期化
         if (playerStatus == null)
@@ -32,9 +45,19 @@ public class StatusManager : Singleton<StatusManager>
                 actionPoint = maxActionPoints,
                 saveDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                 ownedItems = new List<ItemData>(),
-                ownedToys = new List<ToyData>()
+                eventStates = new List<EventStateData>()
             };
         }
+    }
+
+    /// <summary>
+    /// 十分なアクションポイントがあるかチェックする（消費はしない）
+    /// </summary>
+    /// <param name="amount">必要なアクションポイント量</param>
+    /// <returns>十分なアクションポイントがあればtrue</returns>
+    public bool HasEnoughActionPoints(int amount)
+    {
+        return playerStatus.actionPoint >= amount;
     }
 
     // 日付が変わったときにアクションポイントを回復する
@@ -44,7 +67,7 @@ public class StatusManager : Singleton<StatusManager>
         OnActionPointUpdated?.Invoke(playerStatus.actionPoint, maxActionPoints);
     }
 
-    // アクションポイントを消費する（成功したらtrue）
+    // 既存のConsumeActionPointメソッドも残しておく
     public bool ConsumeActionPoint(int amount)
     {
         if (playerStatus.actionPoint >= amount)
@@ -116,20 +139,6 @@ public class StatusManager : Singleton<StatusManager>
         OnStatusUpdated?.Invoke();
     }
 
-    // おもちゃをリストに追加、既に存在する場合は所有状態を更新する
-    public void AddToy(ToyData newToy)
-    {
-        // 新しく追加されたら、isOwnedをtrueにする
-        ToyData existingToy = playerStatus.ownedToys.Find(toy => toy.toyId == newToy.toyId);
-        if (existingToy == null)
-        {
-            newToy.isOwned = true;                  // 新しいおもちゃを追加する
-            playerStatus.ownedToys.Add(newToy);     // リストに追加
-        }
-
-        OnStatusUpdated?.Invoke();
-    }
-
     // アイテムを減少させる、数量が0になったらリストから削除する
     public void DecreaseItem(int itemId)
     {
@@ -161,12 +170,6 @@ public class StatusManager : Singleton<StatusManager>
         return playerStatus.ownedItems;
     }
 
-    // おもちゃリストを取得する
-    public List<ToyData> GetOwnedToys()
-    {
-        return playerStatus.ownedToys;
-    }
-
     // 現在のアクションポイントを取得
     public int GetCurrentActionPoints()
     {
@@ -185,8 +188,24 @@ public class StatusManager : Singleton<StatusManager>
         // 保存時に現在日時を記録
         playerStatus.saveDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
+        // 現在のステートIDを保存
+        if (GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
+        {
+            playerStatus.savedStateID = GameLoop.Instance.MainStateMachine.CurrentStateID;
+        }
+
+        // イベント状態をStatusDataに反映
+        if (progressManager != null)
+        {
+            progressManager.SaveEventStatesToStatus(playerStatus);
+        }
+        else
+        {
+            Debug.LogWarning("StatusManager: ProgressManagerが設定されていないため、イベント状態を保存できません");
+        }
+
         ES3.Save<StatusData>("playerStatus", playerStatus, slotName);
-        Debug.Log($"ステータスをセーブスロット [{slotName}] に保存しました。");
+        Debug.Log($"ステータスをセーブスロット [{slotName}] に保存しました。保存ステート: {playerStatus.savedStateID}");
     }
 
     // セーブスロットを指定してステータスをロードする
@@ -195,6 +214,29 @@ public class StatusManager : Singleton<StatusManager>
         if (ES3.KeyExists("playerStatus", slotName))
         {
             playerStatus = ES3.Load<StatusData>("playerStatus", slotName);
+
+            // イベント状態を復元
+            if (progressManager != null)
+            {
+                progressManager.LoadEventStatesFromStatus(playerStatus);
+            }
+            else
+            {
+                Debug.LogWarning("StatusManager: ProgressManagerが設定されていないため、イベント状態を復元できません");
+            }
+
+            // ロード後、保存されていたステートへ遷移
+            StateID loadedStateID = playerStatus.savedStateID;
+            if (loadedStateID != StateID.None && GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
+            {
+                // 現在のステートとロードしたステートが異なる場合のみ遷移
+                if (GameLoop.Instance.MainStateMachine.CurrentStateID != loadedStateID)
+                {
+                    GameLoop.Instance.MainStateMachine.ChangeState(loadedStateID);
+                    Debug.Log($"ロード後のステートを {loadedStateID} に変更しました");
+                }
+            }
+
             OnStatusUpdated?.Invoke();
             OnActionPointUpdated?.Invoke(playerStatus.actionPoint, maxActionPoints);
             Debug.Log($"セーブスロット [{slotName}] からステータスをロードしました。");
@@ -203,5 +245,29 @@ public class StatusManager : Singleton<StatusManager>
         {
             Debug.LogWarning($"セーブスロット [{slotName}] にセーブデータが存在しません。");
         }
+    }
+
+    // ProgressManagerを設定するメソッド
+    public void SetProgressManager(ProgressManager manager)
+    {
+        progressManager = manager;
+    }
+
+    // GetProgressManagerメソッドを追加
+    public ProgressManager GetProgressManager()
+    {
+        return progressManager;
+    }
+
+    // 現在のステートでセーブが可能かどうかを判定するメソッド
+    public bool CanSaveInCurrentState()
+    {
+        if (GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
+        {
+            StateID currentState = GameLoop.Instance.MainStateMachine.CurrentStateID;
+            // 昼と夜のステートでのみセーブ可能
+            return currentState == StateID.Day || currentState == StateID.Night;
+        }
+        return false;
     }
 }

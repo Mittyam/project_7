@@ -28,8 +28,9 @@ public class NovelEventManager : MonoBehaviour
 
         foreach (var e in table[timing])
         {
-            // すでに発生済みのイベントはスルー
-            if (progress.GetEventState(e.eventID) == EventState.Unlocked) continue;
+            // すでに発生済みまたは完了済みのイベントはスルー
+            EventState currentState = progress.GetEventState(e.eventID);
+            if (currentState == EventState.Unlocked || currentState == EventState.Completed) continue;
 
             // 条件を満たしていないイベントはスルー
             if (!ConditionEvaluator.Evaluate(e.conditions)) continue;

@@ -39,6 +39,17 @@ public class GameLoop : Singleton<GameLoop>
 
         // 各ステートにUIカメラを設定
         SetUICameraToAllStates();
+
+        // ProgressManagerとStatusManagerの連携を確認
+        if (StatusManager.Instance != null)
+        {
+            ProgressManager progressManager = FindObjectOfType<ProgressManager>();
+            if (progressManager != null && !StatusManager.Instance.GetProgressManager())
+            {
+                StatusManager.Instance.SetProgressManager(progressManager);
+                Debug.Log("GameLoop: ProgressManagerとStatusManagerを連携しました");
+            }
+        }
     }
 
     private void Update()

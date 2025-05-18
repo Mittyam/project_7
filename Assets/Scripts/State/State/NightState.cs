@@ -23,8 +23,6 @@ public class NightState : StateBase, IPausableState
     private GameObject activeLive2DModel; // アクティブなLive2Dモデルへの参照
     private string currentModelID; // 現在表示中のモデルID
 
-    private float nightProgress; // 夜の進行度
-
     // UI生成状態管理用フラグ
     private bool isUICreated = false;
 
@@ -36,8 +34,6 @@ public class NightState : StateBase, IPausableState
         SetupUI();
         ShowNightUI();
 
-        nightProgress = 0f;
-
         // イベント発火
         nightStateEventSO.Raise();
 
@@ -47,11 +43,7 @@ public class NightState : StateBase, IPausableState
 
     public override void OnUpdate()
     {
-        // 夜の進行度を更新
-        if (nightProgress >= 1.0f)
-        {
-            MainStateMachine.AdvanceToNextState();
-        }
+        
     }
 
     public override void OnExit()

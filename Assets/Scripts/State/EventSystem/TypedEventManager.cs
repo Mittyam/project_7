@@ -53,7 +53,7 @@ public class TypedEventManager : Singleton<TypedEventManager>
             eventHandlers.Remove(eventType);
         }
 
-        Debug.Log($"イベント{eventType.Name}の購読を解除しました");
+        // Debug.Log($"イベント{eventType.Name}の購読を解除しました");
     }
 
     /// <summary>
