@@ -45,9 +45,6 @@ public class NovelState : StateBase
     [SerializeField]
     private PlaybackMode defaultPlaybackMode = PlaybackMode.Click;
 
-    [Header("ProgressManager")]
-    [SerializeField] private ProgressManager progressManager;
-
     // --- ランタイムフィールド ---
     private NovelEventData currentEventData;
     private bool isPlaybackCompleted = false;
@@ -280,9 +277,9 @@ public class NovelState : StateBase
         ApplyStatusChanges();
 
         // イベントをCompletedに
-        if (currentEventData != null && progressManager != null)
+        if (currentEventData != null)
         {
-            progressManager.CompleteEvent(currentEventData.eventID);
+            ProgressManager.Instance.CompleteEvent(currentEventData.eventID);
             Debug.Log($"NovelState: イベントID {currentEventData.eventID} を完了済みにしました");
         }
 

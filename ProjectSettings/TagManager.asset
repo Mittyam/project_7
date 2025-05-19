@@ -8,6 +8,7 @@ TagManager:
   - MiniEventUIManager
   - NovelUIManager
   - Live2DModel
+  - StatesContainer
   layers:
   - Default
   - TransparentFX

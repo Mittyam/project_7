@@ -9,7 +9,7 @@ public enum EventState
     Completed,
 }
 
-public class ProgressManager : MonoBehaviour
+public class ProgressManager : Singleton<ProgressManager>
 {
     private Dictionary<int, EventState> eventStates = new Dictionary<int, EventState>();
 

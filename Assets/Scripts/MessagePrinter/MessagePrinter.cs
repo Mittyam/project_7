@@ -6,7 +6,7 @@ using TMPro;
 public class MessagePrinter : MonoBehaviour
 {
     public TextMeshProUGUI messageText;       // メッセージ表示用 TextMeshPro
-    public float characterDelay = 0.05f;      // 1文字表示の遅延
+    // public float characterDelay = 0.05f;   // 固定値ではなくConfigUIManagerから取得
     public float messageDisplayTime = 2.0f;   // 表示完了後にメッセージを消すまでの時間
     public bool autoClearMessage = true;      // 一定時間後にメッセージをクリアするか
 
@@ -75,6 +75,9 @@ public class MessagePrinter : MonoBehaviour
     private IEnumerator DisplayMessageRoutine(string message)
     {
         messageText.text = ""; // 表示をリセット
+
+        // ConfigUIManagerから文字送り速度を取得
+        float characterDelay = ConfigUIManager.Instance.TextSpeed;
 
         // 1文字ずつ追加して表示
         foreach (char c in message)

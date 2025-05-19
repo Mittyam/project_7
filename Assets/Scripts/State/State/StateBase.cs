@@ -1,5 +1,6 @@
 // StateBase.cs - シーン配置対応
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class StateBase : MonoBehaviour, IState
 {
@@ -83,24 +84,34 @@ public abstract class StateBase : MonoBehaviour, IState
     {
         if (prefab == null) return null;
 
-        // 親が指定されていなければ自分自身を使用
         Transform targetParent = parent != null ? parent : transform;
-
-        // 生成して返す
         GameObject instance = Instantiate(prefab, targetParent);
         instance.SetActive(true);
 
-        // Canvasコンポーネントを取得して設定を変更
+        // Canvas設定
         Canvas canvas = instance.GetComponent<Canvas>();
         if (canvas != null && uiRenderCamera != null)
         {
             canvas.renderMode = RenderMode.ScreenSpaceCamera;
             canvas.worldCamera = uiRenderCamera;
+            canvas.planeDistance = 10f;
 
-            // 必要に応じてプランディスタンスも設定
-            canvas.planeDistance = 10f; // 適切な値に調整
+            // Canvas Scaler設定
+            CanvasScaler scaler = instance.GetComponent<CanvasScaler>();
+            if (scaler != null)
+            {
+                // 16:9に固定する設定
+                scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                scaler.referenceResolution = new Vector2(1920, 1080); // 16:9
+                scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand; // または MatchWidthOrHeight
 
-            Debug.Log($"Canvas {instance.name} のレンダーモードをScreenSpaceCamera、カメラを {uiRenderCamera.name} に設定しました");
+                // MatchWidthOrHeightを使う場合は、0（幅に合わせる）か
+                // 1（高さに合わせる）を設定します
+                // 0.5は幅と高さのバランスをとります
+                scaler.matchWidthOrHeight = 0;
+
+                Debug.Log($"Canvas {instance.name} のスケーラーを16:9に設定しました");
+            }
         }
         else if (canvas != null && uiRenderCamera == null)
         {

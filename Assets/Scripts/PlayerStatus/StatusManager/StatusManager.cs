@@ -11,9 +11,6 @@ public class StatusManager : Singleton<StatusManager>
     [SerializeField] private int maxActionPoints = 3;
     [SerializeField] private int dailyActionPointRecovery = 3;
 
-    [Header("External References")]
-    [SerializeField] private ProgressManager progressManager;
-
     // ステータス更新時に発火するイベント
     public event Action OnStatusUpdated;
     // アクションポイント更新時に発火するイベント
@@ -22,16 +19,6 @@ public class StatusManager : Singleton<StatusManager>
     protected override void Awake()
     {
         base.Awake();
-
-        // ProgressManagerが設定されていない場合は自動検索
-        if (progressManager == null)
-        {
-            progressManager = FindObjectOfType<ProgressManager>();
-            if (progressManager == null)
-            {
-                Debug.LogWarning("StatusManager: ProgressManagerが見つかりません");
-            }
-        }
 
         // 新規ゲーム開始時の初期化
         if (playerStatus == null)
@@ -194,15 +181,7 @@ public class StatusManager : Singleton<StatusManager>
             playerStatus.savedStateID = GameLoop.Instance.MainStateMachine.CurrentStateID;
         }
 
-        // イベント状態をStatusDataに反映
-        if (progressManager != null)
-        {
-            progressManager.SaveEventStatesToStatus(playerStatus);
-        }
-        else
-        {
-            Debug.LogWarning("StatusManager: ProgressManagerが設定されていないため、イベント状態を保存できません");
-        }
+        ProgressManager.Instance.SaveEventStatesToStatus(playerStatus);
 
         ES3.Save<StatusData>("playerStatus", playerStatus, slotName);
         Debug.Log($"ステータスをセーブスロット [{slotName}] に保存しました。保存ステート: {playerStatus.savedStateID}");
@@ -216,14 +195,7 @@ public class StatusManager : Singleton<StatusManager>
             playerStatus = ES3.Load<StatusData>("playerStatus", slotName);
 
             // イベント状態を復元
-            if (progressManager != null)
-            {
-                progressManager.LoadEventStatesFromStatus(playerStatus);
-            }
-            else
-            {
-                Debug.LogWarning("StatusManager: ProgressManagerが設定されていないため、イベント状態を復元できません");
-            }
+            ProgressManager.Instance.LoadEventStatesFromStatus(playerStatus);
 
             // ロード後、保存されていたステートへ遷移
             StateID loadedStateID = playerStatus.savedStateID;
@@ -245,18 +217,6 @@ public class StatusManager : Singleton<StatusManager>
         {
             Debug.LogWarning($"セーブスロット [{slotName}] にセーブデータが存在しません。");
         }
-    }
-
-    // ProgressManagerを設定するメソッド
-    public void SetProgressManager(ProgressManager manager)
-    {
-        progressManager = manager;
-    }
-
-    // GetProgressManagerメソッドを追加
-    public ProgressManager GetProgressManager()
-    {
-        return progressManager;
     }
 
     // 現在のステートでセーブが可能かどうかを判定するメソッド

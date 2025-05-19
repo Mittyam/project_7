@@ -8,9 +8,6 @@ using UnityEngine;
 /// </summary>
 public class NovelEventScheduler : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private ProgressManager progressManager;
-
     // 登録されたイベントデータ
     private Dictionary<TriggerTiming, List<NovelEventData>> eventTable;
 
@@ -95,16 +92,16 @@ public class NovelEventScheduler : MonoBehaviour
         foreach (var eventData in eventTable[currentCheckTiming])
         {
             // 既に完了済みのイベントはスキップ（追加）
-            if (progressManager.GetEventState(eventData.eventID) == EventState.Completed) continue;
+            if (ProgressManager.Instance.GetEventState(eventData.eventID) == EventState.Completed) continue;
 
             // 既に解放済みのイベントはスキップ
-            if (progressManager.GetEventState(eventData.eventID) == EventState.Unlocked) continue;
+            if (ProgressManager.Instance.GetEventState(eventData.eventID) == EventState.Unlocked) continue;
 
             // 条件を満たしていないイベントはスキュー
             if (!ConditionEvaluator.Evaluate(eventData.conditions)) continue;
 
             // 条件を満たしたイベントを発火
-            progressManager.UnlockEvent(eventData.eventID);
+            ProgressManager.Instance.UnlockEvent(eventData.eventID);
 
             // NovelStateを取得してPush
             NovelState novelState = GameLoop.Instance.StatesContainer.GetNovelState();
