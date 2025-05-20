@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // シーン管理用に追加
@@ -145,7 +146,34 @@ public class GameLoop : Singleton<GameLoop>
         if (mainStateMachine != null && !isInitialized && statesContainer != null)
         {
             isInitialized = true;
-            mainStateMachine.Initialize(StateID.Day);
+
+            // PlayerPrefsをチェックして、TitleSceneからのロード要求があるか確認
+            if (PlayerPrefs.GetInt("ShouldLoadOnStart", 0) == 1)
+            {
+                string slotName = PlayerPrefs.GetString("SelectedSlotName", "");
+                if (!string.IsNullOrEmpty(slotName))
+                {
+                    // 一旦Dayステートで初期化（ロード前の初期状態として）
+                    mainStateMachine.Initialize(StateID.Day);
+
+                    // フラグをリセット
+                    PlayerPrefs.SetInt("ShouldLoadOnStart", 0);
+                    PlayerPrefs.Save();
+
+                    // 少し遅延してからロードする（シーン遷移が完全に終わった後）
+                    StartCoroutine(LoadGameWithDelay(slotName, 0.5f));
+                }
+                else
+                {
+                    // スロット名が空の場合は通常通り初期化
+                    mainStateMachine.Initialize(StateID.Day);
+                }
+            }
+            else
+            {
+                // 通常通り初期化
+                mainStateMachine.Initialize(StateID.Day);
+            }
 
             // UIカメラが取得できていれば各ステートに設定
             if (mainUICamera != null)
@@ -155,70 +183,29 @@ public class GameLoop : Singleton<GameLoop>
         }
     }
 
-    // GameLoop.cs のStartメソッドを修正
     private void Start()
     {
-        // 各ステートにUIカメラを設定（必ず最初に行う）
+        // タイトルシーンの場合はここで初期化しない（メインシーンへの遷移時に行う）
+        if (currentSceneName != "MainScene")
+        {
+            Debug.Log($"GameLoop: 現在{currentSceneName}シーンです。メインシーン遷移時に初期化を行います。");
+            return;
+        }
+
+        // 既に初期化済みならスキップ
+        if (isInitialized)
+        {
+            return;
+        }
+
+        // メインシーンでの初期化処理
+        // メインステートの初期化と開始
+        mainStateMachine.Initialize(StateID.Day);
+        isInitialized = true;
+
+        // 各ステートにUIカメラを設定
         SetUICameraToAllStates();
-
-        // ロード要求がある場合、データをロードする
-        if (GameLoadManager.HasLoadRequest)
-        {
-            Debug.Log("GameLoop: ロード要求を検出しました。セーブデータを読み込みます...");
-
-            // セーブデータをロード
-            StatusManager.Instance.LoadStatus(GameLoadManager.SlotToLoad);
-
-            // ロード要求をクリア
-            GameLoadManager.ClearLoadRequest();
-
-            // ロードしたステートIDに基づいて初期化
-            StateID loadedStateID = StatusManager.Instance.GetStatus().savedStateID;
-            if (loadedStateID != StateID.None)
-            {
-                // ステートを初期化
-                mainStateMachine.Initialize(loadedStateID);
-                Debug.Log($"ロードしたステート {loadedStateID} で初期化しました");
-            }
-            else
-            {
-                // セーブデータにステートIDがない場合はデフォルト
-                mainStateMachine.Initialize(StateID.Day);
-            }
-
-            // フェードイン
-            TransitionManager.Instance.FadeIn();
-        }
-        else
-        {
-            // 通常の初期化処理
-            mainStateMachine.Initialize(StateID.Day);
-        }
     }
-
-    //private void Start()
-    //{
-    //    // タイトルシーンの場合はここで初期化しない（メインシーンへの遷移時に行う）
-    //    if (currentSceneName != "MainScene")
-    //    {
-    //        Debug.Log($"GameLoop: 現在{currentSceneName}シーンです。メインシーン遷移時に初期化を行います。");
-    //        return;
-    //    }
-
-    //    // 既に初期化済みならスキップ
-    //    if (isInitialized)
-    //    {
-    //        return;
-    //    }
-
-    //    // メインシーンでの初期化処理
-    //    // メインステートの初期化と開始
-    //    mainStateMachine.Initialize(StateID.Day);
-    //    isInitialized = true;
-
-    //    // 各ステートにUIカメラを設定
-    //    SetUICameraToAllStates();
-    //}
 
     private void Update()
     {
@@ -233,6 +220,7 @@ public class GameLoop : Singleton<GameLoop>
         {
             // MainStateMachineのステートを非アクティブ化
             if (mainStateMachine.CurrentState != null &&
+                mainStateMachine.CurrentState.gameObject != null &&  // nullチェックを追加
                 mainStateMachine.CurrentState.gameObject.activeSelf)
             {
                 mainStateMachine.CurrentState.gameObject.SetActive(false);
@@ -251,6 +239,7 @@ public class GameLoop : Singleton<GameLoop>
         {
             // MainStateMachineのステートがアクティブでなければアクティブ化
             if (mainStateMachine.CurrentState != null &&
+                mainStateMachine.CurrentState.gameObject != null &&  // nullチェックを追加
                 !mainStateMachine.CurrentState.gameObject.activeSelf)
             {
                 mainStateMachine.CurrentState.gameObject.SetActive(true);
@@ -367,6 +356,50 @@ public class GameLoop : Singleton<GameLoop>
                 field.SetValue(state, mainUICamera);
                 // Debug.Log($"Set UI camera to {state.GetType().Name}");
             }
+        }
+    }
+
+    // 遅延ロード用のコルーチン
+    private IEnumerator LoadGameWithDelay(string slotName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (StatusManager.Instance != null)
+        {
+            try
+            {
+                // ロードパネルを非表示にする（万が一表示されていた場合）
+                if (SaveLoadUI.Instance != null)
+                {
+                    SaveLoadUI.Instance.CloseAllPanels();
+                }
+
+                // ロード実行
+                StatusManager.Instance.LoadStatus(slotName);
+
+                // この時点でStatusManager内でステート変更が行われているはず
+                // 万が一失敗している場合に備えて確認
+                if (mainStateMachine.CurrentState == null &&
+                    StatusManager.Instance.GetStatus().savedStateID != StateID.None)
+                {
+                    // セーブされたステートIDで初期化
+                    mainStateMachine.Initialize(StatusManager.Instance.GetStatus().savedStateID);
+                }
+
+                Debug.Log($"GameLoop: タイトルシーンからの要求により、スロット「{slotName}」のデータをロードしました");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"GameLoop: ロード中にエラーが発生しました: {e.Message}");
+                // エラーが発生した場合はDay状態で初期化
+                mainStateMachine.Initialize(StateID.Day);
+            }
+        }
+        else
+        {
+            Debug.LogError("GameLoop: StatusManagerが見つかりません");
+            // StatusManagerが見つからない場合は通常初期化
+            mainStateMachine.Initialize(StateID.Day);
         }
     }
 }

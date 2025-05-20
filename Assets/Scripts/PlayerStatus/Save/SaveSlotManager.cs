@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSlotManager : Singleton<SaveSlotManager>
 {
     public bool isSaveMode; // （true: セーブ、false: ロード）
     public SaveSlotUI[] saveSlotUIs;
 
-    // スロットUIを初期化する
-    public void Start()
+    // シーン名を取得するため
+    private string currentSceneName;
+
+    private void Start()
     {
+        // 現在のシーン名を取得
+        currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         RefreshSlots();
     }
 
@@ -22,45 +27,57 @@ public class SaveSlotManager : Singleton<SaveSlotManager>
         }
     }
 
-    // SaveSlotManager.cs の OnSlotSelected メソッドを修正
+    // スロットが選択された時の処理
     public void OnSlotSelected(string slotName)
     {
-        // パネルを閉じる（セーブ・ロード共通）
-        if (SaveLoadUI.Instance != null)
-        {
-            SaveLoadUI.Instance.CloseAllPanels();
-        }
-
         if (isSaveMode)
         {
-            // セーブ処理
+            // セーブモードの場合はそのままセーブ
             StatusManager.Instance.playerStatus.saveDate =
                 System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             StatusManager.Instance.SaveStatus(slotName);
 
-            // スロット表示を更新
+            // セーブスロットを更新
             RefreshSlots();
 
-            Debug.Log($"ゲームデータをスロット '{slotName}' に保存しました");
+            // セーブパネルを閉じる
+            if (SaveLoadUI.Instance != null)
+            {
+                SaveLoadUI.Instance.CloseAllPanels();
+            }
         }
         else
         {
-            // ロード処理 - 常にシーンリロードを行う
-            GameLoadManager.SetLoadRequest(slotName);
+            // ロードモードの場合
+            if (SceneManager.GetActiveScene().name == "TitleScene")
+            {
+                // タイトル画面でロードした場合
+                // 選択されたスロット情報をPlayerPrefsに保存
+                PlayerPrefs.SetString("SelectedSlotName", slotName);
+                PlayerPrefs.SetInt("ShouldLoadOnStart", 1);
+                PlayerPrefs.Save();
 
-            // 現在のシーン名を取得
-            string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+                // ロードパネルを閉じる
+                if (SaveLoadUI.Instance != null)
+                {
+                    SaveLoadUI.Instance.CloseAllPanels();
+                }
 
-            // 同じシーンを再度読み込む（強制的に再初期化）
-            TransitionManager.Instance.FadeAndLoadScene(
-                currentSceneName,
-                () => {
-                    Debug.Log($"ロードのため {currentSceneName} をリロードします...");
-                },
-                null
-            );
+                // MainSceneに遷移
+                SceneTransitionManager.Instance.GoToMainScene();
+            }
+            else
+            {
+                // MainScene内でのロード
+                StatusManager.Instance.LoadStatus(slotName);
+                RefreshSlots();
 
-            Debug.Log($"スロット '{slotName}' からのロード要求を登録しました");
+                // ロードパネルを閉じる（StatusManagerのLoadStatusでも閉じるが念のため）
+                if (SaveLoadUI.Instance != null)
+                {
+                    SaveLoadUI.Instance.CloseAllPanels();
+                }
+            }
         }
     }
 }

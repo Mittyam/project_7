@@ -98,10 +98,30 @@ public class SaveLoadUI : Singleton<SaveLoadUI>
         }
     }
 
-    // 直接セーブパネルを開く
+    // セーブパネルを開く
     public void OpenSavePanel()
     {
-        // パネルを開く前にカメラを確認（念のため）
+        // MainSceneの場合、セーブが可能なステートかチェック
+        if (SceneManager.GetActiveScene().name == "MainScene" &&
+            !StatusManager.Instance.CanSaveInCurrentState())
+        {
+            // セーブ不可能なステートの場合はメッセージを表示
+            Debug.LogWarning("セーブは昼または夜のステートでのみ可能です。");
+
+            // オプション：ユーザーに通知するメッセージを表示
+            if (ConfirmationDialogManager.Instance != null)
+            {
+                ConfirmationDialogManager.Instance.ShowConfirmation(
+                    "セーブは昼または夜のステートでのみ可能です。",
+                    "通知",
+                    null,
+                    null
+                );
+            }
+            return;
+        }
+
+        // パネルを開く前にカメラを確認
         if (slotPanelCanvas != null && slotPanelCanvas.worldCamera == null)
         {
             SetupCamera();
@@ -112,10 +132,30 @@ public class SaveLoadUI : Singleton<SaveLoadUI>
         SaveSlotManager.Instance.RefreshSlots();
     }
 
-    // 直接ロードパネルを開く
+    // ロードパネルを開く（TitleSceneでは常に開ける、MainSceneでは制限）
     public void OpenLoadPanel()
     {
-        // パネルを開く前にカメラを確認（念のため）
+        // MainSceneで、ロードが可能なステートかチェック
+        if (SceneManager.GetActiveScene().name == "MainScene" &&
+            !StatusManager.Instance.CanSaveInCurrentState())
+        {
+            // ロード不可能なステートの場合はメッセージを表示
+            Debug.LogWarning("ロードは昼または夜のステートでのみ可能です。");
+
+            // オプション：ユーザーに通知するメッセージを表示
+            if (ConfirmationDialogManager.Instance != null)
+            {
+                ConfirmationDialogManager.Instance.ShowConfirmation(
+                    "ロードは昼または夜のステートでのみ可能です。",
+                    "通知",
+                    null,
+                    null
+                );
+            }
+            return;
+        }
+
+        // パネルを開く前にカメラを確認
         if (slotPanelCanvas != null && slotPanelCanvas.worldCamera == null)
         {
             SetupCamera();

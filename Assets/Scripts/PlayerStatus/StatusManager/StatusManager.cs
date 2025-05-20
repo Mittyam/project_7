@@ -192,6 +192,14 @@ public class StatusManager : Singleton<StatusManager>
     {
         if (ES3.KeyExists("playerStatus", slotName))
         {
+            // いったん古いデータを保存
+            StateID previousStateID = StateID.None;
+            if (playerStatus != null && GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
+            {
+                previousStateID = GameLoop.Instance.MainStateMachine.CurrentStateID;
+            }
+
+            // データロード
             playerStatus = ES3.Load<StatusData>("playerStatus", slotName);
 
             // イベント状態を復元
@@ -201,17 +209,54 @@ public class StatusManager : Singleton<StatusManager>
             StateID loadedStateID = playerStatus.savedStateID;
             if (loadedStateID != StateID.None && GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
             {
-                // 現在のステートとロードしたステートが異なる場合のみ遷移
-                if (GameLoop.Instance.MainStateMachine.CurrentStateID != loadedStateID)
+                // 現在のシーン名を取得
+                string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+                // MainSceneの場合のみステート遷移を行う
+                if (currentSceneName == "MainScene")
                 {
-                    GameLoop.Instance.MainStateMachine.ChangeState(loadedStateID);
-                    Debug.Log($"ロード後のステートを {loadedStateID} に変更しました");
+                    try
+                    {
+                        // 現在のステートとロードしたステートが異なる場合のみ遷移
+                        if (GameLoop.Instance.MainStateMachine.CurrentStateID != loadedStateID)
+                        {
+                            GameLoop.Instance.MainStateMachine.ChangeState(loadedStateID);
+                            Debug.Log($"ロード後のステートを {loadedStateID} に変更しました");
+                        }
+                    }
+                    catch (System.Exception e)
+                    {
+                        Debug.LogError($"ステート変更中にエラーが発生: {e.Message}");
+                        // エラーが発生した場合は古いステートに戻す
+                        if (previousStateID != StateID.None)
+                        {
+                            try
+                            {
+                                GameLoop.Instance.MainStateMachine.ChangeState(previousStateID);
+                            }
+                            catch
+                            {
+                                // 最終手段としてDayステートに
+                                GameLoop.Instance.MainStateMachine.Initialize(StateID.Day);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log($"MainScene以外ではステート遷移しません。ロード後に自動的に適用されます。");
                 }
             }
 
             OnStatusUpdated?.Invoke();
             OnActionPointUpdated?.Invoke(playerStatus.actionPoint, maxActionPoints);
             Debug.Log($"セーブスロット [{slotName}] からステータスをロードしました。");
+
+            // ロードパネルを非表示
+            if (SaveLoadUI.Instance != null)
+            {
+                SaveLoadUI.Instance.CloseAllPanels();
+            }
         }
         else
         {
