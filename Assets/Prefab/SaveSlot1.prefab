@@ -286,6 +286,10 @@ MonoBehaviour:
   slotNameText: {fileID: 1501160079222051673}
   slotInfoText: {fileID: 1805493935501465552}
   slotName: 1
+  slotButton: {fileID: 9142512349346430146}
+  slotBackground: {fileID: 7509545907238478751}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  emptyColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
 --- !u!1 &6930465990339398322
 GameObject:
   m_ObjectHideFlags: 0

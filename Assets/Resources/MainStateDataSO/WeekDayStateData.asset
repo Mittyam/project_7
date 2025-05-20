@@ -15,6 +15,7 @@ MonoBehaviour:
   stateID: 0
   displayName: DayState
   uiPrefab:
+  - {fileID: 2928375014160072038, guid: de080066645b13d428c0dc5ab11811fd, type: 3}
   - {fileID: 742989130129443336, guid: 70b42b2d48107fc49b6866d8f2e75764, type: 3}
   live2DData:
     modelID: MainChara

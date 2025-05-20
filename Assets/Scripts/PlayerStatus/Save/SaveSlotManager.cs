@@ -49,7 +49,19 @@ public class SaveSlotManager : Singleton<SaveSlotManager>
         else
         {
             // ロードモードの場合
-            if (SceneManager.GetActiveScene().name == "TitleScene")
+
+            // まずセーブデータが存在するか確認
+            if (!ES3.KeyExists("playerStatus", slotName))
+            {
+                Debug.LogWarning($"スロット「{slotName}」にセーブデータが存在しません。ロード処理を中断します。");
+
+                // データが存在しない場合の音を鳴らす
+
+                return; // データがない場合は処理を中断
+            }
+
+            // ここからデータが存在する場合の処理
+            if (currentSceneName == "TitleScene" || SceneManager.GetActiveScene().name == "TitleScene")
             {
                 // タイトル画面でロードした場合
                 // 選択されたスロット情報をPlayerPrefsに保存

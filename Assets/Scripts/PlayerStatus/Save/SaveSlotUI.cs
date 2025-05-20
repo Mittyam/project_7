@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Buttonコンポーネントのために追加
+using UnityEngine.UI; // ButtonコンポーネントのためとImageコンポーネントのため
 
 public class SaveSlotUI : MonoBehaviour
 {
@@ -14,12 +14,29 @@ public class SaveSlotUI : MonoBehaviour
     [Header("スロットボタン")]
     public Button slotButton; // スロットのボタンコンポーネント
 
+    [Header("スロット背景")]
+    public Image slotBackground; // スロットの背景画像
+    public Color normalColor = Color.white; // データがある場合の色
+    public Color emptyColor = new Color(0.5f, 0.5f, 0.5f, 1f); // データがない場合の色（少し暗く）
+
     private void Start()
     {
         // ボタンがnullの場合は自身から取得を試みる
         if (slotButton == null)
         {
             slotButton = GetComponent<Button>();
+        }
+
+        // 背景がnullの場合は自身から取得を試みる
+        if (slotBackground == null)
+        {
+            slotBackground = GetComponent<Image>();
+
+            // それでも見つからない場合は子オブジェクトから検索
+            if (slotBackground == null)
+            {
+                slotBackground = GetComponentInChildren<Image>();
+            }
         }
 
         // ボタンにクリックイベントを登録
@@ -50,10 +67,18 @@ public class SaveSlotUI : MonoBehaviour
         }
     }
 
-    // スロット情報を更新するメソッド (既存コード)
+    // スロット情報を更新するメソッド
     public void UpdateSlotInfo()
     {
-        if (ES3.KeyExists("playerStatus", slotName))
+        bool hasData = ES3.KeyExists("playerStatus", slotName);
+
+        // 背景色を設定
+        if (slotBackground != null)
+        {
+            slotBackground.color = hasData ? normalColor : emptyColor;
+        }
+
+        if (hasData)
         {
             // 保存されたデータを読み込む
             StatusData data = ES3.Load<StatusData>("playerStatus", slotName);
@@ -84,7 +109,7 @@ public class SaveSlotUI : MonoBehaviour
         }
     }
 
-    // コンポーネント破棄時にイベントリスナーを解除
+    // コンポーネント破壊時にイベントリスナーを解除
     private void OnDestroy()
     {
         if (slotButton != null)
