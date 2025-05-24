@@ -16,11 +16,7 @@ MonoBehaviour:
   eventName: "\u51FA\u4F1A\u3044"
   eventDescription: "\u4E00\u756A\u6700\u521D\u306E\u30A4\u30D9\u30F3\u30C8"
   triggerTiming: 0
-  conditions:
-  - conditionType: 0
-    threshold: 0
-    paramName: 
-    isGreaterThanOrEqual: 1
+  conditions: []
   nextStateID: 2
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1

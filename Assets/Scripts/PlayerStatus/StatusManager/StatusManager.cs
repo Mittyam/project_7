@@ -30,18 +30,24 @@ public class StatusManager : Singleton<StatusManager>
         // 新規ゲーム開始時の初期化
         if (playerStatus == null)
         {
-            playerStatus = new StatusData
-            {
-                day = 1,
-                affection = 0,
-                love = 0,
-                money = 1000,
-                actionPoint = maxActionPoints,
-                saveDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                ownedItems = new List<ItemData>(),
-                eventStates = new List<EventStateData>()
-            };
+            Initialize();
         }
+    }
+
+    // 初期化
+    public void Initialize()
+    {
+        playerStatus = new StatusData
+        {
+            day = 0,
+            affection = 0,
+            love = 0,
+            money = 10000,
+            actionPoint = maxActionPoints,
+            saveDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+            ownedItems = new List<ItemData>(),
+            eventStates = new List<EventStateData>()
+        };
     }
 
     /// <summary>

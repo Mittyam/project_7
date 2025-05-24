@@ -299,8 +299,16 @@ public class NovelState : StateBase
                 break;
 
             case EventSource.ManualTrigger:
-                // 手動トリガーの場合は特に何もしない
-                Debug.Log("NovelState: 手動トリガーからの再生が完了しました");
+                // 手動トリガーの場合もイベントデータのnextStateIDを優先的に使用
+                if (currentEventData != null && currentEventData.nextStateID != StateID.None)
+                {
+                    Debug.Log($"NovelState: 手動トリガーイベントの再生が完了しました。{currentEventData.nextStateID} に遷移します");
+                    MainStateMachine.ChangeState(currentEventData.nextStateID);
+                }
+                else
+                {
+                    Debug.Log("NovelState: 手動トリガーからの再生が完了しました（遷移先指定なし）");
+                }
                 break;
 
             case EventSource.TimingTrigger:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // シーン管理用に追加
+using System.Collections; // IEnumeratorを使用するため
 
 public class GameLoop : Singleton<GameLoop>
 {
@@ -85,6 +86,9 @@ public class GameLoop : Singleton<GameLoop>
             {
                 Debug.Log("GameLoop: MainSceneに遷移しました。必要なコンポーネントを再取得します。");
                 InitializeGameComponents();
+
+                // 新規ゲーム開始チェックをここで実行
+                CheckAndStartNewGame();
             }
         }
     }
@@ -180,6 +184,53 @@ public class GameLoop : Singleton<GameLoop>
 
         // 各ステートにUIカメラを設定
         SetUICameraToAllStates();
+
+        // 新規ゲーム開始チェック
+        CheckAndStartNewGame();
+    }
+
+    // 新しいメソッドを追加
+    private void CheckAndStartNewGame()
+    {
+        // PlayerPrefsから新規ゲーム開始フラグを取得
+        int isNewGameStart = PlayerPrefs.GetInt("IsNewGameStart", 0);
+
+        if (isNewGameStart == 1 && currentSceneName == "MainScene")
+        {
+            // フラグをリセット
+            PlayerPrefs.SetInt("IsNewGameStart", 0);
+            PlayerPrefs.Save();
+
+            // 少し遅延してから最初のイベントを開始（初期化が完了するのを待つ）
+            StartCoroutine(StartFirstNovelEvent());
+        }
+    }
+
+    // 最初のNovelEventを開始するコルーチンを追加
+    private IEnumerator StartFirstNovelEvent()
+    {
+        // 初期化が完了するまで待機
+        yield return new WaitForEndOfFrame();
+
+        // EventID = 1のイベントデータを取得
+        NovelEventData firstEvent = Resources.Load<NovelEventData>("Events/1.出会い");
+
+        if (firstEvent == null)
+        {
+            Debug.LogError("GameLoop: 最初のイベント(EventID=1)が見つかりません");
+            yield break;
+        }
+
+        // NovelEventSchedulerを使って手動でイベントをプッシュ
+        if (novelEventScheduler != null)
+        {
+            novelEventScheduler.PushEvent(firstEvent);
+            Debug.Log("GameLoop: 最初のNovelEventを開始しました");
+        }
+        else
+        {
+            Debug.LogError("GameLoop: NovelEventSchedulerが見つかりません");
+        }
     }
 
     private void Update()
@@ -193,9 +244,10 @@ public class GameLoop : Singleton<GameLoop>
         // 1. スタックがあればまずはそれを実行（優先）
         if (!pushdownStack.IsEmpty)
         {
-            // MainStateMachineのステートを非アクティブ化
-            if (mainStateMachine.CurrentState != null &&
-                mainStateMachine.CurrentState.gameObject != null &&  // nullチェックを追加
+            // MainStateMachineのステートを非アクティブ化（nullチェック追加）
+            if (mainStateMachine != null &&
+                mainStateMachine.CurrentState != null &&
+                mainStateMachine.CurrentState.gameObject != null &&
                 mainStateMachine.CurrentState.gameObject.activeSelf)
             {
                 mainStateMachine.CurrentState.gameObject.SetActive(false);
@@ -204,7 +256,7 @@ public class GameLoop : Singleton<GameLoop>
             pushdownStack.Update();
         }
         // 2. スタックが空ならノベルイベントをチェック
-        else if (novelEventScheduler.CheckAndPushIfNeeded())
+        else if (novelEventScheduler != null && novelEventScheduler.CheckAndPushIfNeeded())
         {
             // CheckAndPushIfNeeded内でPushを実行済み
             Debug.Log("GameLoop: ノベルイベントを開始しました");
@@ -212,15 +264,18 @@ public class GameLoop : Singleton<GameLoop>
         // 3. 何もなければメインステートを更新
         else
         {
-            // MainStateMachineのステートがアクティブでなければアクティブ化
-            if (mainStateMachine.CurrentState != null &&
-                mainStateMachine.CurrentState.gameObject != null &&  // nullチェックを追加
-                !mainStateMachine.CurrentState.gameObject.activeSelf)
+            // MainStateMachineとCurrentStateの存在を確認
+            if (mainStateMachine != null && mainStateMachine.CurrentState != null)
             {
-                mainStateMachine.CurrentState.gameObject.SetActive(true);
-            }
+                // MainStateMachineのステートがアクティブでなければアクティブ化
+                if (mainStateMachine.CurrentState.gameObject != null &&
+                    !mainStateMachine.CurrentState.gameObject.activeSelf)
+                {
+                    mainStateMachine.CurrentState.gameObject.SetActive(true);
+                }
 
-            mainStateMachine.Update();
+                mainStateMachine.Update();
+            }
         }
     }
 
