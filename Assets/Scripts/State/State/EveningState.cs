@@ -31,6 +31,9 @@ public class EveningState : StateBase, IPausableState
         SetupUI();
         ShowEveningUI();
 
+        // Index 2~4 のBGMをランダムに再生
+        SoundManager.Instance.PlayBGMWithFadeIn(11, 1f);
+
         eveningProgress = 0f;
 
         // イベント発火
@@ -38,6 +41,8 @@ public class EveningState : StateBase, IPausableState
 
         // イベント購読
         SubscribeToEvents();
+
+        ShopManager.Instance.SetupMessagePrinter();
     }
 
     public override void OnUpdate()
@@ -52,6 +57,9 @@ public class EveningState : StateBase, IPausableState
     public override void OnExit()
     {
         Debug.Log("EveningState: 抜けます。");
+
+        // BGMを停止
+        SoundManager.Instance.StopBGM();
 
         // イベント購読解除
         UnsubscribeFromEvents();
@@ -69,6 +77,9 @@ public class EveningState : StateBase, IPausableState
 
         // UI要素を非表示にする
         HideAllUI();
+
+        // BGMを停止
+        SoundManager.Instance.StopBGM();
     }
 
     public void OnResume()
@@ -78,6 +89,8 @@ public class EveningState : StateBase, IPausableState
         // UI要素を再表示する
         SetupUI();
         ShowEveningUI();
+
+        SoundManager.Instance.PlayBGMWithFadeIn(11, 1f);
     }
 
     // 次のステートの取得メソッド

@@ -14,3 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmClips:
   - {fileID: 8300000, guid: 5ea765196af8bb34c8dbe2a088e59204, type: 3}
+  - {fileID: 8300000, guid: 070f3aa8565d14749b9f4679f374a3e6, type: 3}
+  - {fileID: 8300000, guid: 2ddcbff5e2caa254884b33a2631bf5aa, type: 3}
+  - {fileID: 8300000, guid: ab666500bdf37d5438a13f0d8780f0f8, type: 3}
+  - {fileID: 8300000, guid: d5acf6e68d5250647abf7572a52d238b, type: 3}
+  - {fileID: 8300000, guid: 0ce5d309578fec44ea9297f7a27f31bf, type: 3}
+  - {fileID: 8300000, guid: ebcac438db89cd64d85792df1108a179, type: 3}
+  - {fileID: 8300000, guid: cc0a123f681d5bb4f8449cb9d7190631, type: 3}
+  - {fileID: 8300000, guid: 8414d9d1c49036c468409083fda4d843, type: 3}
+  - {fileID: 8300000, guid: fbaa2ba5fa8a98947a95bd19ebe9d497, type: 3}
+  - {fileID: 8300000, guid: d264596d92796854b90a92f4350ea2e2, type: 3}
+  - {fileID: 8300000, guid: df159543e5670764ca9c2cf9ba89a787, type: 3}

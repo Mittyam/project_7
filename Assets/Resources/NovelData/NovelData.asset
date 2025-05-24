@@ -18,7 +18,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: "\u90E8\u5C4B"
+    imagePath: "\u90E8\u5C4B\u663C\u9593"
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -26,9 +26,9 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 2
-    text: "Prrrrrrr\u2026\u2026\u2026"
+    text: 
     voiceIndex: -1
-    seIndex: -1
+    seIndex: 0
     bgmIndex: -1
     imagePath: 
     live2DModelID: 
@@ -38,18 +38,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 3
-    text: 
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 4
     text: "\u9759\u304B\u306A\u90E8\u5C4B\u306B\u96FB\u8A71\u306E\u30D9\u30EB\u304C\u9CF4\u308A\u97FF\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -61,11 +49,11 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 5
+  - sectionID: 4
     text: "\u5927\u5B663\u5E74\u751F\u306B\u306A\u308B\u76F4\u524D\u306E\u6625\u4F11\u307F\u3002\u9000\u5C48\u306A\u3088\u3046\u3067\u3044\u3066\u3001\u306A\u3093\u3068\u306A\u304F\u843D\u3061\u7740\u304B\u306A\u3044\u65E5\u3005\u3092\u9001\u3063\u3066\u3044\u305F\u3068\u3053\u308D\u306B\u3001\u6BCD\u89AA\u304B\u3089\u306E\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
-    bgmIndex: -1
+    bgmIndex: 0
     imagePath: 
     live2DModelID: 
     live2DScale: 1
@@ -73,7 +61,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 6
+  - sectionID: 5
     text: "\u6BCD\u89AA\u300C\u3088\u304F\u3042\u3093\u305F\u3068\u904A\u3093\u3067\u305F\u8FD1\u6240\u306E\u306F\u308B\u304B\u3061\u3083\u3093\u3001\u899A\u3048\u3066\u308B\uFF1F\u300D"
     voiceIndex: -1
     seIndex: -1
@@ -85,11 +73,11 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 7
+  - sectionID: 6
     text: "\u6BCD\u89AA\u300C4\u6708\u304B\u3089\u3042\u3093\u305F\u3068\u540C\u3058\u5927\u5B66\u306B\u884C\u304F\u3053\u3068\u306B\u306A\u3063\u305F\u3089\u3057\u3044\u306E\u3088\u3002\u300D"
     voiceIndex: -1
     seIndex: -1
-    bgmIndex: 0
+    bgmIndex: -1
     imagePath: 
     live2DModelID: 
     live2DScale: 1
@@ -97,7 +85,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 8
+  - sectionID: 7
     text: "\u6BCD\u89AA\u300C\u305D\u308C\u3067\u306D\u3001\u4EBA\u898B\u77E5\u308A\u3060\u3057\u53CB\u3060\u3061\u3082\u3044\u306A\u3044\u307F\u305F\u3044\u3067\u3001\u5168\u7136\u5916\u306B\u3082\u51FA\u306A\u3044\u3093\u3060\u3063\u3066\u3002\u300D"
     voiceIndex: -1
     seIndex: -1
@@ -109,7 +97,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 9
+  - sectionID: 8
     text: "\u6BCD\u89AA\u300C\u4ECA\u304B\u3089\u305D\u3063\u3061\u306B\u5411\u304B\u308F\u305B\u308B\u304B\u3089\u3001\u3057\u3070\u3089\u304F\u9810\u304B\u3063\u3066\u3042\u3052\u3089\u308C\u306A\u3044\u304B\u3057\u3089\uFF1F\u300D"
     voiceIndex: -1
     seIndex: -1
@@ -121,7 +109,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 10
+  - sectionID: 9
     text: "\u3061\u3087\u3001\u6025\u306B\u8A00\u308F\u308C\u3066\u3082\u4F55\u3082\u6E96\u5099\u3067\u304D\u3066\u306A\u3044\u3088\u2026\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -133,7 +121,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 11
+  - sectionID: 10
     text: "\u6BCD\u89AA\u306F\u614C\u305F\u3060\u3057\u304F\u4E00\u65B9\u7684\u306B\u8A71\u3092\u7D42\u3048\u308B\u3068\u3001\u3042\u3063\u3055\u308A\u3068\u96FB\u8A71\u3092\u5207\u3063\u3066\u3057\u307E\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -145,8 +133,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
+  - sectionID: 11
+    text: "\u6614\u3088\u304F\u904A\u3093\u3060\u306F\u308B\u304B\u306E\u3053\u3068\u306F\u3001\u3082\u3061\u308D\u3093\u899A\u3048\u3066\u3044\u308B\u3002\u5C0F\u5B66\u751F\u306E\u9803\u306F\u8FD1\u6240\u306E\u516C\u5712\u3067\u866B\u53D6\u308A\u3092\u3057\u305F\u308A\u3001\u5BB6\u3067\u30B2\u30FC\u30E0\u3092\u3057\u305F\u308A\uFF3F\uFF3F\uFF3F"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
   - sectionID: 12
-    text: "\u6614\u3088\u304F\u904A\u3093\u3060\u25CB\u25CB\u3061\u3083\u3093\u306E\u3053\u3068\u306F\u3001\u3082\u3061\u308D\u3093\u899A\u3048\u3066\u3044\u308B\u3002"
+    text: "\u3067\u3082\u3001\u306F\u308B\u304B\u304C\u4E2D\u5B66\u3092\u5352\u696D\u3059\u308B\u9803\u307E\u3067\u306F\u3088\u304F\u4F1A\u3063\u3066\u3044\u305F\u3082\u306E\u306E\u3001\u305D\u308C\u4EE5\u964D\u306F\u758E\u9060\u306B\u306A\u3063\u3066\u3057\u307E\u3063\u305F\u3002\u6C17\u304C\u3064\u3051\u3070\u59FF\u3069\u3053\u308D\u304B\u58F0\u3059\u3089\u306F\u3063\u304D\u308A\u601D\u3044\u51FA\u305B\u306A\u3044\u307B\u3069\u3060\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -158,42 +158,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 13
-    text: "\u5C0F\u5B66\u751F\u306E\u9803\u306F\u8FD1\u6240\u306E\u516C\u5712\u3067\u866B\u53D6\u308A\u3092\u3057\u305F\u308A\u3001\u5BB6\u3067\u30B2\u30FC\u30E0\u3092\u3057\u305F\u308A\u2015\u2015"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 14
-    text: "\u3067\u3082\u3001\u306F\u308B\u304B\u304C\u4E2D\u5B66\u3092\u5352\u696D\u3059\u308B\u9803\u307E\u3067\u306F\u3088\u304F\u4F1A\u3063\u3066\u3044\u305F\u3082\u306E\u306E\u3001\u305D\u308C\u4EE5\u964D\u306F\u758E\u9060\u306B\u306A\u3063\u3066\u3057\u307E\u3063\u305F\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 15
-    text: "\u6C17\u304C\u3064\u3051\u3070\u59FF\u3069\u3053\u308D\u304B\u58F0\u3059\u3089\u306F\u3063\u304D\u308A\u601D\u3044\u51FA\u305B\u306A\u3044\u307B\u3069\u3060\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 16
     text: "\u2026\u2026\u672C\u5F53\u306B\u6765\u308B\u306E\u304B\u306A\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -205,19 +169,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 17
-    text: "\u30D4\u30F3\u30DD\u30FC\u30F3"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 18
+  - sectionID: 14
     text: "\u305D\u3093\u306A\u7591\u554F\u3092\u62B1\u3044\u305F\u77E2\u5148\u3001\u30A4\u30F3\u30BF\u30FC\u30DB\u30F3\u304C\u9CF4\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -229,10 +181,34 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 19
+  - sectionID: 15
+    text: 
+    voiceIndex: -1
+    seIndex: 1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 16
     text: 
     voiceIndex: -1
     seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 17
+    text: 
+    voiceIndex: -1
+    seIndex: 2
     bgmIndex: -1
     imagePath: "\u7384\u95A2\u524D"
     live2DModelID: 
@@ -241,7 +217,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 20
+  - sectionID: 18
     text: "\u7384\u95A2\u3092\u958B\u3051\u308B\u3068\u3001\u305D\u3053\u306B\u306F\u4F55\u5E74\u3082\u4F1A\u308F\u306A\u3044\u3046\u3061\u306B\u3059\u3063\u304B\u308A\u96F0\u56F2\u6C17\u306E\u5909\u308F\u3063\u305F\u306F\u308B\u304B\u304C\u7ACB\u3063\u3066\u3044\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -253,8 +229,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 21
-    text: "\u5C11\u3057\u3046\u3064\u3080\u304D\u304C\u3061\u3067\u3001\u4E0D\u5B89\u305D\u3046\u306B\u4FEF\u3044\u3066\u3044\u308B\u3002"
+  - sectionID: 19
+    text: "\u5C11\u3057\u3046\u3064\u3080\u304D\u304C\u3061\u3067\u3001\u4E0D\u5B89\u305D\u3046\u306B\u4FEF\u3044\u3066\u3044\u308B\u3002\u3067\u3082\u3001\u6614\u306E\u9762\u5F71\u304C\u3069\u3053\u304B\u306B\u6B8B\u3063\u3066\u3044\u3066\u3001\u5E7C\u3044\u9803\u306E\u8868\u60C5\u304C\u91CD\u306A\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -265,19 +241,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 22
-    text: "\u3067\u3082\u3001\u6614\u306E\u9762\u5F71\u304C\u3069\u3053\u304B\u306B\u6B8B\u3063\u3066\u3044\u3066\u3001\u5E7C\u3044\u9803\u306E\u8868\u60C5\u304C\u91CD\u306A\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 23
+  - sectionID: 20
     text: "\u3053\u3001\u3053\u3093\u2026\u3070\u3093\u306F\u2026\u2026\u3002"
     voiceIndex: 0
     seIndex: -1
@@ -289,12 +253,48 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 24
+  - sectionID: 21
     text: "\u4E45\u3057\u3076\u308A\u3002\u5143\u6C17\u3060\u3063\u305F\uFF1F"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: "\u90E8\u5C4B"
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 22
+    text: "\u306F\u308B\u304B\u306F\u3053\u304F\u308A\u3068\u5C0F\u3055\u304F\u9837\u304F\u3060\u3051\u3067\u3001\u58F0\u306F\u3068\u3066\u3082\u5C0F\u3055\u3044\u3002\u7DCA\u5F35\u3057\u3066\u3044\u308B\u306E\u304B\u3001\u624B\u5143\u306E\u5C0F\u3055\u306A\u30D0\u30C3\u30B0\u306E\u6301\u3061\u624B\u3092\u304E\u3085\u3063\u3068\u63E1\u3063\u3066\u3044\u308B\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 23
+    text: "\u2026\u3046\u3093\u3002\u3072\u3055\u3057\u3076\u308A\u3001\u304B\u306A\u3002\u3042\u306E\u3001\u4ECA\u65E5\u304B\u3089\u2026\u3053\u3053\u3067\u66AE\u3089\u3055\u305B\u3066\u3082\u3089\u3063\u3066\u2026\u3044\u3044\u3063\u3066\u805E\u3044\u3066\u308B\u2026\u3002"
+    voiceIndex: 1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 24
+    text: "\u6BCD\u3055\u3093\u304B\u3089\u96FB\u8A71\u304C\u3042\u3063\u305F\u3088\u3002\u307E\u3055\u304B\u672C\u5F53\u306B\u3046\u3061\u306B\u6765\u308B\u3068\u306F\u601D\u308F\u306A\u304B\u3063\u305F\u3051\u3069\u2026\u2026\u3048\u3063\u3068\u3001\u3053\u3063\u3061\u3053\u305D\u3088\u308D\u3057\u304F\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -302,19 +302,19 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 25
-    text: "\u306F\u308B\u304B\u306F\u3053\u304F\u308A\u3068\u5C0F\u3055\u304F\u9837\u304F\u3060\u3051\u3067\u3001\u58F0\u306F\u3068\u3066\u3082\u5C0F\u3055\u3044\u3002"
+    text: "\u305D\u3046\u8A00\u3044\u3064\u3064\u3082\u3001\u4FFA\u81EA\u8EAB\u3082\u6238\u60D1\u3063\u3066\u3044\u305F\u3002\u4E45\u3057\u3076\u308A\u306E\u518D\u4F1A\u306A\u306E\u306B\u3001\u4F55\u304B\u3089\u8A71\u3057\u3066\u3044\u3044\u306E\u304B\u5206\u304B\u3089\u306A\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
     imagePath: 
-    live2DModelID: MainChara
-    live2DScale: 6
-    live2DPosition: 0,0
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
     live2DAnimTrigger: 
-    live2DParamIDs: n0
-    live2DParamValues: 1
+    live2DParamIDs: 
+    live2DParamValues: 
   - sectionID: 26
-    text: "\u7DCA\u5F35\u3057\u3066\u3044\u308B\u306E\u304B\u3001\u624B\u5143\u306E\u5C0F\u3055\u306A\u30D0\u30C3\u30B0\u306E\u6301\u3061\u624B\u3092\u304E\u3085\u3063\u3068\u63E1\u3063\u3066\u3044\u308B\u3002"
+    text: "\u305D\u308C\u3067\u3082\u306F\u308B\u304B\u304C\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u5C0F\u3055\u304F\u982D\u3092\u4E0B\u3052\u308B\u59FF\u3092\u898B\u3066\u3044\u308B\u3068\u3001\u6614\u306E\u61D0\u304B\u3057\u3044\u8A18\u61B6\u304C\u5C11\u3057\u305A\u3064\u8607\u3063\u3066\u304F\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -326,90 +326,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 27
-    text: "\u2026\u3046\u3093\u3002\u3072\u3055\u3057\u3076\u308A\u3001\u304B\u306A\u3002"
-    voiceIndex: 1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 28
-    text: "\u3042\u306E\u3001\u4ECA\u65E5\u304B\u3089\u2026\u3053\u3053\u3067\u66AE\u3089\u3055\u305B\u3066\u3082\u3089\u3063\u3066\u2026\u3044\u3044\u3063\u3066\u805E\u3044\u3066\u308B\u2026\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 1
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 29
-    text: "\u6BCD\u3055\u3093\u304B\u3089\u96FB\u8A71\u304C\u3042\u3063\u305F\u3088\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 30
-    text: "\u307E\u3055\u304B\u672C\u5F53\u306B\u3046\u3061\u306B\u6765\u308B\u3068\u306F\u601D\u308F\u306A\u304B\u3063\u305F\u3051\u3069\u2026\u2026\u3048\u3063\u3068\u3001\u3053\u3063\u3061\u3053\u305D\u3088\u308D\u3057\u304F\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 3
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 31
-    text: "\u305D\u3046\u8A00\u3044\u3064\u3064\u3082\u3001\u4FFA\u81EA\u8EAB\u3082\u6238\u60D1\u3063\u3066\u3044\u305F\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 32
-    text: "\u4E45\u3057\u3076\u308A\u306E\u518D\u4F1A\u306A\u306E\u306B\u3001\u4F55\u304B\u3089\u8A71\u3057\u3066\u3044\u3044\u306E\u304B\u5206\u304B\u3089\u306A\u3044\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 33
-    text: "\u305D\u308C\u3067\u3082\u306F\u308B\u304B\u304C\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u5C0F\u3055\u304F\u982D\u3092\u4E0B\u3052\u308B\u59FF\u3092\u898B\u3066\u3044\u308B\u3068\u3001\u6614\u306E\u61D0\u304B\u3057\u3044\u8A18\u61B6\u304C\u5C11\u3057\u305A\u3064\u8607\u3063\u3066\u304F\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 4
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 34
     text: "\u2026\u2026\u3088\u308D\u3057\u304F\u304A\u9858\u3044\u3057\u307E\u3059\u3002"
     voiceIndex: 2
     seIndex: -1
@@ -421,7 +337,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 35
+  - sectionID: 28
     text: "\u304B\u7D30\u3044\u58F0\u3060\u3051\u3069\u3001\u305D\u306E\u8A00\u8449\u306F\u6614\u3068\u5909\u308F\u3089\u305A\u7D20\u76F4\u306A\u611F\u3058\u304C\u3057\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -433,8 +349,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 36
-    text: "\u3010\u90E8\u5C4B\u30B7\u30FC\u30F3\u3011"
+  - sectionID: 29
+    text: 
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: "\u90E8\u5C4B"
+    live2DModelID: MainChara
+    live2DScale: 13
+    live2DPosition: 0,-4.6
+    live2DAnimTrigger: 
+    live2DParamIDs: n0
+    live2DParamValues: 0
+  - sectionID: 30
+    text: "\u3068\u308A\u3042\u3048\u305A\u8377\u7269\u306F\u305D\u3053\u306B\u7F6E\u3044\u3066\u3002\u72ED\u3044\u3051\u3069\u3001\u3042\u3068\u306F\u81EA\u7531\u306B\u4F7F\u3063\u3066\u3044\u3044\u304B\u3089\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -445,31 +373,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 37
-    text: "\u3068\u308A\u3042\u3048\u305A\u8377\u7269\u306F\u305D\u3053\u306B\u7F6E\u3044\u3066\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 38
-    text: "\u72ED\u3044\u3051\u3069\u3001\u3042\u3068\u306F\u81EA\u7531\u306B\u4F7F\u3063\u3066\u3044\u3044\u304B\u3089\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 39
+  - sectionID: 31
     text: "\u306F\u308B\u304B\u306F\u304A\u305A\u304A\u305A\u3068\u90E8\u5C4B\u306E\u4E2D\u3092\u8997\u304D\u8FBC\u307F\u3001\u30D9\u30C3\u30C9\u3084\u672C\u68DA\u3001\u305D\u308C\u306B\u4E71\u96D1\u306B\u7A4D\u307E\u308C\u305F\u6559\u79D1\u66F8\u3084\u30CE\u30FC\u30C8\u3092\u8996\u7DDA\u3067\u8FFD\u3063\u3066\u3044\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -481,7 +385,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 40
+  - sectionID: 32
     text: "\u5C0F\u5B66\u751F\u306E\u9803\u3001\u3088\u304F\u4FFA\u306E\u5BB6\u306B\u904A\u3073\u306B\u6765\u3066\u3044\u305F\u3068\u304D\u3068\u306F\u9055\u3063\u3066\u3001\u4ECA\u306F\u201C\u5927\u5B66\u751F\u306E\u90E8\u5C4B\u201D\u3089\u3057\u3044\u96D1\u591A\u306A\u751F\u6D3B\u611F\u304C\u3042\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -493,7 +397,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 41
+  - sectionID: 33
     text: "\u2026\u2026\u306A\u3093\u3060\u304B\u3001\u5909\u308F\u3063\u305F\u306D\u3002\u90E8\u5C4B\u3082\u2026\u304A\u5144\u3061\u3083\u3093\u3082\u2026\u2026\u3002"
     voiceIndex: 3
     seIndex: -1
@@ -505,8 +409,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 42
-    text: "\u307E\u3042\u3001\u3082\u3046\u5927\u5B663\u5E74\u306B\u306A\u308B\u304B\u3089\u306A\u3002"
+  - sectionID: 34
+    text: "\u307E\u3042\u3001\u3082\u3046\u5927\u5B663\u5E74\u306B\u306A\u308B\u304B\u3089\u306A\u3002\u306F\u308B\u304B\u30824\u6708\u304B\u3089\u3046\u3061\u306E\u5927\u5B66\u306B\u5165\u308B\u3093\u3060\u308D\uFF1F\u3000\u65B0\u751F\u6D3B\u3001\u99B4\u67D3\u3081\u305D\u3046\uFF1F"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -517,19 +421,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 43
-    text: "\u306F\u308B\u304B\u30824\u6708\u304B\u3089\u3046\u3061\u306E\u5927\u5B66\u306B\u5165\u308B\u3093\u3060\u308D\uFF1F\u65B0\u751F\u6D3B\u3001\u99B4\u67D3\u3081\u305D\u3046\uFF1F"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 44
+  - sectionID: 35
     text: "\u308F\u304B\u3089\u306A\u3044\u2026\u2026\u3002\u3067\u3082\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u304C\u3044\u308B\u304B\u3089\u3001\u5927\u4E08\u592B\u2026\u304B\u306A\u3002"
     voiceIndex: 4
     seIndex: -1
@@ -541,7 +433,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 45
+  - sectionID: 36
     text: "\u305D\u3046\u8A00\u3046\u3068\u3001\u306F\u308B\u304B\u306F\u5C11\u3057\u7167\u308C\u305F\u3088\u3046\u306B\u76EE\u3092\u305D\u3089\u3059\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -553,8 +445,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 46
-    text: "\u76F8\u5909\u308F\u3089\u305A\u63A7\u3048\u3081\u3067\u4EBA\u898B\u77E5\u308A\u306A\u3068\u3053\u308D\u306F\u5909\u308F\u3063\u3066\u3044\u306A\u3044\u3002"
+  - sectionID: 37
+    text: "\u76F8\u5909\u308F\u3089\u305A\u63A7\u3048\u3081\u3067\u4EBA\u898B\u77E5\u308A\u306A\u3068\u3053\u308D\u306F\u5909\u308F\u3063\u3066\u3044\u306A\u3044\u3002\u6614\u3082\u3001\u8A00\u8449\u5C11\u306A\u3060\u3063\u305F\u3051\u308C\u3069\u3001\u697D\u3057\u305D\u3046\u306B\u4FFA\u306E\u3042\u3068\u3092\u3064\u3044\u3066\u304D\u305F\u3063\u3051\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -565,19 +457,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 47
-    text: "\u6614\u3082\u3001\u8A00\u8449\u5C11\u306A\u3060\u3063\u305F\u3051\u308C\u3069\u3001\u697D\u3057\u305D\u3046\u306B\u4FFA\u306E\u3042\u3068\u3092\u3064\u3044\u3066\u304D\u305F\u3063\u3051\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 48
+  - sectionID: 38
     text: "\u305D\u3046\u3060\u3001\u3068\u308A\u3042\u3048\u305A\u5EA7\u3063\u3066\u3002\u98F2\u307F\u7269\u3067\u3082\u6301\u3063\u3066\u304F\u308B\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -589,19 +469,19 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 49
+  - sectionID: 39
     text: "\u90E8\u5C4B\u306E\u9685\u306B\u3042\u308B\u6905\u5B50\u3092\u3059\u3059\u3081\u308B\u3068\u3001\u306F\u308B\u304B\u306F\u8EAB\u3092\u5C0F\u3055\u304F\u3057\u3066\u8170\u639B\u3051\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
     imagePath: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 50
+  - sectionID: 40
     text: "\u5C45\u5FC3\u5730\u304C\u60AA\u305D\u3046\u3067\u306F\u3042\u308B\u3051\u308C\u3069\u3001\u3069\u3053\u304B\u5B09\u3057\u305D\u3046\u306B\u3082\u898B\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -613,7 +493,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 51
+  - sectionID: 41
     text: "\u305D\u306E\u59FF\u3092\u898B\u3066\u3044\u308B\u3068\u3001\u81EA\u5206\u306E\u5BB6\u306A\u306E\u306B\u5999\u306B\u7DCA\u5F35\u3057\u3066\u3057\u307E\u3046\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -625,8 +505,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 52
-    text: "\u2026\u2026\u672C\u5F53\u306B\u4E45\u3057\u3076\u308A\u3060\u3088\u306A\u3002\u9AD8\u6821\u306F\u3069\u3093\u306A\u611F\u3058\u3060\u3063\u305F\uFF1F\u3042\u307E\u308A\u5916\u306B\u51FA\u306A\u3044\u3063\u3066\u6BCD\u3055\u3093\u3082\u8A00\u3063\u3066\u305F\u3051\u3069\u3002"
+  - sectionID: 42
+    text: "\u2026\u2026\u672C\u5F53\u306B\u4E45\u3057\u3076\u308A\u3060\u3088\u306A\u3002\u9AD8\u6821\u306F\u3069\u3093\u306A\u611F\u3058\u3060\u3063\u305F\uFF1F\u3000\u3042\u307E\u308A\u5916\u306B\u51FA\u306A\u3044\u3063\u3066\u6BCD\u3055\u3093\u3082\u8A00\u3063\u3066\u305F\u3051\u3069\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -637,8 +517,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 53
-    text: "\u3046\u3093\u2026\u2026\u3042\u3093\u307E\u308A\u53CB\u9054\u3001\u3067\u304D\u306A\u304F\u3066\u2026\u2026\u305D\u308C\u3067\u5916\u306B\u3082\u51FA\u306A\u304F\u306A\u3063\u3066\u2026\u2026\u3002"
+  - sectionID: 43
+    text: "\u3046\u3093\u2026\u2026\u3042\u3093\u307E\u308A\u53CB\u9054\u3001\u3067\u304D\u306A\u304F\u3066\u2026\u2026\u305D\u308C\u3067\u5916\u306B\u3082\u51FA\u306A\u304F\u306A\u3063\u3066\u2026\u2026\u3002\u3067\u3082\u3001\u540C\u3058\u5927\u5B66\u306B\u884C\u304F\u306A\u3089\u3001\u307E\u305F\u2026\u2026\u904A\u3093\u3067\u304F\u308C\u308B\u304B\u306A\u3001\u3063\u3066\u601D\u3063\u3066\u2026\u2026\u3002"
     voiceIndex: 5
     seIndex: -1
     bgmIndex: -1
@@ -649,8 +529,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 54
-    text: "\u3067\u3082\u3001\u540C\u3058\u5927\u5B66\u306B\u884C\u304F\u306A\u3089\u3001\u307E\u305F\u2026\u2026\u904A\u3093\u3067\u304F\u308C\u308B\u304B\u306A\u3001\u3063\u3066\u601D\u3063\u3066\u2026\u2026\u3002"
+  - sectionID: 44
+    text: "\u3082\u3061\u308D\u3093\u3002\u307E\u305F\u4E00\u7DD2\u306B\u904A\u307C\u3046\u3088\u3002\u6614\u307F\u305F\u3044\u306B\u30B2\u30FC\u30E0\u3057\u305F\u308A\u3001\u5916\u306B\u51FA\u304B\u3051\u305F\u308A\u3002\u5927\u5B66\u751F\u6D3B\u3082\u6700\u521D\u306F\u7DCA\u5F35\u3059\u308B\u3060\u308D\u3046\u3051\u3069\u3001\u4FFA\u3082\u3044\u308B\u3057\u3055"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -661,31 +541,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 55
-    text: "\u3082\u3061\u308D\u3093\u3002\u307E\u305F\u4E00\u7DD2\u306B\u904A\u307C\u3046\u3088\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 56
-    text: "\u6614\u307F\u305F\u3044\u306B\u30B2\u30FC\u30E0\u3057\u305F\u308A\u3001\u5916\u306B\u51FA\u304B\u3051\u305F\u308A\u3002\u5927\u5B66\u751F\u6D3B\u3082\u6700\u521D\u306F\u7DCA\u5F35\u3059\u308B\u3060\u308D\u3046\u3051\u3069\u3001\u4FFA\u3082\u3044\u308B\u3057\u3055\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 57
+  - sectionID: 45
     text: "\u2026\u2026\u3042\u308A\u304C\u3068\u3046\u3002"
     voiceIndex: 6
     seIndex: -1
@@ -697,7 +553,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 58
+  - sectionID: 46
     text: "\u7167\u308C\u96A0\u3057\u306E\u3088\u3046\u306B\u3001\u306F\u308B\u304B\u306F\u8996\u7DDA\u3092\u30CE\u30FC\u30C8\u3084\u6559\u79D1\u66F8\u306E\u5C71\u3078\u79FB\u3057\u3001\u4E00\u518A\u3092\u305D\u3063\u3068\u624B\u306B\u53D6\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -709,7 +565,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 59
+  - sectionID: 47
     text: "\u2026\u2026\u306A\u3093\u304B\u96E3\u3057\u305D\u3046\u3002\u5927\u5B66\u3063\u3066\u3001\u3053\u3093\u306A\u306B\u52C9\u5F37\u3059\u308B\u3093\u3060\u306D\u2026\u2026\u3002\u3061\u3087\u3063\u3068\u5FC3\u914D\u3002"
     voiceIndex: 7
     seIndex: -1
@@ -721,7 +577,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 60
+  - sectionID: 48
     text: "\u6163\u308C\u308C\u3070\u305D\u3046\u3067\u3082\u306A\u3044\u3088\u3002\u6700\u521D\u306F\u30B5\u30FC\u30AF\u30EB\u3068\u304B\u3067\u53CB\u9054\u3092\u4F5C\u308B\u306E\u3082\u624B\u3060\u3057\u3002\u306F\u308B\u304B\u306F\u4F55\u304B\u3084\u308A\u305F\u3044\u3053\u3068\u3068\u304B\u3001\u3042\u308B\u306E\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -733,8 +589,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 61
-    text: "\u306F\u308B\u304B\u306F\u5C11\u3057\u8003\u3048\u8FBC\u3080\u3088\u3046\u306B\u9ED9\u308A\u8FBC\u3080\u3002\u6614\u304B\u3089\u97F3\u697D\u3084\u672C\u304C\u597D\u304D\u3060\u3063\u305F\u306E\u3092\u601D\u3044\u51FA\u3059\u3002"
+  - sectionID: 49
+    text: "\u306F\u308B\u304B\u306F\u5C11\u3057\u8003\u3048\u8FBC\u3080\u3088\u3046\u306B\u9ED9\u308A\u8FBC\u3080\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -745,8 +601,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 62
-    text: "\u771F\u5263\u306B\u4F55\u304B\u3092\u8003\u3048\u3066\u3044\u308B\u3068\u304D\u306E\u8868\u60C5\u306F\u3001\u5B50\u3069\u3082\u306E\u9803\u304B\u3089\u307E\u308B\u3067\u5909\u308F\u3063\u3066\u3044\u306A\u3044\u3002"
+  - sectionID: 50
+    text: "\u6614\u304B\u3089\u97F3\u697D\u3084\u672C\u304C\u597D\u304D\u3060\u3063\u305F\u306E\u3092\u601D\u3044\u51FA\u3059\u3002\u771F\u5263\u306B\u4F55\u304B\u3092\u8003\u3048\u3066\u3044\u308B\u3068\u304D\u306E\u8868\u60C5\u306F\u3001\u5B50\u3069\u3082\u306E\u9803\u304B\u3089\u307E\u308B\u3067\u5909\u308F\u3063\u3066\u3044\u306A\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -757,8 +613,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 63
-    text: "\u2026\u2026\u3084\u308A\u305F\u3044\u3053\u3068\u306F\u3001\u3042\u308B\u3051\u3069\u2026\u2026\u307E\u3060\u3001\u6065\u305A\u304B\u3057\u304F\u3066\u8A00\u3048\u306A\u3044\u3002"
+  - sectionID: 51
+    text: "\u2026\u2026\u3084\u308A\u305F\u3044\u3053\u3068\u306F\u3001\u3042\u308B\u3051\u3069\u2026\u2026\u307E\u3060\u3001\u6065\u305A\u304B\u3057\u304F\u3066\u8A00\u3048\u306A\u3044\u3002\u3082\u3063\u3068\u6163\u308C\u305F\u3089\u2026\u2026\u8A71\u3059\u3002\u3044\u3044\u2026\u2026\uFF1F"
     voiceIndex: 8
     seIndex: -1
     bgmIndex: -1
@@ -769,19 +625,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 64
-    text: "\u3082\u3063\u3068\u6163\u308C\u305F\u3089\u2026\u2026\u8A71\u3059\u3002\u3044\u3044\u2026\u2026\uFF1F"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 65
+  - sectionID: 52
     text: "\u3082\u3061\u308D\u3093\u3002\u614C\u3066\u306A\u304F\u3066\u3082\u5927\u4E08\u592B\u3060\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -793,7 +637,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 66
+  - sectionID: 53
     text: "\u305D\u3046\u8A00\u3063\u3066\u5B89\u5FC3\u3055\u305B\u308B\u3068\u3001\u306F\u308B\u304B\u306F\u5C11\u3057\u3060\u3051\u8868\u60C5\u3092\u548C\u3089\u3052\u305F\u3088\u3046\u306B\u898B\u3048\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -805,7 +649,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 67
+  - sectionID: 54
     text: "\u3053\u3046\u3057\u3066\u30012\u6B73\u5DEE\u306E\u5E7C\u99B4\u67D3\u307F\u3068\u306E\u4E0D\u601D\u8B70\u3067\u3069\u3053\u304B\u61D0\u304B\u3057\u3044\u540C\u5C45\u751F\u6D3B\u304C\u59CB\u307E\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -817,7 +661,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 68
+  - sectionID: 55
     text: "4\u6708\u3001\u306F\u308B\u304B\u304C\u5927\u5B661\u5E74\u751F\u3068\u3057\u3066\u65B0\u3057\u3044\u4E00\u6B69\u3092\u8E0F\u307F\u51FA\u3059\u9803\u3001\u4FFA\u30823\u5E74\u751F\u3068\u3057\u3066\u65B0\u3057\u3044\u5B63\u7BC0\u3092\u8FCE\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -829,8 +673,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 69
-    text: "\u305D\u306E\u5C0F\u3055\u306A\u90E8\u5C4B\u304B\u3089\u3001\u3075\u305F\u308A\u306E\u7269\u8A9E\u304C\u52D5\u304D\u51FA\u305D\u3046\u3068\u3057\u3066\u3044\u308B\uFF3F\uFF3F"
+  - sectionID: 56
+    text: "\u305D\u306E\u5C0F\u3055\u306A\u90E8\u5C4B\u304B\u3089\u3001\u3075\u305F\u308A\u306E\u7269\u8A9E\u304C\u52D5\u304D\u51FA\u305D\u3046\u3068\u3057\u3066\u3044\u308B\uFF3F\uFF3F\uFF3F"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 57
+    text: 
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -847,7 +703,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u5915\u713C\u3051"
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -879,7 +735,7 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 4
-    text: "\u3010\u5927\u5B66\u30AD\u30E3\u30F3\u30D1\u30B9\u524D\u3011"
+    text: "\u5915\u65B9\u3001\u30AD\u30E3\u30F3\u30D1\u30B9\u3092\u51FA\u308B\u4E8C\u4EBA\u3002\u5468\u56F2\u306F\u5E30\u5B85\u3059\u308B\u5B66\u751F\u3067\u306B\u304E\u308F\u3063\u3066\u3044\u308B"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -891,18 +747,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 5
-    text: "\uFF08\u5915\u65B9\u3001\u30AD\u30E3\u30F3\u30D1\u30B9\u3092\u51FA\u308B\u4E8C\u4EBA\u3002\u5468\u56F2\u306F\u5E30\u5B85\u3059\u308B\u5B66\u751F\u3067\u306B\u304E\u308F\u3063\u3066\u3044\u308B\uFF09"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 6
     text: "\u306F\u308B\u304B\u3001\u5927\u4E08\u592B\uFF1F\u3061\u3087\u3063\u3068\u9854\u8272\u60AA\u3044\u3088\u3046\u306B\u898B\u3048\u308B\u3051\u3069\u2026\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -914,9 +758,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 7
+  - sectionID: 6
     text: "\u2026\u2026\u3046\u3093\u3002\u5927\u4E08\u592B\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 9
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -926,7 +770,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 8
+  - sectionID: 7
     text: "\u8FD4\u4E8B\u306F\u3042\u308B\u3082\u306E\u306E\u3001\u3069\u3053\u304B\u5143\u6C17\u304C\u306A\u3044\u3002\u3044\u3064\u3082\u9060\u616E\u304C\u3061\u306A\u306F\u308B\u304B\u3060\u304C\u3001\u4ECA\u65E5\u306F\u3055\u3089\u306B\u843D\u3061\u7740\u304B\u306A\u3044\u69D8\u5B50\u3060\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -938,7 +782,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 9
+  - sectionID: 8
     text: "\u30B5\u30FC\u30AF\u30EB\u4F53\u9A13\u4F1A\u3001\u3069\u3046\u3060\u3063\u305F\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -950,9 +794,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 10
+  - sectionID: 9
     text: "\u2026\u2026\u884C\u3063\u3066\u307F\u305F\u3051\u3069\u2026\u2026\u307E\u3060\u3001\u3088\u304F\u308F\u304B\u3089\u306A\u304F\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 10
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -962,7 +806,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 11
+  - sectionID: 10
     text: "\u3044\u3064\u306B\u306A\u304F\u6B6F\u5207\u308C\u306E\u60AA\u3044\u8FD4\u7B54\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -974,7 +818,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 12
+  - sectionID: 11
     text: "\u4FFA\u306F\u3001\u4F55\u304B\u3042\u3063\u305F\u306E\u3067\u306F\u306A\u3044\u304B\u3068\u6C17\u306B\u3057\u306A\u304C\u3089\u3082\u3001\u4E00\u65E6\u306F\u6DF1\u304F\u8FFD\u53CA\u305B\u305A\u306B\u30AD\u30E3\u30F3\u30D1\u30B9\u304B\u3089\u96E2\u308C\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -986,19 +830,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 13
-    text: "\u3010\u5E30\u308A\u9053\u30B7\u30FC\u30F3\u3011"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 14
+  - sectionID: 12
     text: "\u30AD\u30E3\u30F3\u30D1\u30B9\u3092\u51FA\u3066\u304B\u3089\u3001\u5C11\u3057\u6B69\u3044\u305F\u3068\u3053\u308D\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1010,7 +842,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 15
+  - sectionID: 13
     text: "\u3044\u3064\u3082\u306A\u3089\u5927\u5B66\u306E\u8A71\u3084\u5B50\u3069\u3082\u306E\u9803\u306E\u601D\u3044\u51FA\u3092\u3001\u307D\u3064\u307D\u3064\u3068\u697D\u3057\u305D\u3046\u306B\u8A71\u3059\u306F\u308B\u304B\u304C\u3001\u4ECA\u65E5\u306F\u305A\u3063\u3068\u6C88\u9ED9\u3057\u3066\u3044\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1022,7 +854,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 16
+  - sectionID: 14
     text: "\u305D\u306E\u69D8\u5B50\u306B\u6C17\u4ED8\u3044\u305F\u4FFA\u306F\u58F0\u3092\u304B\u3051\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1034,7 +866,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 17
+  - sectionID: 15
     text: "\u2026\u2026\u306F\u308B\u304B\u3001\u4ECA\u65E5\u306F\u306A\u3093\u304B\u5143\u6C17\u306A\u3044\u306A\u3002\u4F55\u304B\u3042\u3063\u305F\u306A\u3089\u9060\u616E\u306A\u304F\u8A00\u3063\u3066\u304F\u308C\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1046,9 +878,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 18
+  - sectionID: 16
     text: "\u2026\u2026\u3054\u3081\u3093\u3002\u308F\u305F\u3057\u2026\u2026\u3084\u3063\u3071\u308A\u3001\u4EBA\u3068\u8A71\u3059\u306E\u3063\u3066\u96E3\u3057\u3044\u306A\u3063\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 11
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1058,7 +890,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 19
+  - sectionID: 17
     text: "\u4FFA\u3068\u306F\u308B\u304B\u306F\u4E26\u3093\u3067\u6B69\u3044\u3066\u5E30\u5B85\u4E2D\u3002\u3042\u305F\u308A\u306F\u3059\u3067\u306B\u30AA\u30EC\u30F3\u30B8\u8272\u306E\u5915\u713C\u3051\u304B\u3089\u3001\u5F90\u3005\u306B\u591C\u306E\u6C17\u914D\u3078\u3068\u5909\u308F\u308A\u3064\u3064\u3042\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1070,9 +902,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 20
+  - sectionID: 18
     text: "\u306D\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 12
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1082,7 +914,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 21
+  - sectionID: 19
     text: "\u3093\uFF1F\u3069\u3046\u3057\u305F\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -1094,7 +926,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 22
+  - sectionID: 20
     text: "\u306F\u308B\u304B\u306F\u5C0F\u3055\u304F\u53E3\u3092\u958B\u304D\u304B\u3051\u3066\u306F\u3001\u4F55\u304B\u3092\u305F\u3081\u3089\u3046\u3088\u3046\u306B\u8996\u7DDA\u3092\u843D\u3068\u3059\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1106,9 +938,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 23
-    text: "\u2026\u2026\u6700\u8FD1\u3001\u30B5\u30FC\u30AF\u30EB\u306E\u4F53\u9A13\u4F1A\u3067\u8A71\u3057\u304B\u3051\u3089\u308C\u305F\u3093\u3060\u3051\u3069\u2026\u2026\u3042\u3093\u307E\u308A\u4E0A\u624B\u304F\u8A71\u305B\u306A\u304F\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+  - sectionID: 21
+    text: "\u2026\u2026\u6700\u8FD1\u3001\u30B5\u30FC\u30AF\u30EB\u306E\u4F53\u9A13\u4F1A\u3067\u8A71\u3057\u304B\u3051\u3089\u308C\u305F\u3093\u3060\u3051\u3069\u2026\u2026\u3042\u3093\u307E\u308A\u4E0A\u624B\u304F\u8A71\u305B\u306A\u304F\u3066\u2026\u2026\u3002\u3069\u3046\u3057\u3066\u3082\u8A00\u8449\u304C\u51FA\u3066\u3053\u306A\u304F\u3066\u2026\u2026\u7D50\u5C40\u3001\u9014\u4E2D\u3067\u9003\u3052\u3061\u3083\u3063\u305F\u2026\u2026\u3002"
+    voiceIndex: 13
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1118,19 +950,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 24
-    text: "\u3069\u3046\u3057\u3066\u3082\u8A00\u8449\u304C\u51FA\u3066\u3053\u306A\u304F\u3066\u2026\u2026\u7D50\u5C40\u3001\u9014\u4E2D\u3067\u9003\u3052\u3061\u3083\u3063\u305F\u2026\u2026\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 25
+  - sectionID: 22
     text: "\u9053\u7AEF\u306E\u8857\u706F\u304C\u307C\u3093\u3084\u308A\u3068\u7167\u3089\u3059\u4E2D\u3001\u306F\u308B\u304B\u306E\u80A9\u304C\u5C0F\u3055\u304F\u9707\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1142,7 +962,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 26
+  - sectionID: 23
     text: "\u305D\u3093\u306A\u306B\u81EA\u5206\u3092\u8CAC\u3081\u306A\u304F\u3066\u3044\u3044\u3088\u3002\u521D\u5BFE\u9762\u3067\u81EA\u7136\u306B\u8A71\u305B\u308B\u4EBA\u306A\u3093\u3066\u3001\u305D\u3046\u591A\u304F\u306A\u3044\u3063\u3066\u3002\u306F\u308B\u304B\u306F\u5C11\u3057\u305A\u3064\u6163\u308C\u3066\u3044\u3051\u3070\u3044\u3044\u3055\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1154,9 +974,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 27
+  - sectionID: 24
     text: "\u2026\u2026\u3046\u3093\u3002\u3067\u3082\u2026\u2026\u305B\u3063\u304B\u304F\u8A98\u3063\u3066\u304F\u308C\u305F\u306E\u306B\u3001\u5931\u793C\u306A\u3053\u3068\u3057\u305F\u304B\u306A\u3063\u3066\u601D\u3046\u3068\u2026\u2026\u80F8\u304C\u82E6\u3057\u304F\u306A\u3063\u3066\u2026\u2026\u3002\u3053\u3046\u3044\u3046\u306E\u3001\u3084\u3063\u3071\u308A\u82E6\u624B\u3067\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 14
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1166,7 +986,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 28
+  - sectionID: 25
     text: "\u5927\u5B66\u306B\u5165\u3063\u3066\u3082\u3001\u306A\u304B\u306A\u304B\u53CB\u9054\u3092\u4F5C\u308C\u306A\u3044\u3053\u3068\u3078\u306E\u7126\u308A\u3084\u4E0D\u5B89\u304C\u52DF\u3063\u3066\u3044\u308B\u306E\u3060\u308D\u3046\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1178,8 +998,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 29
-    text: "\u63A7\u3048\u3081\u3067\u4EBA\u898B\u77E5\u308A\u306A\u6027\u683C\u306F\u7C21\u5358\u306B\u306F\u5909\u308F\u3089\u306A\u3044\u3002"
+  - sectionID: 26
+    text: "\u63A7\u3048\u3081\u3067\u4EBA\u898B\u77E5\u308A\u306A\u6027\u683C\u306F\u7C21\u5358\u306B\u306F\u5909\u308F\u3089\u306A\u3044\u3002\u305D\u308C\u3067\u3082\u3001\u4FFA\u3068\u904E\u3054\u3059\u6642\u9593\u304C\u3042\u308B\u304B\u3089\u3053\u305D\u5927\u5B66\u306B\u901A\u3048\u3066\u3044\u308B\u306E\u3060\u3068\u3001\u306F\u308B\u304B\u306F\u4F55\u5EA6\u3082\u8A00\u3063\u3066\u3044\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1190,8 +1010,44 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
+  - sectionID: 27
+    text: "\u9053\u306E\u9014\u4E2D\u3001\u516C\u5712\u6A2A\u306E\u4EBA\u6C17(\u3072\u3068\u3051)\u306E\u5C11\u306A\u3044\u9053\u3078\u5DEE\u3057\u304B\u304B\u3063\u305F\u3068\u3053\u308D\u3067\u306F\u308B\u304B\u304C\u3075\u3068\u7ACB\u3061\u6B62\u307E\u308B\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 28
+    text: "\u6C88\u307F\u3086\u304F\u5915\u713C\u3051\u306B\u306F\u308B\u304B\u306E\u76EE\u306F\u5C11\u3057\u6F64\u3093\u3067\u3044\u308B\u3088\u3046\u306B\u3082\u898B\u3048\u308B\u3002\u666E\u6BB5\u6211\u6162\u3057\u3066\u3044\u308B\u6C17\u6301\u3061\u304C\u3001\u4E00\u6C17\u306B\u3042\u3075\u308C\u305D\u3046\u306A\u96F0\u56F2\u6C17\u3060\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 29
+    text: "\u2026\u2026\u3054\u3081\u3093\u3001\u3061\u3087\u3063\u3068\u5F85\u3063\u3066\u2026\u2026\u3002\u308F\u305F\u3057\u3001\u306A\u3093\u304B\u2026\u2026\u6D99\u51FA\u305D\u3046\u3067\u2026\u2026\u3002"
+    voiceIndex: 15
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
   - sectionID: 30
-    text: "\u305D\u308C\u3067\u3082\u3001\u4FFA\u3068\u904E\u3054\u3059\u6642\u9593\u304C\u3042\u308B\u304B\u3089\u3053\u305D\u5927\u5B66\u306B\u901A\u3048\u3066\u3044\u308B\u306E\u3060\u3068\u3001\u306F\u308B\u304B\u306F\u4F55\u5EA6\u3082\u8A00\u3063\u3066\u3044\u305F\u3002"
+    text: "\u305D\u3046\u8A00\u3044\u306A\u304C\u3089\u6D99\u3092\u76EE\u306B\u6D6E\u304B\u3079\u7D05\u6F6E\u3057\u305F\u306F\u308B\u304B\u306E\u8868\u60C5\u306F\u3068\u3066\u3082\u4E0D\u5B89\u305D\u3046\u3060\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1203,66 +1059,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 31
-    text: "\u9053\u306E\u9014\u4E2D\u3001\u516C\u5712\u6A2A\u306E\u3072\u3068\u3051\u306E\u5C11\u306A\u3044\u9053\u3078\u5DEE\u3057\u304B\u304B\u3063\u305F\u3068\u3053\u308D\u3067\u306F\u308B\u304B\u304C\u3075\u3068\u7ACB\u3061\u6B62\u307E\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 32
-    text: "\u6C88\u307F\u3086\u304F\u5915\u713C\u3051\u306B\u76EE\u306F\u5C11\u3057\u6F64\u3093\u3067\u3044\u308B\u3088\u3046\u306B\u3082\u898B\u3048\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 33
-    text: "\u666E\u6BB5\u6211\u6162\u3057\u3066\u3044\u308B\u6C17\u6301\u3061\u304C\u3001\u4E00\u6C17\u306B\u3042\u3075\u308C\u305D\u3046\u306A\u96F0\u56F2\u6C17\u3060\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 34
-    text: "\u2026\u2026\u3054\u3081\u3093\u3001\u3061\u3087\u3063\u3068\u5F85\u3063\u3066\u2026\u2026\u3002\u308F\u305F\u3057\u3001\u306A\u3093\u304B\u2026\u2026\u6D99\u51FA\u305D\u3046\u3067\u2026\u2026\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 35
-    text: "\u305D\u3046\u8A00\u3044\u306A\u304C\u3089\u6D99\u3092\u76EE\u306B\u6D6E\u304B\u3079\u7D05\u6F6E\u3057\u305F\u306F\u308B\u304B\u306E\u8868\u60C5\u306F\u4E0D\u5B89\u305D\u3046\u3060\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 36
     text: "\u5927\u4E08\u592B\u304B\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -1274,7 +1070,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 37
+  - sectionID: 32
     text: "\u305D\u3046\u58F0\u3092\u639B\u3051\u305F\u77AC\u9593\u3001\u306F\u308B\u304B\u304C\u4FFA\u306E\u8896\u3092\u304E\u3085\u3063\u3068\u63B4\u3080\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1286,8 +1082,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 38
-    text: "\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u304C\u3044\u306A\u3044\u3068\u2026\u2026\u308F\u305F\u3057\u3001\u307E\u305F\u4E00\u4EBA\u307C\u3063\u3061\u306B\u306A\u308A\u305D\u3046\u3067\u6016\u3044\u2026\u2026\u3002\u3054\u3081\u3093\u306D\u3001\u3053\u3093\u306A\u5F31\u304F\u3066\u2026\u2026\u3002"
+  - sectionID: 33
+    text: "\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u304C\u3044\u306A\u3044\u3068\u2026\u2026\u3042\u305F\u3057\u3001\u307E\u305F\u4E00\u4EBA\u307C\u3063\u3061\u306B\u306A\u308A\u305D\u3046\u3067\u6016\u3044\u2026\u2026\u3002\u3054\u3081\u3093\u306D\u3001\u3053\u3093\u306A\u5F31\u304F\u3066\u2026\u2026\u3002"
+    voiceIndex: 16
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 34
+    text: "\u305D\u306E\u545F\u304D\u306B\u306F\u3001\u3053\u308C\u307E\u3067\u62B1\u3048\u3066\u304D\u305F\u5B64\u72EC\u3084\u4E0D\u5B89\u304C\u306B\u3058\u307F\u51FA\u3066\u3044\u308B\u3002\u666E\u6BB5\u306F\u81EA\u5206\u304B\u3089\u611F\u60C5\u3092\u8868\u306B\u51FA\u3059\u3053\u3068\u306E\u5C11\u306A\u3044\u306F\u308B\u304B\u304C\u3001\u3053\u3053\u307E\u3067\u53D6\u308A\u4E71\u3059\u306E\u306F\u73CD\u3057\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1298,8 +1106,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 39
-    text: "\u305D\u306E\u545F\u304D\u306B\u306F\u3001\u3053\u308C\u307E\u3067\u62B1\u3048\u3066\u304D\u305F\u5B64\u72EC\u3084\u4E0D\u5B89\u304C\u306B\u3058\u307F\u51FA\u3066\u3044\u308B\u3002"
+  - sectionID: 35
+    text: "\u4FFA\u306F\u3001\u306F\u308B\u304B\u3092\u5C11\u3057\u3067\u3082\u5B89\u5FC3\u3055\u305B\u305F\u3044\u4E00\u5FC3\u3067\u3001\u81EA\u7136\u3068\u624B\u3092\u4F38\u3070\u3057\u3066\u3057\u307E\u3046\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1310,43 +1118,19 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 40
-    text: "\u666E\u6BB5\u306F\u81EA\u5206\u304B\u3089\u611F\u60C5\u3092\u8868\u306B\u51FA\u3059\u3053\u3068\u306E\u5C11\u306A\u3044\u306F\u308B\u304B\u304C\u3001\u3053\u3053\u307E\u3067\u53D6\u308A\u4E71\u3059\u306E\u306F\u73CD\u3057\u3044\u3002"
+  - sectionID: 36
+    text: 
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u30CF\u30B0"
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 41
-    text: "\u4FFA\u306F\u3001\u5C11\u3057\u3067\u3082\u5B89\u5FC3\u3055\u305B\u305F\u3044\u4E00\u5FC3\u3067\u3001\u81EA\u7136\u3068\u624B\u3092\u4F38\u3070\u3057\u3066\u3057\u307E\u3046\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 42
-    text: "\uFF08\u30CF\u30B0\u306E\u6F14\u51FA\uFF09"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 43
+  - sectionID: 37
     text: "\u2026\u2026\u306F\u308B\u304B\u3001\u5927\u4E08\u592B\u3060\u3088\u3002\u4FFA\u304C\u3044\u308B\u304B\u3089\u3055\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1358,7 +1142,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 44
+  - sectionID: 38
     text: "\u512A\u3057\u304F\u62B1\u304D\u5BC4\u305B\u308B\u3068\u3001\u306F\u308B\u304B\u306E\u7D30\u3044\u80A9\u306E\u9707\u3048\u304C\u4F1D\u308F\u3063\u3066\u304F\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1370,7 +1154,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 45
+  - sectionID: 39
     text: "\u306F\u3058\u3081\u306F\u9A5A\u3044\u305F\u69D8\u5B50\u3060\u3063\u305F\u304C\u3001\u6B21\u7B2C\u306B\u529B\u3092\u629C\u3044\u3066\u3059\u304C\u308A\u3064\u304F\u3088\u3046\u306B\u62B1\u304D\u8FD4\u3057\u3066\u304F\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1382,9 +1166,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 46
+  - sectionID: 40
     text: "\u2026\u2026\u3093\u2026\u2026\u3042\u308A\u304C\u3068\u3046\u2026\u2026\u3002\u308F\u305F\u3057\u2026\u2026\u3053\u308F\u3044\u306E\u3002\u5927\u5B66\u3067\u307E\u305F\u2026\u2026\u8AB0\u3068\u3082\u4EF2\u826F\u304F\u306A\u308C\u306A\u304B\u3063\u305F\u3089\u3001\u3063\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 17
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1394,7 +1178,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 47
+  - sectionID: 41
     text: "\u7126\u3089\u306A\u304F\u3066\u3044\u3044\u3002\u5C11\u3057\u305A\u3064\u4E00\u7DD2\u306B\u6163\u308C\u3066\u3044\u3053\u3046\u3002\u4FFA\u304C\u3061\u3083\u3093\u3068\u96A3\u306B\u3044\u308B\u304B\u3089\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1406,7 +1190,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 48
+  - sectionID: 42
     text: "\u304A\u4E92\u3044\u306E\u4F53\u6E29\u3092\u611F\u3058\u5408\u3046\u3002\u306F\u308B\u304B\u306E\u9F13\u52D5\u306F\u5C11\u3057\u65E9\u304F\u3001\u4FFA\u306E\u80F8\u306B\u3082\u71B1\u304C\u4F1D\u308F\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1418,7 +1202,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 49
+  - sectionID: 43
     text: "\u307B\u3093\u306E\u6570\u79D2\u306E\u3064\u3082\u308A\u304C\u3001\u3068\u3066\u3082\u9577\u3044\u6642\u9593\u306E\u3088\u3046\u306B\u611F\u3058\u3089\u308C\u308B\u9759\u304B\u306A\u62B1\u64C1\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1430,8 +1214,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 50
-    text: "\u306F\u308B\u304B\u3082\u843D\u3061\u7740\u304D\u3092\u53D6\u308A\u623B\u3057\u305F\u306E\u304B\u3001\u4FFA\u306E\u80F8\u5143\u306B\u9854\u3092\u3046\u305A\u3081\u305F\u307E\u307E\u3001\u5C0F\u3055\u304F\u606F\u3092\u3064\u304F\u3002"
+  - sectionID: 44
+    text: "\u306F\u308B\u304B\u3082\u843D\u3061\u7740\u304D\u3092\u53D6\u308A\u623B\u3057\u305F\u306E\u304B\u3001\u4E3B\u4EBA\u516C\u306E\u80F8\u5143\u306B\u9854\u3092\u3046\u305A\u3081\u305F\u307E\u307E\u3001\u5C0F\u3055\u304F\u606F\u3092\u3064\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1442,8 +1226,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 51
+  - sectionID: 45
     text: "\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u306E\u2026\u2026\u5302\u3044\u3001\u61D0\u304B\u3057\u3044\u2026\u2026\u3002\u6614\u3001\u3088\u304F\u3053\u3046\u3084\u3063\u3066\u304F\u3063\u3064\u3044\u3066\u904A\u3093\u3067\u305F\u3088\u306D\u2026\u2026\u3002"
+    voiceIndex: 18
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 46
+    text: "\u5C0F\u3055\u3044\u3053\u308D\u3001\u304B\u304F\u308C\u3093\u307C\u3084\u9B3C\u3054\u3063\u3053\u3067\u75B2\u308C\u3066\u5BB6\u306B\u623B\u3063\u3066\u304D\u305F\u3068\u304D\u3082\u3001\u3053\u3093\u306A\u98A8\u306B\u5BC4\u308A\u6DFB\u3063\u3066\u4F11\u3093\u3060\u3053\u3068\u304C\u3042\u3063\u305F\u3002\u305D\u306E\u9803\u306E\u8A18\u61B6\u304C\u3088\u307F\u304C\u3048\u308A\u3001\u4E8C\u4EBA\u306E\u8DDD\u96E2\u304C\u6025\u901F\u306B\u7E2E\u307E\u3063\u3066\u3044\u308B\u3053\u3068\u3092\u6539\u3081\u3066\u5B9F\u611F\u3059\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1454,31 +1250,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 52
-    text: "\u5C0F\u3055\u3044\u3053\u308D\u3001\u304B\u304F\u308C\u3093\u307C\u3084\u9B3C\u3054\u3063\u3053\u3067\u75B2\u308C\u3066\u5BB6\u306B\u623B\u3063\u3066\u304D\u305F\u3068\u304D\u3082\u3001\u3053\u3093\u306A\u98A8\u306B\u5BC4\u308A\u6DFB\u3063\u3066\u4F11\u3093\u3060\u3053\u3068\u304C\u3042\u3063\u305F\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 53
-    text: "\u305D\u306E\u9803\u306E\u8A18\u61B6\u304C\u3088\u307F\u304C\u3048\u308A\u3001\u4E8C\u4EBA\u306E\u8DDD\u96E2\u304C\u6025\u901F\u306B\u7E2E\u307E\u3063\u3066\u3044\u308B\u3053\u3068\u3092\u6539\u3081\u3066\u5B9F\u611F\u3059\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 54
+  - sectionID: 47
     text: "\u3057\u304B\u3057\u540C\u6642\u306B\u3001\u3075\u3068\u5999\u306A\u610F\u8B58\u3082\u751F\u307E\u308C\u3066\u3057\u307E\u3046\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1490,8 +1262,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 55
-    text: "\uFF08\u5B50\u4F9B\u306E\u9803\u3068\u306F\u9055\u3063\u3066\u3001\u304A\u4E92\u3044\u3082\u3046\u5927\u5B66\u751F\u3060\u3002\u3057\u304B\u3082\u3001\u4ECA\u306F\u3053\u3093\u306A\u306B\u8FD1\u3044\u8DDD\u96E2\u3067\u2026\u2026\uFF09"
+  - sectionID: 48
+    text: "\u5B50\u4F9B\u306E\u9803\u3068\u306F\u9055\u3063\u3066\u3001\u304A\u4E92\u3044\u3082\u3046\u5927\u5B66\u751F\u3060\u3002\u3057\u304B\u3082\u3001\u4ECA\u306F\u3053\u3093\u306A\u306B\u8FD1\u3044\u8DDD\u96E2\u3067\u2026\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1502,9 +1274,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 56
+  - sectionID: 49
     text: "\u2026\u2026\u3054\u3081\u3093\u3001\u3053\u3093\u306A\u3068\u3053\u308D\u3067\u6025\u306B\u2026\u2026\u5909\u3001\u3060\u3088\u306D\u3002"
-    voiceIndex: -1
+    voiceIndex: 19
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1514,7 +1286,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 57
+  - sectionID: 50
     text: "\u5909\u3058\u3083\u306A\u3044\u3088\u3002\u4FFA\u306F\u306F\u308B\u304B\u306E\u6C17\u6301\u3061\u3092\u77E5\u308C\u3066\u3001\u3080\u3057\u308D\u5B09\u3057\u3044\u304F\u3089\u3044\u3060\u304B\u3089\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1526,7 +1298,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 58
+  - sectionID: 51
     text: "\u306F\u308B\u304B\u306F\u5C11\u3057\u7167\u308C\u306A\u304C\u3089\u3082\u3001\u5B89\u5FC3\u3057\u305F\u3088\u3046\u306B\u307B\u3063\u3068\u606F\u3092\u5410\u304D\u3001\u4FFA\u306E\u80F8\u304B\u3089\u96E2\u308C\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1538,9 +1310,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 59
+  - sectionID: 52
     text: "\u2026\u2026\u3042\u308A\u304C\u3068\u3046\u3002\u3082\u3046\u5C11\u3057\u3060\u3051\u2026\u2026\u305D\u3070\u306B\u3044\u3066\u307B\u3057\u3044\u3002"
-    voiceIndex: -1
+    voiceIndex: 20
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1550,7 +1322,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 60
+  - sectionID: 53
     text: "\u3082\u3061\u308D\u3093\u3002\u5E30\u308B\u307E\u3067\u3001\u624B\u2026\u2026\u3064\u306A\u3044\u3067\u3044\u304F\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -1562,9 +1334,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 61
+  - sectionID: 54
     text: "\u2026\u2026\u3046\u3093\u3002"
-    voiceIndex: -1
+    voiceIndex: 21
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1574,7 +1346,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 62
+  - sectionID: 55
     text: "\u305D\u3046\u3057\u3066\u4FFA\u3068\u306F\u308B\u304B\u306F\u3001\u6614\u3068\u6BD4\u3079\u3066\u968F\u5206\u3068\u9AD8\u3055\u306E\u9055\u3046\u80A9\u3092\u4E26\u3079\u3066\u5BB6\u8DEF\u3078\u3068\u6B69\u304D\u51FA\u3059\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1586,8 +1358,8 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 63
-    text: "\u4ECA\u307E\u3067\u306F\u305F\u3060\u306E\u201C\u5E7C\u99B4\u67D3\u307F\u201D\u3068\u3057\u304B\u601D\u3063\u3066\u3044\u306A\u304B\u3063\u305F\u306F\u305A\u306E\u76F8\u624B\u304C\u3001\u306A\u305C\u3053\u3093\u306A\u306B\u3082\u5927\u5207\u306B\u611F\u3058\u3089\u308C\u308B\u306E\u304B\uFF3F\uFF3F"
+  - sectionID: 56
+    text: "\u4ECA\u307E\u3067\u306F\u305F\u3060\u306E\u201C\u5E7C\u99B4\u67D3\u307F\u201D\u3068\u3057\u304B\u601D\u3063\u3066\u3044\u306A\u304B\u3063\u305F\u306F\u305A\u306E\u76F8\u624B\u304C\u3001\u306A\u305C\u3053\u3093\u306A\u306B\u3082\u5927\u5207\u306B\u611F\u3058\u3089\u308C\u308B\u306E\u304B\uFF3F\uFF3F\uFF3F"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1598,8 +1370,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 64
+  - sectionID: 57
     text: "\u304A\u4E92\u3044\u306E\u6C17\u6301\u3061\u304C\u5C11\u3057\u305A\u3064\u3001\u3067\u3082\u78BA\u5B9F\u306B\u5909\u308F\u308A\u59CB\u3081\u3066\u3044\u308B\u3053\u3068\u3092\u611F\u3058\u3055\u305B\u308B\u5E30\u308A\u9053\u3068\u306A\u3063\u305F\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 58
+    text: 
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1616,7 +1400,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u90E8\u5C4B"
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -1648,7 +1432,7 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 4
-    text: "\u4ECA\u65E5\u3082\u5E30\u5B85\u5F8C\u3001\u8EFD\u304F\u5915\u98DF\u3092\u6E08\u307E\u305B\u305F\u3042\u3068\u3001\u4FFA\u3068\u306F\u308B\u304B\u306F\u540C\u3058\u90E8\u5C4B\u3067\u304F\u3064\u308D\u3044\u3067\u3044\u308B\u304C\u3044\u3064\u3082\u3068\u9055\u3063\u3066\u306F\u308B\u304B\u306E\u69D8\u5B50\u304C\u3084\u3051\u306B\u30BD\u30EF\u30BD\u30EF\u3057\u3066\u3044\u308B\u3002"
+    text: "\u4ECA\u65E5\u3082\u5E30\u5B85\u5F8C\u3001\u8EFD\u304F\u5915\u98DF\u3092\u6E08\u307E\u305B\u305F\u3042\u3068\u3001\u4FFA\u3068\u306F\u308B\u304B\u306F\u540C\u3058\u90E8\u5C4B\u3067\u304F\u3064\u308D\u3044\u3067\u3044\u308B\u304C\u3044\u3064\u3082\u3068\u9055\u3063\u3066\u3084\u3051\u306B\u30BD\u30EF\u30BD\u30EF\u3057\u3066\u3044\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1709,7 +1493,7 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 9
     text: "\u2026\u2026\u3046\u3001\u3046\u3046\u3093\u2026\u2026\u3054\u3081\u3093\u3001\u305D\u3046\u3044\u3046\u308F\u3051\u3058\u3083\u306A\u3044\u306E\u3002\u3000\u3061\u3087\u3063\u3068\u8003\u3048\u3054\u3068\u304C\u3042\u3063\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 22
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1745,7 +1529,7 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 12
     text: "\u3046\u3093\u2026\u2026\u5C11\u3057\u306F\u6163\u308C\u3066\u304D\u305F\u3051\u3069\u3001\u3084\u3063\u3071\u308A\u521D\u5BFE\u9762\u306E\u4EBA\u3068\u3061\u3083\u3093\u3068\u8A71\u3059\u306E\u304C\u96E3\u3057\u304F\u3066\u2026\u2026\u3002\u3000\u3067\u3082\u3001\u304A\u5144\u3061\u3083\u3093\u304C\u3044\u308B\u304B\u3089\u3001\u306A\u3093\u3068\u304B\u5927\u5B66\u306B\u3082\u901A\u3048\u3066\u308B\u611F\u3058\u3001\u304B\u306A\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 23
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1805,7 +1589,7 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 17
     text: "\u2026\u2026\u3042\u306E\u306D\u2026\u2026\u6700\u8FD1\u3001\u3044\u308D\u3044\u308D\u3068\u3042\u308A\u304C\u3068\u3046\u3002\u52A9\u3051\u3066\u3082\u3089\u3063\u3066\u3070\u3063\u304B\u308A\u306A\u306E\u306B\u2026\u2026\u308F\u305F\u3057\u3001\u4F55\u3082\u304A\u8FD4\u3057\u3067\u304D\u3066\u306A\u304F\u3066\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 24
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1841,7 +1625,7 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 20
     text: "\u2026\u2026\u3067\u3082\u3001\u308F\u305F\u3057\u2026\u2026\u3082\u3063\u3068\u304A\u5144\u3061\u3083\u3093\u306B\u201C\u4F55\u304B\u201D\u3057\u3066\u3042\u3052\u305F\u3044\u3002\u304A\u5144\u3061\u3083\u3093\u304C\u2026\u2026\u559C\u3093\u3067\u304F\u308C\u308B\u3053\u3068\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 25
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1864,7 +1648,7 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 22
-    text: "\u3060\u304C\u3001\u66D6\u6627\u306A\u8868\u73FE\u306E\u307E\u307E\u306A\u306E\u3067\u8E0F\u307F\u8FBC\u3093\u3067\u3044\u3044\u306E\u304B\u8FF7\u3044\u3001\u5C11\u3057\u6238\u60D1\u3046\u3002"
+    text: "\u3060\u304C\u3001\u66D6\u6627\u306A\u8868\u73FE\u306E\u307E\u307E\u306A\u306E\u3067\u8E0F\u307F\u8FBC\u3093\u3067\u3044\u3044\u306E\u304B\u8FF7\u3044\u3001\u5C11\u3057\u6238\u60D1\u3046\u3002\u306F\u308B\u304B\u304C\u4FFA\u306E\u624B\u306B\u81EA\u5206\u306E\u624B\u3092\u305D\u3063\u3068\u91CD\u306D\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -1876,18 +1660,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 23
-    text: "\u306F\u308B\u304B\u304C\u4FFA\u306E\u624B\u306B\u81EA\u5206\u306E\u624B\u3092\u305D\u3063\u3068\u91CD\u306D\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 24
     text: "\u306F\u308B\u304B\u306E\u8033\u3084\u982C\u306F\u8D64\u304F\u67D3\u307E\u308A\u3001\u52D5\u63FA\u304C\u96A0\u305B\u306A\u3044\u307B\u3069\u306E\u69D8\u5B50\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1899,7 +1671,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 25
+  - sectionID: 24
     text: "\u4FFA\u306F\u3001\u305D\u306E\u610F\u56F3\u304C\u201C\u306F\u3063\u304D\u308A\u201D\u3068\u306F\u5206\u304B\u3089\u306A\u3044\u306A\u304C\u3089\u3082\u3001\u305F\u3060\u306E\u30B9\u30AD\u30F3\u30B7\u30C3\u30D7\u3067\u306F\u306A\u3044\u4F55\u304B\u3092\u611F\u3058\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1911,9 +1683,21 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 26
-    text: "\uFF08\u2026\u2026\u30C9\u30AD\u30C9\u30AD\u3059\u308B\u3002\u306F\u308B\u304B\u304C\u3053\u3093\u306A\u98A8\u306B\u8DDD\u96E2\u3092\u8A70\u3081\u3066\u304F\u308B\u306A\u3093\u3066\u3002\u6700\u8FD1\u306F\u62B1\u304D\u5408\u3046\u3053\u3068\u3082\u3042\u3063\u305F\u3051\u3069\u3001\u4ECA\u65E5\u306F\u2026\u2026\u96F0\u56F2\u6C17\u304C\u9055\u3046\u6C17\u304C\u3059\u308B\uFF09"
+  - sectionID: 25
+    text: "\u2026\u2026\u30C9\u30AD\u30C9\u30AD\u3059\u308B\u3002\u306F\u308B\u304B\u304C\u3053\u3093\u306A\u98A8\u306B\u8DDD\u96E2\u3092\u8A70\u3081\u3066\u304F\u308B\u306A\u3093\u3066\u3002\u6700\u8FD1\u306F\u62B1\u304D\u5408\u3046\u3053\u3068\u3082\u3042\u3063\u305F\u3051\u3069\u3001\u4ECA\u65E5\u306F\u2026\u2026\u96F0\u56F2\u6C17\u304C\u9055\u3046\u6C17\u304C\u3059\u308B"
     voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 26
+    text: "\u304A\u5144\u3061\u3083\u3093\u2026\u2026\u5C11\u3057\u3060\u3051\u3001\u308F\u305F\u3057\u306E\u304A\u9858\u3044\u2026\u2026\u805E\u3044\u3066\u304F\u308C\u308B\uFF1F\u3061\u3083\u3093\u3068\u2026\u2026\u304C\u3093\u3070\u308B\u304B\u3089\u2026\u2026\u3002"
+    voiceIndex: 26
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1924,18 +1708,6 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 27
-    text: "\u304A\u5144\u3061\u3083\u3093\u2026\u2026\u5C11\u3057\u3060\u3051\u3001\u308F\u305F\u3057\u306E\u304A\u9858\u3044\u2026\u2026\u805E\u3044\u3066\u304F\u308C\u308B\uFF1F\u3061\u3083\u3093\u3068\u2026\u2026\u304C\u3093\u3070\u308B\u304B\u3089\u2026\u2026\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 28
     text: "\u80F8\u306E\u5185\u3092\u63A2\u308B\u9593\u3082\u306A\u304F\u3001\u306F\u308B\u304B\u306F\u4FFA\u306E\u624B\u3092\u5F15\u304F\u3088\u3046\u306B\u3057\u3066\u3001\u9759\u304B\u306B\u7ACB\u3061\u4E0A\u304C\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1947,9 +1719,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 29
+  - sectionID: 28
     text: "\u304A\u5144\u3061\u3083\u3093\u559C\u3093\u3067\u304F\u308C\u308B\u3088\u3046\u306B\u3001\u79C1\u2026\u2026\u3061\u3083\u3093\u3068\u8ABF\u3079\u3066\u304D\u305F\u3093\u3060\u3088\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 27
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1959,7 +1731,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 30
+  - sectionID: 29
     text: "\u305D\u3046\u8A00\u3044\u306A\u304C\u3089\u3001\u306F\u308B\u304B\u306F\u4FFA\u306E\u524D\u306B\u819D\u3092\u3064\u304D\u3001\u771F\u3063\u76F4\u3050\u306A\u77B3\u3067\u898B\u4E0A\u3052\u3066\u304F\u308B\u3002\u305D\u306E\u59FF\u306B\u601D\u308F\u305A\u80F8\u304C\u9AD8\u9CF4\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1971,7 +1743,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 31
+  - sectionID: 30
     text: "\u306F\u308B\u304B\u3001\u7121\u7406\u3057\u306A\u304F\u3066\u3044\u3044\u3093\u3060\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -1983,9 +1755,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 32
+  - sectionID: 31
     text: "\u7121\u7406\u306A\u3093\u304B\u3057\u3066\u306A\u3044\u2026\u2026\u3060\u304B\u3089\u2026\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 28
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -1995,7 +1767,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 33
+  - sectionID: 32
     text: "\u305D\u3046\u8A00\u3063\u3066\u3001\u304A\u305A\u304A\u305A\u3068\u4FFA\u306E\u30D9\u30EB\u30C8\u306B\u624B\u3092\u304B\u3051\u308B\u3002\u77AC\u9593\u3001\u4F53\u304C\u5F37\u5F35\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2007,7 +1779,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 34
+  - sectionID: 33
     text: "\u3061\u3087\u3001\u3061\u3087\u3063\u3068\u5F85\u3063\u3066...\u672C\u5F53\u306B\u3044\u3044\u306E\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -2019,9 +1791,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 35
+  - sectionID: 34
     text: "\u3046\u3093\u2026\u304A\u5144\u3061\u3083\u3093\u304C\u559C\u3093\u3067\u304F\u308C\u308B\u306A\u3089\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 29
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2031,7 +1803,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 36
+  - sectionID: 35
     text: "\u306F\u308B\u304B\u306E\u6307\u5148\u304C\u30B8\u30C3\u30D1\u30FC\u306B\u89E6\u308C\u308B\u3002\u3086\u3063\u304F\u308A\u3068\u4E0B\u3052\u3089\u308C\u308B\u97F3\u304C\u5999\u306B\u90E8\u5C4B\u306B\u97FF\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2043,9 +1815,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 37
+  - sectionID: 36
     text: "\u3042\u306E\u2026\u5ACC\u3060\u3063\u305F\u3089\u2026\u8A00\u3063\u3066\u306D\uFF1F"
-    voiceIndex: -1
+    voiceIndex: 30
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2055,7 +1827,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 38
+  - sectionID: 37
     text: "\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u56C1\u304F\u306F\u308B\u304B\u306E\u59FF\u306B\u3001\u80F8\u304C\u75DB\u304F\u306A\u308B\u307B\u3069\u611B\u304A\u3057\u3055\u3092\u611F\u3058\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2067,7 +1839,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 39
+  - sectionID: 38
     text: "\u4FFA\u306E\u4E0B\u7740\u306B\u624B\u3092\u304B\u3051\u305F\u306F\u308B\u304B\u306F\u3001\u4E00\u77AC\u305F\u3081\u3089\u3063\u305F\u5F8C\u3001\u52C7\u6C17\u3092\u632F\u308A\u7D5E\u308B\u3088\u3046\u306B\u5E03\u5730\u3092\u305A\u3089\u3059\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2079,7 +1851,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 40
+  - sectionID: 39
     text: "\u9732\u308F\u306B\u306A\u3063\u305F\u4FFA\u306E\u3082\u306E\u3092\u898B\u3066\u3001\u306F\u308B\u304B\u306F\u5C0F\u3055\u304F\u606F\u3092\u5451\u3080\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2091,9 +1863,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 41
+  - sectionID: 40
     text: "\u3042\u3063\u2026\u5927\u304D\u3044\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 31
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2103,7 +1875,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 42
+  - sectionID: 41
     text: "\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u3057\u306A\u304C\u3089\u3082\u3001\u306F\u308B\u304B\u306F\u304A\u305D\u308B\u304A\u305D\u308B\u624B\u3092\u4F38\u3070\u3059\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2115,7 +1887,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 43
+  - sectionID: 42
     text: "\u305D\u306E\u6307\u5148\u304C\u89E6\u308C\u305F\u77AC\u9593\u3001\u601D\u308F\u305A\u9A5A\u3044\u3066\u3057\u307E\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2127,9 +1899,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 44
+  - sectionID: 43
     text: "\u3042\u3001\u3054\u3081\u3093\u306D\uFF01\u75DB\u304B\u3063\u305F\uFF1F"
-    voiceIndex: -1
+    voiceIndex: 32
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2139,7 +1911,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 45
+  - sectionID: 44
     text: "\u305C\u3001\u5168\u7136\u2026\u5927\u4E08\u592B\u3060\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2151,31 +1923,19 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
+  - sectionID: 45
+    text: "\u5B89\u5FC3\u3057\u305F\u3088\u3046\u306B\u7B11\u307F\u3092\u6D6E\u304B\u3079\u305F\u306F\u308B\u304B\u306F\u3001\u518D\u3073\u624B\u3092\u4F38\u3070\u3059\u3002\u4ECA\u5EA6\u306F\u5C11\u3057\u81EA\u4FE1\u3092\u6301\u3063\u305F\u3088\u3046\u306B\u898B\u3048\u308B\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
   - sectionID: 46
-    text: "\u5B89\u5FC3\u3057\u305F\u3088\u3046\u306B\u7B11\u307F\u3092\u6D6E\u304B\u3079\u305F\u306F\u308B\u304B\u306F\u3001\u518D\u3073\u624B\u3092\u4F38\u3070\u3059\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 47
-    text: "\u4ECA\u5EA6\u306F\u5C11\u3057\u81EA\u4FE1\u3092\u6301\u3063\u305F\u3088\u3046\u306B\u898B\u3048\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 48
     text: "\u6700\u521D\u306F\u304E\u3053\u3061\u306A\u3044\u52D5\u304D\u3067\u3001\u6307\u5148\u3060\u3051\u3067\u89E6\u308C\u3066\u3044\u305F\u306F\u308B\u304B\u3060\u304C\u3001\u5F90\u3005\u306B\u624B\u5168\u4F53\u3067\u5305\u307F\u8FBC\u3080\u3088\u3046\u306B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2187,8 +1947,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 49
+  - sectionID: 47
     text: "\u3053\u3001\u3053\u3046\u304B\u306A\u2026\uFF1F\u30A4\u30F3\u30BF\u30FC\u30CD\u30C3\u30C8\u3067\u2026\u5C11\u3057\u2026\u3002"
+    voiceIndex: 33
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 48
+    text: "\u8A00\u3044\u3088\u3069\u3080\u306F\u308B\u304B\u306E\u8A00\u8449\u306B\u601D\u308F\u305A\u7B11\u307F\u304C\u3053\u307C\u308C\u308B\u3002\u4E00\u751F\u61F8\u547D\u306B\u8ABF\u3079\u3066\u304D\u305F\u306E\u3060\u308D\u3046\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -2199,31 +1971,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 50
-    text: "\u8A00\u3044\u3088\u3069\u3080\u306F\u308B\u304B\u306E\u8A00\u8449\u306B\u601D\u308F\u305A\u7B11\u307F\u304C\u3053\u307C\u308C\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 51
-    text: "\u4E00\u751F\u61F8\u547D\u306B\u8ABF\u3079\u3066\u304D\u305F\u306E\u3060\u308D\u3046\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 52
+  - sectionID: 49
     text: "\u3046\u3093\u3001\u3059\u3054\u304F\u6C17\u6301\u3061\u3044\u3044\u3088\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2235,7 +1983,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 53
+  - sectionID: 50
     text: "\u305D\u306E\u8A00\u8449\u306B\u81EA\u4FE1\u3092\u5F97\u305F\u3088\u3046\u306B\u3001\u52D5\u304D\u304C\u5C11\u3057\u305A\u3064\u5927\u80C6\u306B\u306A\u3063\u3066\u3044\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2247,7 +1995,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 54
+  - sectionID: 51
     text: "\u4E0A\u304B\u3089\u4E0B\u3078\u3001\u3086\u3063\u304F\u308A\u3068\u3001\u3067\u3082\u78BA\u5B9F\u306B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2259,9 +2007,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 55
+  - sectionID: 52
     text: "\u304A\u5144\u3061\u3083\u3093\u2026\u6C17\u6301\u3061\u3044\u3044\uFF1F"
-    voiceIndex: -1
+    voiceIndex: 34
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2271,7 +2019,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 56
+  - sectionID: 53
     text: "\u3059\u3001\u3059\u3054\u304F\u2026\u3044\u3044\u3088\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2283,7 +2031,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 57
+  - sectionID: 54
     text: "\u547C\u5438\u304C\u8352\u304F\u306A\u308B\u306E\u3092\u611F\u3058\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2295,7 +2043,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 58
+  - sectionID: 55
     text: "\u306F\u308B\u304B\u306E\u624B\u306E\u52D5\u304D\u306B\u5408\u308F\u305B\u3066\u3001\u601D\u308F\u305A\u8170\u304C\u6D6E\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2307,9 +2055,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 59
+  - sectionID: 56
     text: "\u307B\u3093\u3068\u2026\uFF1F\u3058\u3083\u3042\u2026\u3082\u3063\u3068\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 35
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2319,7 +2067,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 60
+  - sectionID: 57
     text: "\u5C11\u3057\u305A\u3064\u52D5\u304D\u304C\u65E9\u304F\u306A\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2331,7 +2079,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 61
+  - sectionID: 58
     text: "\u521D\u3081\u306F\u8E8A\u8E87\u3044\u304C\u3042\u3063\u305F\u624B\u3064\u304D\u304C\u3001\u5F90\u3005\u306B\u5909\u308F\u3063\u3066\u3044\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2343,7 +2091,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 62
+  - sectionID: 59
     text: "\u306F\u308B\u304B\u306E\u8A66\u884C\u932F\u8AA4\u3059\u308B\u624B\u3064\u304D\u3001\u771F\u5263\u306A\u307E\u306A\u3056\u3057\u3001\u6642\u3005\u4E0A\u76EE\u9063\u3044\u3067\u4FFA\u306E\u53CD\u5FDC\u3092\u78BA\u304B\u3081\u308B\u4ED5\u8349\u3001\u5168\u3066\u304C\u611B\u304A\u3057\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2355,9 +2103,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 63
+  - sectionID: 60
     text: "\u304A\u306B\u3044\u3061\u3083\u3093\u2026\u3082\u3063\u3068\u2026\u6C17\u6301\u3061\u3088\u304F\u306A\u3063\u3066\u306D\u3002"
-    voiceIndex: -1
+    voiceIndex: 36
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2367,7 +2115,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 64
+  - sectionID: 61
     text: "\u67D4\u3089\u304B\u3044\u624B\u3067\u4E0A\u4E0B\u306B\u52D5\u304B\u3055\u308C\u308B\u3053\u3068\u3067\u5FEB\u611F\u304C\u5897\u3057\u3066\u3086\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2379,7 +2127,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 65
+  - sectionID: 62
     text: "\u306F\u308B\u304B\u2026\u3053\u306E\u307E\u307E\u3060\u3068\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2391,9 +2139,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 66
+  - sectionID: 63
     text: "\u5927\u4E08\u592B\u3060\u3088\u2026\u304A\u5144\u3061\u3083\u3093\u3002"
-    voiceIndex: -1
+    voiceIndex: 37
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2403,7 +2151,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 67
+  - sectionID: 64
     text: "\u305D\u306E\u8A00\u8449\u3092\u5408\u56F3\u306B\u3001\u306F\u308B\u304B\u306E\u52D5\u304D\u306F\u3055\u3089\u306B\u52A0\u901F\u3059\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2415,7 +2163,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 68
+  - sectionID: 65
     text: "\u611F\u60C5\u304C\u9AD8\u3076\u308A\u3001\u9650\u754C\u304C\u8FD1\u3065\u3044\u3066\u304F\u308B\u306E\u3092\u611F\u3058\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2427,7 +2175,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 69
+  - sectionID: 66
     text: "\u3042\u2026\u3082\u3046\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2439,9 +2187,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 70
+  - sectionID: 67
     text: "\u3046\u3093\u2026\u3044\u3044\u3088\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 38
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2451,7 +2199,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 71
+  - sectionID: 68
     text: "\u3054\u3081\u3093\u2026\u51FA\u305D\u3046\u2026\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2463,8 +2211,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 72
+  - sectionID: 69
     text: "\u5927\u4E08\u592B\u3060\u3088\u2026\u304A\u5144\u3061\u3083\u3093\u3001\u51FA\u3057\u3066\u2026\u3002"
+    voiceIndex: 39
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 70
+    text: "\u25C6\u25C6\u5C04\u7CBE"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -2475,19 +2235,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 73
-    text: "\uFF08\u5C04\u7CBE\uFF09"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 74
+  - sectionID: 71
     text: "\u5C04\u7CBE\u306E\u77AC\u9593\u3001\u4F53\u304C\u9707\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2499,7 +2247,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 75
+  - sectionID: 72
     text: "\u306F\u308B\u304B\u306F\u9A5A\u3044\u305F\u3088\u3046\u306A\u3001\u3067\u3082\u5B09\u3057\u305D\u3046\u306A\u8868\u60C5\u3067\u898B\u3064\u3081\u3066\u3044\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2511,7 +2259,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 76
+  - sectionID: 73
     text: "\u3057\u3070\u3089\u304F\u306E\u6C88\u9ED9\u306E\u5F8C\u3001\u306F\u308B\u304B\u306F\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u5FAE\u7B11\u3080\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2523,9 +2271,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 77
+  - sectionID: 74
     text: "\u304A\u5144\u3061\u3083\u3093...\u559C\u3093\u3067\u304F\u308C\u305F\uFF1F"
-    voiceIndex: -1
+    voiceIndex: 40
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2535,7 +2283,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 78
+  - sectionID: 75
     text: "\u305D\u306E\u7D14\u7C8B\u306A\u554F\u3044\u304B\u3051\u306B\u3001\u8A00\u8449\u3067\u306F\u306A\u304F\u3001\u305D\u3063\u3068\u982D\u3092\u64AB\u3067\u308B\u3053\u3068\u3067\u3053\u305F\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2547,9 +2295,9 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 79
+  - sectionID: 76
     text: "\u3059\u3054\u304F\u5B09\u3057\u3044\u2026\u304A\u5144\u3061\u3083\u3093\u306E\u559C\u3076\u9854\u304C\u898B\u308C\u3066\u3001\u306A\u3093\u304B\u308F\u305F\u3057\u3082\u30C9\u30AD\u30C9\u30AD\u3057\u305F\u2026\u3002"
-    voiceIndex: -1
+    voiceIndex: 41
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -2559,7 +2307,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 80
+  - sectionID: 77
     text: "\u305D\u3063\u3068\u545F\u304D\u306A\u304C\u3089\u3001\u306F\u308B\u304B\u306F\u4FFA\u306E\u6A2A\u306B\u5EA7\u3063\u3066\u305D\u3063\u3068\u80A9\u3092\u5BC4\u305B\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2571,7 +2319,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 81
+  - sectionID: 78
     text: "\u5C11\u3057\u7167\u308C\u306A\u304C\u3089\u3082\u3001\u6E80\u8DB3\u305D\u3046\u306A\u8868\u60C5\u3060\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2583,7 +2331,7 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 82
+  - sectionID: 79
     text: "\u306F\u308B\u304B\u3068\u306E\u95A2\u4FC2\u306F\u3001\u4ECA\u65E5\u304B\u3089\u5C11\u3057\u5909\u308F\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -2595,8 +2343,20 @@ MonoBehaviour:
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 83
+  - sectionID: 80
     text: "\u307E\u3060\u8A00\u8449\u306B\u306F\u3067\u304D\u306A\u3044\u611F\u60C5\u304C\u3001\u9759\u304B\u306B\u3001\u3067\u3082\u78BA\u5B9F\u306B\u80B2\u307E\u308C\u3066\u3044\u304F\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 81
+    text: 
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1

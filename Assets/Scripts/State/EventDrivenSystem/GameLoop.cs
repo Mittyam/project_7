@@ -27,6 +27,9 @@ public class GameLoop : Singleton<GameLoop>
     private string currentSceneName;
     private bool isInitialized = false;
 
+    // 新規ゲーム開始フラグ
+    private static bool isNewGameStart = false;
+
     private void Awake()
     {
         base.Awake();
@@ -401,5 +404,22 @@ public class GameLoop : Singleton<GameLoop>
             // StatusManagerが見つからない場合は通常初期化
             mainStateMachine.Initialize(StateID.Day);
         }
+    }
+
+    /// <summary>
+    /// 新規ゲーム開始フラグを設定
+    /// </summary>
+    public static void SetNewGameStart(bool value)
+    {
+        isNewGameStart = value;
+        Debug.Log($"GameLoop: 新規ゲーム開始フラグを {value} に設定");
+    }
+
+    /// <summary>
+    /// 新規ゲーム開始フラグを取得
+    /// </summary>
+    public static bool IsNewGameStart()
+    {
+        return isNewGameStart;
     }
 }

@@ -14,6 +14,7 @@ public class ShopItemDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExit
         Pharmacy,   // 薬局
         ToyStore,   // おもちゃ屋
         BookStore,  // 本屋
+        None,       // 未設定
     }
 
     [Header("ショップ設定")]
@@ -76,6 +77,13 @@ public class ShopItemDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (shopPanelManager != null)
         {
+            // shopTypeがNoneの場合は何もしない
+            if (shopType == ShopType.None)
+            {
+                Debug.LogWarning("ShopTypeがNoneに設定されています。ショップを開くことはできません。");
+                return;
+            }
+
             // クリックされたショップのパネルを開く
             shopPanelManager.OpenShopPanel(shopType);
 

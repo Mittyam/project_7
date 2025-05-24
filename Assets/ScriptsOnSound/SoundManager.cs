@@ -14,6 +14,7 @@ public class SoundManager : Singleton<SoundManager>
     public BGMData bgmData; // BGMのデータを格納するオブジェクト
     public SEData seData; // SEのデータを格納するオブジェクト
     public VoiceData voiceData; // Voiceのデータを格納するオブジェクト
+    public MainVoiceData mainVoiceData; // MainVoiceのデータを格納するオブジェクト
 
     // 再生終了時のイベント（例としてVoice用）
     public event Action<int> OnVoiceFinished; // 引数として再生したVoiceのindexを返す
@@ -131,6 +132,50 @@ public class SoundManager : Singleton<SoundManager>
         callback?.Invoke();
     }
 
+    // MainVoiceを再生する
+    public void PlayMainVoice(int index)
+    {
+        AudioClip clip = mainVoiceData.GetClip(index);
+        if (clip != null)
+        {
+            voiceSource.clip = clip;
+            voiceSource.Play();
+        }
+    }
+
+
+    /// <summary>
+    /// MainVoiceを再生し、再生終了時にコールバックまたはイベントを発火する。
+    /// </summary>
+    public void PlayMainVoiceWithCallback(int index, Action callback = null)
+    {
+        AudioClip clip = mainVoiceData.GetClip(index);
+        if (clip != null)
+        {
+            // 通常のVoice再生処理
+            voiceSource.clip = clip;
+            voiceSource.Play();
+
+            // 再生終了を検知するコルーチンを開始
+            StartCoroutine(MainVoiceCompleteRoutine(index, clip, callback));
+        }
+    }
+
+
+    /// <summary>
+    /// MainVoice再生が終了したときに呼び出されるコルーチン。
+    /// </summary>
+    private IEnumerator MainVoiceCompleteRoutine(int index, AudioClip clip, Action callback)
+    {
+        // AudioSourceの再生時間に合わせて待機（シークバー等で途中で停止された場合の考慮は別途検討）
+        yield return new WaitForSeconds(clip.length);
+
+        // イベントが登録されていれば発火
+        OnVoiceFinished?.Invoke(index);
+
+        // コールバックが指定されていれば実行
+        callback?.Invoke();
+    }
 
     // BGM用にフェードイン・フェードアウトを組み合わせた例
     public void PlayBGMWithFadeIn(int index, float fadeDuration, Action callback = null, bool loop = true)
@@ -173,6 +218,12 @@ public class SoundManager : Singleton<SoundManager>
 
     // Voiceを停止する
     public void StopVoice()
+    {
+        voiceSource.Stop();
+    }
+
+    // MainVoiceを停止する
+    public void StopMainVoice()
     {
         voiceSource.Stop();
     }

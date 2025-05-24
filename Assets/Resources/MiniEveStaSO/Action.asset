@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateID: 9
   displayName: "\u4F1A\u8A71"
-  startPrefabs:
-  - {fileID: 3986392447400567429, guid: 3bfcb8f9a8012f341a6e22691b398f47, type: 3}
-  - {fileID: 2940658619952592056, guid: fe9147c29e61fb54687813990266178a, type: 3}
-  - {fileID: 6318531902583438229, guid: 535f662ac0bc5cb419be8a89370d7808, type: 3}
+  startPrefabs: []
   endPrefabs:
   - {fileID: 3892201527314594854, guid: 5459024d0bcf26f409329ddb7797d849, type: 3}
   consumeActionPoint: 1

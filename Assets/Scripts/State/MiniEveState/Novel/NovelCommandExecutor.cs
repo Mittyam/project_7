@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class NovelCommandExecutor : MonoBehaviour
 {
@@ -17,15 +18,15 @@ public class NovelCommandExecutor : MonoBehaviour
 
     // 既存のフィールドに追加
     [Header("Image Transition Settings")]
-    [SerializeField] private float fadeInDuration = 0.5f;  // フェードイン秒数
-    [SerializeField] private float fadeOutDuration = 0.5f; // フェードアウト秒数
+    [SerializeField] private float fadeInDuration = 0.6f;  // フェードイン秒数
+    [SerializeField] private float fadeOutDuration = 0.6f; // フェードアウト秒数
     [SerializeField] private float crossFadeDuration = 1.0f; // クロスフェード秒数
 
     [Header("Live2D Settings")]
     [SerializeField] private float parameterTransitionTime = 0.5f; // パラメータ遷移時間
 
     private NovelState.PlaybackMode playbackMode = NovelState.PlaybackMode.Click;
-    private float autoAdvanceDelay = 1.0f;
+    private float autoAdvanceDelay = 2.0f;
     private string currentModelID = ""; // 現在表示中のLive2DモデルID
 
     private void Awake()
@@ -68,6 +69,12 @@ public class NovelCommandExecutor : MonoBehaviour
 
         foreach (var entity in entities)
         {
+            // SE音声処理
+            if (entity.seIndex >= 0)
+            {
+                SoundManager.Instance.PlaySE(entity.seIndex);
+            }
+
             // テキスト処理
             if (!string.IsNullOrEmpty(entity.text) && messagePrinter != null)
             {
@@ -87,12 +94,6 @@ public class NovelCommandExecutor : MonoBehaviour
                 SoundManager.Instance.PlayVoice(entity.voiceIndex);
             }
 
-            // SE音声処理
-            if (entity.seIndex >= 0)
-            {
-                SoundManager.Instance.PlaySE(entity.seIndex);
-            }
-
             // BGM音声処理
             if (entity.bgmIndex >= 0)
             {
@@ -106,6 +107,18 @@ public class NovelCommandExecutor : MonoBehaviour
             // 進行待機
             yield return WaitForAdvance();
         }
+    }
+
+    // メッセージプリンターと背景画像の初期化処理
+    public IEnumerator Initialize()
+    {
+        // 既存の画像のスプライト情報を取得
+        SoundManager.Instance.StopBGMWithFadeOut(fadeOutDuration - 0.1f);
+        yield return FadeOutImage(novelState.BackgroundImage, fadeOutDuration);
+        Sprite previousSprite = novelState.BackgroundImage.sprite;
+        novelState.BackgroundImage.sprite = null;
+        messagePrinter.ShowMessage("");
+        SoundManager.Instance.StopAllSounds();
     }
 
     private IEnumerator WaitForAdvance()

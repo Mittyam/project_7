@@ -34,6 +34,10 @@ public class NightState : StateBase, IPausableState
         SetupUI();
         ShowNightUI();
 
+        // Index 2~4 のBGMをランダムに再生
+        int randomIndex = Random.Range(8, 11);
+        SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
+
         // イベント発火
         nightStateEventSO.Raise();
 
@@ -49,6 +53,9 @@ public class NightState : StateBase, IPausableState
     public override void OnExit()
     {
         Debug.Log("NightState: 出ます。");
+
+        // BGMを停止
+        SoundManager.Instance.StopBGM();
 
         // タッチハンドラーを無効化
         DisableLive2DTouchHandler();
@@ -69,6 +76,8 @@ public class NightState : StateBase, IPausableState
 
         // UI要素を非表示にする
         HideAllUI();
+
+        SoundManager.Instance.StopBGM();
     }
 
     public void OnResume()
@@ -78,6 +87,10 @@ public class NightState : StateBase, IPausableState
         // UI要素を再表示する
         SetupUI();
         ShowNightUI();
+
+        // Index 2~4 のBGMをランダムに再生
+        int randomIndex = Random.Range(8, 11);
+        SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
     }
 
     // 次のステートの取得メソッド

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,8 +6,8 @@ using Live2D.Cubism.Framework.Raycasting;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Live2DƒLƒƒƒ‰ƒNƒ^[‚Ìƒ^ƒbƒ`‹@”\‚ğŠÇ—‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg
-/// ƒƒCƒ“ƒXƒe[ƒg‚Å‚Ì‚İ“®“I‚ÉƒAƒ^ƒbƒ`‚³‚êAƒmƒxƒ‹ƒXƒe[ƒg‚Å‚Íg—p‚³‚ê‚È‚¢
+/// Live2Dã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®ã‚¿ãƒƒãƒæ©Ÿèƒ½ã‚’ç®¡ç†ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+/// ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ†ãƒ¼ãƒˆã§ã®ã¿å‹•çš„ã«ã‚¢ã‚¿ãƒƒãƒã•ã‚Œã€ãƒãƒ™ãƒ«ã‚¹ãƒ†ãƒ¼ãƒˆã§ã¯ä½¿ç”¨ã•ã‚Œãªã„
 /// </summary>
 public class CharacterTouchHandler : MonoBehaviour
 {
@@ -16,16 +16,16 @@ public class CharacterTouchHandler : MonoBehaviour
     private Live2DController live2DController;
     private string currentModelID;
 
-    // ƒ‚ƒfƒ‹‚ÆƒAƒ^ƒbƒ`ó‘Ô‚ÌƒfƒoƒbƒO—p
+    // ãƒ¢ãƒ‡ãƒ«ã¨ã‚¢ã‚¿ãƒƒãƒçŠ¶æ…‹ã®ãƒ‡ãƒãƒƒã‚°ç”¨
     private bool isInitialized = false;
     private bool hasRaycastablesSetup = false;
 
-    // “–‚½‚è”»’è‚Ìƒ}ƒbƒsƒ“ƒO’è‹`
+    // å½“ãŸã‚Šåˆ¤å®šã®ãƒãƒƒãƒ”ãƒ³ã‚°å®šç¾©
     [System.Serializable]
     public class DrawableMapping
     {
-        public string drawableId;  // ƒ‚ƒfƒ‹‚ÌDrawable IDi—áFuHeadvuBodyv‚È‚Çj
-        public TouchArea touchArea;  // ‘Î‰‚·‚éƒ^ƒbƒ`—Ìˆæ
+        public string drawableId;  // ãƒ¢ãƒ‡ãƒ«ã®Drawable IDï¼ˆä¾‹ï¼šã€ŒHeadã€ã€ŒBodyã€ãªã©ï¼‰
+        public TouchArea touchArea;  // å¯¾å¿œã™ã‚‹ã‚¿ãƒƒãƒé ˜åŸŸ
     }
 
     [SerializeField] private List<DrawableMapping> drawableMappings = new List<DrawableMapping>();
@@ -35,42 +35,63 @@ public class CharacterTouchHandler : MonoBehaviour
     {
         public TouchArea area;
         public string[] animationTriggers;
+
+        // éŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®åˆæœŸå€¤
+        // é ­ã€èƒ¸ã€è¶³ã®ã‚¿ãƒƒãƒã«å¯¾å¿œã™ã‚‹ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+        public int weekdayBaseVoiceIndex; // å¹³æ—¥ã®ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+        public int holidayBaseVoiceIndex; // ä¼‘æ—¥ã®ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+        public int nightBaseVoiceIndex;   // å¤œã®ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
     }
 
     [SerializeField] private List<TouchReaction> touchReactions = new List<TouchReaction>();
 
-    // ƒfƒtƒHƒ‹ƒg‚ÌƒŠƒAƒNƒVƒ‡ƒ“İ’è
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³è¨­å®š
     private void SetDefaultReactions()
     {
         if (touchReactions.Count == 0)
         {
-            // “ª•”ƒ^ƒbƒ`—pƒŠƒAƒNƒVƒ‡ƒ“
+            // é ­éƒ¨ã‚¿ãƒƒãƒç”¨ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³
             touchReactions.Add(new TouchReaction
             {
                 area = TouchArea.Head,
-                animationTriggers = new string[] { "Anim_1", "Anim_3" }
+                animationTriggers = new string[] { "Week_Head_1", "Week_Head_2", "Week_Head_3", "Week_Head_4", "Week_Head_5",
+                                              "Holi_Head_1", "Holi_Head_2", "Holi_Head_3", "Holi_Head_4", "Holi_Head_5",
+                                              "Night_Head_1", "Night_Head_2", "Night_Head_3", "Night_Head_4", "Night_Head_5"},
+                weekdayBaseVoiceIndex = 0,    // å¹³æ—¥é ­éƒ¨ 0ã€œ4
+                holidayBaseVoiceIndex = 15,   // ä¼‘æ—¥é ­éƒ¨ 15ã€œ19
+                nightBaseVoiceIndex = 30      // å¤œé ­éƒ¨ 30~34
             });
 
-            // “·‘Ìƒ^ƒbƒ`—pƒŠƒAƒNƒVƒ‡ƒ“
+            // èƒ¸éƒ¨ã‚¿ãƒƒãƒç”¨ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³
             touchReactions.Add(new TouchReaction
             {
                 area = TouchArea.Chest,
-                animationTriggers = new string[] { "body_touch_1", "body_touch_2" }
+                animationTriggers = new string[] { "Week_Chest_1", "Week_Chest_2", "Week_Chest_3", "Week_Chest_4", "Week_Chest_5",
+                                              "Holi_Chest_1", "Holi_Chest_2", "Holi_Chest_3", "Holi_Chest_4", "Holi_Chest_5",
+                                              "Night_Chest_1", "Night_Chest_2", "Night_Chest_3", "Night_Chest_4", "Night_Chest_5"},
+                weekdayBaseVoiceIndex = 5,    // å¹³æ—¥èƒ¸éƒ¨ 5ã€œ9
+                holidayBaseVoiceIndex = 20,   // ä¼‘æ—¥èƒ¸éƒ¨ 20ã€œ24
+                nightBaseVoiceIndex = 35      // å¤œèƒ¸éƒ¨ 35ã€œ39
             });
 
-            // “ÁêƒGƒŠƒAƒ^ƒbƒ`—pƒŠƒAƒNƒVƒ‡ƒ“
+            // è„šéƒ¨ã‚¨ãƒªã‚¢ã‚¿ãƒƒãƒç”¨ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³
             touchReactions.Add(new TouchReaction
             {
                 area = TouchArea.Leg,
-                animationTriggers = new string[] { "special_touch_1", "special_touch_2" }
+                animationTriggers = new string[] { "Week_Leg_1", "Week_Leg_2", "Week_Leg_3", "Week_Leg_4", "Week_Leg_5",
+                                              "Holi_Leg_1", "Holi_Leg_2", "Holi_Leg_3", "Holi_Leg_4", "Holi_Leg_5",
+                                              "Night_Leg_1", "Night_Leg_2", "Night_Leg_3", "Night_Leg_4", "Night_Leg_5"},
+                weekdayBaseVoiceIndex = 10,   // å¹³æ—¥è„šéƒ¨ 10ã€œ14
+                holidayBaseVoiceIndex = 25,   // ä¼‘æ—¥è„šéƒ¨ 25ã€œ29
+                nightBaseVoiceIndex = 40      // å¤œè„šéƒ¨ 40ã€œ44
             });
         }
 
-        // ƒfƒtƒHƒ‹ƒg‚ÌDrawableƒ}ƒbƒsƒ“ƒO
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Drawableãƒãƒƒãƒ”ãƒ³ã‚°ï¼ˆå¤‰æ›´ãªã—ï¼‰
         if (drawableMappings.Count == 0)
         {
-            // ˆê”Ê“I‚ÈLive2Dƒ‚ƒfƒ‹‚Ì–½–¼‹K‘¥‚ÉŠî‚Ã‚­ƒ}ƒbƒsƒ“ƒO—á
-            // ÀÛ‚Ìƒ‚ƒfƒ‹‚É‡‚í‚¹‚Ä•ÏX‚ª•K—v
+            // ä¸€èˆ¬çš„ãªLive2Dãƒ¢ãƒ‡ãƒ«ã®å‘½åè¦å‰‡ã«åŸºã¥ããƒãƒƒãƒ”ãƒ³ã‚°ä¾‹
+            // å®Ÿéš›ã®ãƒ¢ãƒ‡ãƒ«ã«åˆã‚ã›ã¦å¤‰æ›´ãŒå¿…è¦
             drawableMappings.Add(new DrawableMapping { drawableId = "Head", touchArea = TouchArea.Head });
             drawableMappings.Add(new DrawableMapping { drawableId = "Chest", touchArea = TouchArea.Chest });
             drawableMappings.Add(new DrawableMapping { drawableId = "Leg", touchArea = TouchArea.Leg });
@@ -78,11 +99,11 @@ public class CharacterTouchHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰Šú‰»ˆ— - ‹­‰»”Å
+    /// åˆæœŸåŒ–å‡¦ç† - å¼·åŒ–ç‰ˆ
     /// </summary>
     public void Initialize(string modelID = "")
     {
-        // d•¡‰Šú‰»‚ğ–h~
+        // é‡è¤‡åˆæœŸåŒ–ã‚’é˜²æ­¢
         if (isInitialized)
         {
             Debug.Log($"CharacterTouchHandler already initialized for model: {currentModelID}");
@@ -91,17 +112,17 @@ public class CharacterTouchHandler : MonoBehaviour
 
         currentModelID = modelID;
 
-        // Live2DƒRƒ“ƒgƒ[ƒ‰[‚ÌQÆæ“¾
+        // Live2Dã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã®å‚ç…§å–å¾—
         live2DController = GetComponent<Live2DController>();
         if (live2DController == null)
         {
             live2DController = GetComponentInParent<Live2DController>();
         }
 
-        // ƒfƒtƒHƒ‹ƒg‚ÌƒŠƒAƒNƒVƒ‡ƒ“İ’è
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒªã‚¢ã‚¯ã‚·ãƒ§ãƒ³è¨­å®š
         SetDefaultReactions();
 
-        // CubismRaycaster‚Ìæ“¾‚Ü‚½‚ÍƒAƒ^ƒbƒ`
+        // CubismRaycasterã®å–å¾—ã¾ãŸã¯ã‚¢ã‚¿ãƒƒãƒ
         raycaster = GetComponent<CubismRaycaster>();
         if (raycaster == null)
         {
@@ -109,27 +130,27 @@ public class CharacterTouchHandler : MonoBehaviour
             Debug.Log("Added CubismRaycaster to model");
         }
 
-        // Drawables‚ğŒŸõ‚µ‚Ä‘Î‰‚·‚éCubismRaycastable‚ğƒAƒ^ƒbƒ`
+        // Drawablesã‚’æ¤œç´¢ã—ã¦å¯¾å¿œã™ã‚‹CubismRaycastableã‚’ã‚¢ã‚¿ãƒƒãƒ
         SetupRaycastables();
 
-        // UpdateŠÖ”‚Åƒ^ƒbƒ`“ü—Í‚ğŒŸo‚·‚é‚æ‚¤‚É‚·‚é
+        // Updateé–¢æ•°ã§ã‚¿ãƒƒãƒå…¥åŠ›ã‚’æ¤œå‡ºã™ã‚‹ã‚ˆã†ã«ã™ã‚‹
         enabled = true;
         isInitialized = true;
     }
 
     /// <summary>
-    /// Drawables‚ğŒŸõ‚µACubismRaycastable‚ğƒZƒbƒgƒAƒbƒv
+    /// Drawablesã‚’æ¤œç´¢ã—ã€CubismRaycastableã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
     /// </summary>
     private void SetupRaycastables()
     {
-        // d•¡ƒZƒbƒgƒAƒbƒv‚ğ–h~
+        // é‡è¤‡ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã‚’é˜²æ­¢
         if (hasRaycastablesSetup)
         {
             Debug.Log("Raycastables already set up - skipping");
             return;
         }
 
-        // ƒ‚ƒfƒ‹‚ÌDrawables‚ğæ“¾
+        // ãƒ¢ãƒ‡ãƒ«ã®Drawablesã‚’å–å¾—
         var drawables = GetComponentsInChildren<Live2D.Cubism.Core.CubismDrawable>(true);
         if (drawables == null || drawables.Length == 0)
         {
@@ -142,19 +163,19 @@ public class CharacterTouchHandler : MonoBehaviour
 
         foreach (var drawable in drawables)
         {
-            // Drawable‚ÌID‚ğŠm”F
+            // Drawableã®IDã‚’ç¢ºèª
             string drawableId = drawable.name;
 
-            // ƒ}ƒbƒsƒ“ƒO‘ÎÛ‚©ƒ`ƒFƒbƒN
+            // ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ã‹ãƒã‚§ãƒƒã‚¯
             var mapping = drawableMappings.FirstOrDefault(m => drawableId.Contains(m.drawableId));
             if (mapping != null)
             {
-                // CubismRaycastable‚ª‚È‚¯‚ê‚Î’Ç‰Á
+                // CubismRaycastableãŒãªã‘ã‚Œã°è¿½åŠ 
                 var raycastable = drawable.gameObject.GetComponent<CubismRaycastable>();
                 if (raycastable == null)
                 {
                     raycastable = drawable.gameObject.AddComponent<CubismRaycastable>();
-                    // ¸“xİ’èiTriangles‚Ì•û‚ª¸Šm‚¾‚ª•‰‰×‚ª‚‚¢j
+                    // ç²¾åº¦è¨­å®šï¼ˆTrianglesã®æ–¹ãŒç²¾ç¢ºã ãŒè² è·ãŒé«˜ã„ï¼‰
                     raycastable.Precision = CubismRaycastablePrecision.Triangles;
                     setupCount++;
                 }
@@ -168,47 +189,47 @@ public class CharacterTouchHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// –ˆƒtƒŒ[ƒ€‚ÌXVˆ—
+    /// æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ›´æ–°å‡¦ç†
     /// </summary>
     private void Update()
     {
-        // ƒ}ƒEƒXƒNƒŠƒbƒN‚ª‚È‚¢ê‡‚Í‘ŠúƒŠƒ^[ƒ“
+        // ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯ãŒãªã„å ´åˆã¯æ—©æœŸãƒªã‚¿ãƒ¼ãƒ³
         if (!Input.GetMouseButtonDown(0))
         {
             return;
         }
 
-        // UI‚Ìã‚ÅƒNƒŠƒbƒN‚³‚ê‚½ê‡‚Í–³‹‚·‚é
+        // UIã®ä¸Šã§ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸå ´åˆã¯ç„¡è¦–ã™ã‚‹
         if (IsPointerOverUI())
         {
             return;
         }
 
-        // ƒŒƒC‚ğƒJƒƒ‰‚©‚çƒ}ƒEƒXˆÊ’u‚ÉŒü‚¯‚Ä”ò‚Î‚·
+        // ãƒ¬ã‚¤ã‚’ã‚«ãƒ¡ãƒ©ã‹ã‚‰ãƒã‚¦ã‚¹ä½ç½®ã«å‘ã‘ã¦é£›ã°ã™
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        // “–‚½‚è”»’èŒ‹‰Ê‚ğŠi”[‚·‚é”z—ñ
+        // å½“ãŸã‚Šåˆ¤å®šçµæœã‚’æ ¼ç´ã™ã‚‹é…åˆ—
         var results = new CubismRaycastHit[4];
 
-        // ƒŒƒCƒLƒƒƒXƒgÀs
+        // ãƒ¬ã‚¤ã‚­ãƒ£ã‚¹ãƒˆå®Ÿè¡Œ
         var hitCount = raycaster.Raycast(ray, results);
 
         if (hitCount > 0)
         {
-            // “–‚½‚Á‚½Drawable‚ğˆ—
+            // å½“ãŸã£ãŸDrawableã‚’å‡¦ç†
             for (var i = 0; i < hitCount; i++)
             {
                 string drawableName = results[i].Drawable.name;
                 Debug.Log($"Hit drawable: {drawableName}");
 
-                // ƒ}ƒbƒsƒ“ƒOî•ñ‚ğŒŸõ
+                // ãƒãƒƒãƒ”ãƒ³ã‚°æƒ…å ±ã‚’æ¤œç´¢
                 foreach (var mapping in drawableMappings)
                 {
                     if (drawableName.Contains(mapping.drawableId))
                     {
-                        // ‘Î‰‚·‚éƒ^ƒbƒ`—Ìˆæ‚ªŒ©‚Â‚©‚Á‚½
+                        // å¯¾å¿œã™ã‚‹ã‚¿ãƒƒãƒé ˜åŸŸãŒè¦‹ã¤ã‹ã£ãŸ
                         OnAreaTouched(mapping.touchArea);
-                        return; // Å‰‚Éˆê’v‚µ‚½‚à‚Ì‚Å”½‰
+                        return; // æœ€åˆã«ä¸€è‡´ã—ãŸã‚‚ã®ã§åå¿œ
                     }
                 }
             }
@@ -216,81 +237,173 @@ public class CharacterTouchHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ^ƒbƒ`‹@”\‚Ì–³Œø‰»
+    /// ã‚¿ãƒƒãƒæ©Ÿèƒ½ã®ç„¡åŠ¹åŒ–
     /// </summary>
     public void DisableTouchDetection()
     {
-        // UpdateŠÖ”‚ğ–³Œø‰»‚µ‚Äƒ^ƒbƒ`ŒŸo‚ğ’â~
+        // Updateé–¢æ•°ã‚’ç„¡åŠ¹åŒ–ã—ã¦ã‚¿ãƒƒãƒæ¤œå‡ºã‚’åœæ­¢
         enabled = false;
     }
 
     /// <summary>
-    /// ƒ|ƒCƒ“ƒ^[‚ªUI—v‘f‚Ìã‚É‚ ‚é‚©‚Ç‚¤‚©‚ğ”»’è
+    /// ãƒã‚¤ãƒ³ã‚¿ãƒ¼ãŒUIè¦ç´ ã®ä¸Šã«ã‚ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®š
     /// </summary>
     private bool IsPointerOverUI()
     {
-        // EventSystem‚ª‘¶İ‚·‚é‚©Šm”F
+        // EventSystemãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
         if (EventSystem.current == null)
             return false;
 
-        // ƒ|ƒCƒ“ƒ^[‚ªUI—v‘f‚Ìã‚É‚ ‚é‚©ƒ`ƒFƒbƒN (ƒ^ƒbƒ`‘Î‰”Å)
+        // ãƒã‚¤ãƒ³ã‚¿ãƒ¼ãŒUIè¦ç´ ã®ä¸Šã«ã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ (ã‚¿ãƒƒãƒå¯¾å¿œç‰ˆ)
         if (Input.touchCount > 0)
         {
             return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
         }
 
-        // ƒ}ƒEƒX—p‚Ìƒ`ƒFƒbƒN
+        // ãƒã‚¦ã‚¹ç”¨ã®ãƒã‚§ãƒƒã‚¯
         return EventSystem.current.IsPointerOverGameObject();
     }
 
     /// <summary>
-    /// —Ìˆæƒ^ƒbƒ`‚Ìˆ—
+    /// é ˜åŸŸã‚¿ãƒƒãƒæ™‚ã®å‡¦ç†
     /// </summary>
     public void OnAreaTouched(TouchArea area)
     {
-        Debug.Log($"Live2DƒLƒƒƒ‰ƒNƒ^[‚ª{area}ƒGƒŠƒA‚ÉG‚ê‚Ü‚µ‚½");
+        Debug.Log($"Live2Dã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãŒ{area}ã‚¨ãƒªã‚¢ã«è§¦ã‚Œã¾ã—ãŸ");
 
-        // —LŒø‚Èƒ^ƒbƒ`ƒGƒŠƒA‚É‘Î‚·‚é”½‰‚ğŒŸõ
+        // æœ‰åŠ¹ãªã‚¿ãƒƒãƒã‚¨ãƒªã‚¢ã«å¯¾ã™ã‚‹åå¿œã‚’æ¤œç´¢
         var validReactions = touchReactions.Where(r => r.area == area).ToArray();
 
         if (validReactions.Length > 0 && live2DController != null)
         {
-            // ƒ‰ƒ“ƒ_ƒ€‚É”½‰‚ğ‘I‘ğ
+            // ãƒ©ãƒ³ãƒ€ãƒ ã«åå¿œã‚’é¸æŠ
             var reaction = validReactions[Random.Range(0, validReactions.Length)];
 
             if (reaction.animationTriggers != null && reaction.animationTriggers.Length > 0)
             {
-                // ƒ‰ƒ“ƒ_ƒ€‚ÈƒAƒjƒ[ƒVƒ‡ƒ“ƒgƒŠƒK[‚ğ‘I‘ğ
-                string trigger = reaction.animationTriggers[
-                    Random.Range(0, reaction.animationTriggers.Length)];
+                // ç¾åœ¨ã®ã‚¹ãƒ†ãƒ¼ãƒˆã¨å¥½æ„Ÿåº¦ã«å¿œã˜ãŸã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãƒˆãƒªã‚¬ãƒ¼ã‚’é¸æŠ
+                // ç¾åœ¨ã®ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å–å¾—
+                var currentStateID = GameLoop.Instance.MainStateMachine.CurrentStateID;
 
-                // ƒ‚ƒfƒ‹ID‚Ì”»’è
-                string modelID = !string.IsNullOrEmpty(currentModelID) ?
-                                 currentModelID : live2DController.GetActiveModelID();
+                // ã‚¹ãƒ†ãƒ¼ãƒˆåˆ¥ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ™ãƒ¼ã‚¹
+                int stateBaseIndex = 0;
+                int voiceBaseIndex = 0;
 
-                if (!string.IsNullOrEmpty(modelID))
+                // ã‚¹ãƒ†ãƒ¼ãƒˆãŒDayãªã‚‰Weekday,Holidayã®ã©ã¡ã‚‰ã§ã‚ã‚‹ã‹ã‚’åˆ¤å®š
+                if (currentStateID == StateID.Day)
                 {
-                    // Live2DƒRƒ“ƒgƒ[ƒ‰[‚ÅƒAƒjƒ[ƒVƒ‡ƒ“Ä¶
-                    live2DController.PlayAnimation(modelID, trigger);
-                    Debug.Log($"ƒ‚ƒfƒ‹ '{modelID}' ‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ '{trigger}' ‚ğÄ¶‚µ‚Ä‚¢‚Ü‚·");
+                    // æ›œæ—¥åˆ¤å®šï¼ˆå¹³æ—¥ã‹ä¼‘æ—¥ã‹ï¼‰
+                    bool isWeekday = true;
+
+                    // StatusManagerã‹ã‚‰æ—¥ä»˜ã‚’å–å¾—ã—ã¦æ›œæ—¥ã‚’åˆ¤å®š
+                    if (StatusManager.Instance != null)
+                    {
+                        int day = StatusManager.Instance.GetStatus().day;
+                        int dayOfWeek = (day - 1) % 7; // 0-6ã®ç¯„å›²ï¼ˆ0ãŒ1æ—¥ç›®ã€1ãŒ2æ—¥ç›®...ï¼‰
+                        isWeekday = dayOfWeek >= 2;    // 2ä»¥ä¸Šï¼ˆ3æ—¥ç›®ä»¥é™ï¼‰ãŒå¹³æ—¥
+                    }
+
+                    // å¹³æ—¥ãªã‚‰0-4ã€ä¼‘æ—¥ãªã‚‰5-9ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ™ãƒ¼ã‚¹
+                    stateBaseIndex = isWeekday ? 0 : 5;
+                    // éŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚‚åŒæ§˜ã«è¨­å®š
+                    voiceBaseIndex = isWeekday ? reaction.weekdayBaseVoiceIndex : reaction.holidayBaseVoiceIndex;
+                }
+                else if (currentStateID == StateID.Night)
+                {
+                    // å¤œã®ã‚¹ãƒ†ãƒ¼ãƒˆãªã‚‰10-14ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ™ãƒ¼ã‚¹
+                    stateBaseIndex = 10;
+                    // å¤œã®éŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+                    voiceBaseIndex = reaction.nightBaseVoiceIndex;
+                }
+                else if (currentStateID == StateID.Evening)
+                {
+                    // å¤•æ–¹ã®å ´åˆã‚‚è€ƒæ…®ã™ã‚‹ï¼ˆä»®ã«å¹³æ—¥ã¨åŒã˜æ‰±ã„ï¼‰
+                    stateBaseIndex = 0;
+                    voiceBaseIndex = reaction.weekdayBaseVoiceIndex;
+                }
+
+                // å¥½æ„Ÿåº¦ã«åŸºã¥ã„ã¦ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’è¨ˆç®—
+                int affectionOffset = 0;
+                if (StatusManager.Instance != null)
+                {
+                    // å¥½æ„Ÿåº¦ã‚’å–å¾—
+                    int affection = StatusManager.Instance.GetStatus().affection;
+
+                    // å¥½æ„Ÿåº¦ã«å¿œã˜ã¦ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’æ±ºå®š
+                    if (affection < 30) affectionOffset = 0;
+                    else if (affection < 60) affectionOffset = 1;
+                    else if (affection < 90) affectionOffset = 2;
+                    else if (affection < 100) affectionOffset = 3;
+                    else affectionOffset = 4; // å¥½æ„Ÿåº¦ãŒ100ã®å ´åˆ
+                }
+
+                // æœ€çµ‚çš„ãªã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¨ˆç®—ï¼ˆã‚¹ãƒ†ãƒ¼ãƒˆãƒ™ãƒ¼ã‚¹ + å¥½æ„Ÿåº¦ã‚ªãƒ•ã‚»ãƒƒãƒˆï¼‰
+                int finalIndex = stateBaseIndex + affectionOffset;
+                // æœ€çµ‚çš„ãªéŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¨ˆç®—
+                int finalVoiceIndex = voiceBaseIndex + affectionOffset;
+
+                // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒé…åˆ—ã®ç¯„å›²å†…ã‹ãƒã‚§ãƒƒã‚¯
+                if (finalIndex < reaction.animationTriggers.Length)
+                {
+                    string trigger = reaction.animationTriggers[finalIndex];
+
+                    // ãƒ¢ãƒ‡ãƒ«IDã®åˆ¤å®š
+                    string modelID = !string.IsNullOrEmpty(currentModelID) ?
+                                    currentModelID : live2DController.GetActiveModelID();
+
+                    if (!string.IsNullOrEmpty(modelID) && !string.IsNullOrEmpty(trigger))
+                    {
+                        // Live2Dã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã§ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å†ç”Ÿ
+                        live2DController.PlayAnimation(modelID, trigger);
+                        Debug.Log($"ãƒ¢ãƒ‡ãƒ« '{modelID}' ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ '{trigger}' ã‚’å†ç”Ÿã—ã¦ã„ã¾ã™");
+
+                        // éŸ³å£°ã®å†ç”Ÿ
+                        if (SoundManager.Instance != null)
+                        {
+                            SoundManager.Instance.PlayMainVoice(finalVoiceIndex);
+                            Debug.Log($"éŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ {finalVoiceIndex} ã‚’å†ç”Ÿã—ã¦ã„ã¾ã™");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"ãƒ¢ãƒ‡ãƒ«ID '{modelID}' ã¾ãŸã¯ãƒˆãƒªã‚¬ãƒ¼ '{trigger}' ãŒç„¡åŠ¹ã§ã™");
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning("ƒAƒNƒeƒBƒu‚ÈLive2Dƒ‚ƒfƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+                    Debug.LogWarning($"è¨ˆç®—ã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ {finalIndex} ã¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãƒˆãƒªã‚¬ãƒ¼é…åˆ—ã®ç¯„å›²å¤–ã§ã™");
+
+                    // ç¯„å›²å¤–ã®å ´åˆã¯ãƒ©ãƒ³ãƒ€ãƒ ã§é¸ã¶ï¼ˆãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
+                    string trigger = reaction.animationTriggers[Random.Range(0, reaction.animationTriggers.Length)];
+                    string modelID = !string.IsNullOrEmpty(currentModelID) ?
+                                    currentModelID : live2DController.GetActiveModelID();
+
+                    if (!string.IsNullOrEmpty(modelID))
+                    {
+                        live2DController.PlayAnimation(modelID, trigger);
+                        Debug.Log($"ãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯: ãƒ¢ãƒ‡ãƒ« '{modelID}' ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ '{trigger}' ã‚’å†ç”Ÿã—ã¦ã„ã¾ã™");
+
+                        // ãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯æ™‚ã‚‚éŸ³å£°ã‚’å†ç”Ÿï¼ˆåŸºæœ¬ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ä½¿ç”¨ï¼‰
+                        if (SoundManager.Instance != null)
+                        {
+                            SoundManager.Instance.PlayMainVoice(voiceBaseIndex);
+                            Debug.Log($"ãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯: éŸ³å£°ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ {voiceBaseIndex} ã‚’å†ç”Ÿã—ã¦ã„ã¾ã™");
+                        }
+                    }
                 }
             }
         }
     }
 
     /// <summary>
-    /// ƒRƒ“ƒ|[ƒlƒ“ƒg”jŠü‚Ìˆ—
+    /// ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç ´æ£„æ™‚ã®å‡¦ç†
     /// </summary>
     private void OnDestroy()
     {
-        // ƒ^ƒbƒ`‹@”\‚ğ–³Œø‰»
+        // ã‚¿ãƒƒãƒæ©Ÿèƒ½ã‚’ç„¡åŠ¹åŒ–
         DisableTouchDetection();
 
-        // ó‘Ô‚ğƒŠƒZƒbƒg
+        // çŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
         isInitialized = false;
         hasRaycastablesSetup = false;
         raycastables.Clear();

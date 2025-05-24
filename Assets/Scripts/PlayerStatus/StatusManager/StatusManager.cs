@@ -13,6 +13,13 @@ public class StatusManager : Singleton<StatusManager>
 
     // ステータス更新時に発火するイベント
     public event Action OnStatusUpdated;
+
+    // 絶頂回数更新時に発火するイベント
+    public event Action OnOrgCountUpdated;
+
+    // 射精回数更新時に発火するイベント
+    public event Action OnEjaCountUpdated;
+
     // アクションポイント更新時に発火するイベント
     public event Action<int, int> OnActionPointUpdated; // 現在値, 最大値
 
@@ -85,9 +92,27 @@ public class StatusManager : Singleton<StatusManager>
         // affectionとloveを0〜100の範囲に制限
         playerStatus.affection = Mathf.Clamp(playerStatus.affection, 0, 100);
         playerStatus.love = Mathf.Clamp(playerStatus.love, 0, 100);
+        // moneyがマイナスにならないように制限
+        playerStatus.money = Mathf.Max(playerStatus.money, 0);
 
         // ステータスが更新されたことを通知
         OnStatusUpdated?.Invoke();
+    }
+
+    public void UpdateOrgCount()
+    {
+        playerStatus.orgCount++;
+
+        // 絶頂回数が更新されたことを通知
+        OnOrgCountUpdated?.Invoke();
+    }
+
+    public void UpdateEjaCount()
+    {
+        playerStatus.ejaCount++;
+
+        // 射精回数が更新されたことを通知
+        OnEjaCountUpdated?.Invoke();
     }
 
     // アイテムをリストに追加、既に存在する場合は数量を増加させる

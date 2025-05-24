@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 1
   eventName: "\u51FA\u4F1A\u3044"
-  eventDescription: 
+  eventDescription: "\u4E00\u756A\u6700\u521D\u306E\u30A4\u30D9\u30F3\u30C8"
   triggerTiming: 1
   conditions:
   - conditionType: 0
@@ -22,9 +22,8 @@ MonoBehaviour:
     paramName: 
     isGreaterThanOrEqual: 1
   nextStateID: 2
-  scenarioPath: 
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1
-  affectionChange: 1
-  loveChange: 1
-  moneyChange: 1
+  affectionChange: 0
+  loveChange: 0
+  moneyChange: 0

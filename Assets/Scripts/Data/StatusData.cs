@@ -12,6 +12,8 @@ public class StatusData
     public int day;         // 経過日数
     public int affection;   // 好感度
     public int love;        // H度
+    public int orgCount;    // 絶頂回数
+    public int ejaCount;    // 射精回数
     public int money;       // 所持金
     public int actionPoint; // 行動ポイント追加
     public string saveDate; // セーブ日時

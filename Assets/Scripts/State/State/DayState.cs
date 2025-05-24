@@ -39,10 +39,13 @@ public class DayState : StateBase, IPausableState
 
     public override void OnEnter()
     {
+        // ステートに入ったら現在の日付に1日加算
+        StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
+
         // 曜日判定など
         var day = StatusManager.Instance.GetStatus().day;
-        int dayOfWeek = day % 7;
-        isWeekday = (dayOfWeek != 1 && dayOfWeek != 7);
+        int dayOfWeek = (day - 1) % 7; // 0-6の範囲（0が1日目、1が2日目...）
+        isWeekday = dayOfWeek >= 2;    // 2以上（3日目以降）が平日
 
         // 平日/休日に応じたステートデータを選択
         activeStateData = isWeekday ? weekdayData : holidayData;
@@ -53,9 +56,6 @@ public class DayState : StateBase, IPausableState
 
         // イベント購読のセットアップ - 進行度更新とボタン状態更新のみに絞る
         SubscribeToEvents();
-
-        // ステートに入ったら現在の日付に1日加算
-        StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
 
         // MiniEventSelectionHandler コンポーネントの取得とイベントリスナーの設定
         MiniEventSelectionHandler miniEventHandler = GetComponent<MiniEventSelectionHandler>();
@@ -69,11 +69,19 @@ public class DayState : StateBase, IPausableState
         // 平日/休日に応じたイベント発火
         if (isWeekday)
         {
+            // Index 2~4 のBGMをランダムに再生
+            int randomIndex = Random.Range(2, 5);
+            SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
+
             weekDayStateEventSO?.Raise();
             Debug.Log("DayState: 今日は平日です。");
         }
         else
         {
+            // Index 2~4 のBGMをランダムに再生
+            int randomIndex = Random.Range(5, 8);
+            SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
+
             holiDayStateEventSO?.Raise();
             Debug.Log("DayState: 今日は休日です。");
         }
@@ -90,6 +98,9 @@ public class DayState : StateBase, IPausableState
     public override void OnExit()
     {
         Debug.Log("DayState: OnExit");
+
+        // BGMを停止
+        SoundManager.Instance.StopBGM();
 
         // イベント購読の解除
         UnsubscribeFromEvents();
@@ -112,6 +123,9 @@ public class DayState : StateBase, IPausableState
 
         // UI要素を非表示にする
         HideAllUI();
+
+        // BGMを停止
+        SoundManager.Instance.StopBGM();
     }
 
     public void OnResume()
@@ -124,6 +138,10 @@ public class DayState : StateBase, IPausableState
 
         // ボタン状態の更新
         UpdateButtonStates();
+
+        // Index 2~4 のBGMをランダムに再生
+        int randomIndex = Random.Range(5, 8);
+        SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
     }
 
     // 次のステートの取得メソッド

@@ -92,7 +92,7 @@ public class ShopItemButton : MonoBehaviour, IPointerClickHandler
     // クリック時の処理
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!interactable) return;
+        // if (!interactable) return;
 
         // クリックアニメーション
         AnimateButtonClick();

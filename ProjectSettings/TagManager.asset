@@ -9,6 +9,7 @@ TagManager:
   - NovelUIManager
   - Live2DModel
   - StatesContainer
+  - MessagePrinter
   layers:
   - Default
   - TransparentFX

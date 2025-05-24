@@ -16,6 +16,9 @@ public class ProgressManager : Singleton<ProgressManager>
     // イベントがunlockされた際に通知するイベント
     public event Action<int> OnEventUnlocked;
 
+    // イベント進捗が更新された際に通知するイベント（新規追加）
+    public event Action OnProgressUpdated;
+
     // イベント状態をStatusDataに保存
     public void SaveEventStatesToStatus(StatusData statusData)
     {
@@ -63,6 +66,7 @@ public class ProgressManager : Singleton<ProgressManager>
         eventStates[eventID] = EventState.Unlocked;
         Debug.Log($"ProgressManager: イベントID {eventID} の状態を Unlocked に設定");
         OnEventUnlocked?.Invoke(eventID);
+        OnProgressUpdated?.Invoke(); // 進捗更新イベントを発火
     }
 
     // イベントの状態をCompletedに設定
@@ -70,6 +74,7 @@ public class ProgressManager : Singleton<ProgressManager>
     {
         eventStates[eventID] = EventState.Completed;
         Debug.Log($"ProgressManager: イベントID {eventID} の状態を Completed に設定しました");
+        OnProgressUpdated?.Invoke(); // 進捗更新イベントを発火
     }
 
     // 新規追加メソッド：イベント状態の直接設定
@@ -77,6 +82,13 @@ public class ProgressManager : Singleton<ProgressManager>
     {
         eventStates[eventID] = state;
         Debug.Log($"ProgressManager: イベントID {eventID} の状態を {state} に設定しました");
+
+        // UnlockedまたはCompletedの場合は対応するイベントを発火
+        if (state == EventState.Unlocked)
+        {
+            OnEventUnlocked?.Invoke(eventID);
+        }
+        OnProgressUpdated?.Invoke(); // 進捗更新イベントを発火
     }
 
     // 新規追加メソッド：全イベントのリセット
@@ -84,5 +96,54 @@ public class ProgressManager : Singleton<ProgressManager>
     {
         eventStates.Clear();
         Debug.Log("ProgressManager: 全イベントの状態をリセットしました");
+        OnProgressUpdated?.Invoke(); // 進捗更新イベントを発火
+    }
+
+    // 新規追加メソッド：解放済み（UnlockedまたはCompleted）のイベント数を取得
+    public int GetUnlockedEventCount()
+    {
+        int count = 0;
+        foreach (var state in eventStates.Values)
+        {
+            if (state == EventState.Unlocked || state == EventState.Completed)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 新規追加メソッド：完了済み（Completed）のイベント数を取得
+    public int GetCompletedEventCount()
+    {
+        int count = 0;
+        foreach (var state in eventStates.Values)
+        {
+            if (state == EventState.Completed)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 新規追加メソッド：総イベント数を取得
+    public int GetTotalEventCount()
+    {
+        return eventStates.Count;
+    }
+
+    // 新規追加メソッド：特定の状態のイベント数を取得
+    public int GetEventCountByState(EventState targetState)
+    {
+        int count = 0;
+        foreach (var state in eventStates.Values)
+        {
+            if (state == targetState)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

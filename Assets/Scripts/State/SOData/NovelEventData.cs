@@ -21,7 +21,7 @@ public class NovelEventData : ScriptableObject
     public StateID nextStateID;             // イベント後に遷移するステートID
 
     [Header("リソース設定")]
-    public string scenarioPath;             // シナリオファイルへのパス
+    // public string scenarioPath;             // シナリオファイルへのパス
     public Sprite thumbnailImage;           // サムネイル画像（思い出一覧用）
     public bool unlockAsMemory = true;      // 思い出として解放するか
 

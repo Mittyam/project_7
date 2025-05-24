@@ -19,6 +19,35 @@ public class ShopManager : Singleton<ShopManager>
         }
     }
 
+    /// <summary>
+    /// MessagePrinterをタグ検索で取得してコンポーネントを設定する
+    /// </summary>
+    public void SetupMessagePrinter()
+    {
+        // "MessagePrinter"タグでオブジェクトを検索
+        GameObject messagePrinterObject = GameObject.FindWithTag("MessagePrinter");
+
+        if (messagePrinterObject != null)
+        {
+            // MessagePrinterコンポーネントを取得
+            messagePrinter = messagePrinterObject.GetComponent<MessagePrinter>();
+
+            if (messagePrinter != null)
+            {
+                Debug.Log($"ShopManager: MessagePrinterを正常に取得しました (オブジェクト: {messagePrinterObject.name})");
+            }
+            else
+            {
+                Debug.LogError($"ShopManager: オブジェクト '{messagePrinterObject.name}' にMessagePrinterコンポーネントが見つかりません");
+            }
+        }
+        else
+        {
+            Debug.LogError("ShopManager: 'MessagePrinter'タグを持つオブジェクトが見つかりません");
+        }
+    }
+
+
     // アイテムが購入済みかどうかをチェック
     public bool IsItemPurchased(int itemId)
     {
@@ -60,7 +89,7 @@ public class ShopManager : Singleton<ShopManager>
             ShowMessage($"{itemData.itemName}はすでに所持しています。");
 
             // 失敗音を鳴らす
-            // SoundManager.Instance.PlaySE(purchaseFailSound);
+            SoundManager.Instance.PlaySE(9);
 
             return false;
         }
@@ -71,7 +100,7 @@ public class ShopManager : Singleton<ShopManager>
             ShowMessage("所持金が足りません。");
 
             // 失敗音を鳴らす
-            // SoundManager.Instance.PlaySE(purchaseFailSound);
+            SoundManager.Instance.PlaySE(9);
 
             return false;
         }
@@ -85,7 +114,7 @@ public class ShopManager : Singleton<ShopManager>
         StatusManager.Instance.AddItem(newItem);
 
         // 購入成功音を鳴らす
-        // SoundManager.Instance.PlaySE(purchaseSuccessSound);
+        SoundManager.Instance.PlaySE(8);
 
         // 購入イベントを発火
         OnItemPurchased?.Invoke(itemId);
