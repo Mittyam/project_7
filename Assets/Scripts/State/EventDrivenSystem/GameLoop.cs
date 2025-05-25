@@ -41,6 +41,12 @@ public class GameLoop : Singleton<GameLoop>
         // 現在のシーン名を記録
         currentSceneName = SceneManager.GetActiveScene().name;
 
+        // メインシーン以外では処理をスキップ
+        if (currentSceneName != "MainScene" || !isInitialized)
+        {
+            return;
+        }
+
         // StatesContainerの取得（既存のコード）
         if (statesContainer == null)
         {
@@ -92,12 +98,6 @@ public class GameLoop : Singleton<GameLoop>
         }
     }
 
-    private void OnDestroy()
-    {
-        // イベントリスナーの解除（メモリリーク防止）
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
     // シーン読み込み完了時に呼ばれるイベントハンドラ
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -118,6 +118,8 @@ public class GameLoop : Singleton<GameLoop>
                 CheckAndStartNewGame();
             }
         }
+
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     // ゲームコンポーネントの初期化（メインシーン専用）
