@@ -213,7 +213,7 @@ public class GameLoop : Singleton<GameLoop>
         yield return new WaitForEndOfFrame();
 
         // EventID = 1のイベントデータを取得
-        NovelEventData firstEvent = Resources.Load<NovelEventData>("Events/1.出会い");
+        NovelEventData firstEvent = Resources.Load<NovelEventData>("Events/Event1");
 
         if (firstEvent == null)
         {

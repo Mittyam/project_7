@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainStateMachine : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class MainStateMachine : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        // メインシーン以外では処理をスキップ
+        if (SceneManager.GetActiveScene().name != "MainScene")
+        {
+            return;
+        }
+
         if (currentState != null && currentState.gameObject.activeSelf)
         {
             currentState.OnUpdate();

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PushdownStateMachine : MonoBehaviour
 {
@@ -141,6 +142,12 @@ public class PushdownStateMachine : MonoBehaviour
     // 現在のトップステートを更新する
     public void Update()
     {
+        // メインシーン以外では処理をスキップ
+        if (SceneManager.GetActiveScene().name != "MainScene")
+        {
+            return;
+        }
+
         if (!IsEmpty)
         {
             IState currentState = stateStack.Peek();
