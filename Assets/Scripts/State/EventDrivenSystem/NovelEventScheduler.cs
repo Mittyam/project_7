@@ -40,8 +40,6 @@ public class NovelEventScheduler : MonoBehaviour
 
             eventTable[eventData.triggerTiming].Add(eventData);
         }
-
-        Debug.Log($"NovelEventScheduler: イベントをロードしました");
     }
 
     /// <summary>

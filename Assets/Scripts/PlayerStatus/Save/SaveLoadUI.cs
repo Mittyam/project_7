@@ -70,7 +70,6 @@ public class SaveLoadUI : Singleton<SaveLoadUI>
     // シーン読み込み時のイベントハンドラ
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"SaveLoadUI: シーン '{scene.name}' が読み込まれました。カメラを再設定します");
         // シーンが変わったらカメラを再設定
         SetupCamera();
     }

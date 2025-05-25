@@ -5,7 +5,7 @@ public class MainStateMachine : MonoBehaviour
 {
     // 現在のステート
     private IState currentState;
-    private StateID currentStateID;
+    private StateID currentStateID = StateID.None;
 
     // currentStateを外部へ公開するためのプロパティ
     public IState CurrentState => currentState;
