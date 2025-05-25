@@ -111,7 +111,7 @@ public class DayState : StateBase, IPausableState
         // UIの非表示化
         HideAllUI();
 
-        // ここでエンディング判定などの処理があれば追加
+        // ここでエンディング判定などの処理があれば追加 
 
         // 次のステートに移行する前に新たなノベルイベントの発火チェックをするならここで
         EventTriggerChecker.Check(TriggerTiming.DayToEvening);
