@@ -16,9 +16,6 @@ public class GameLoop : Singleton<GameLoop>
     [Header("UI Settings")]
     [SerializeField] private Camera mainUICamera; // UI表示用メインカメラ
 
-    [Header("Initial Settings")]
-    [SerializeField] private bool startFromTitle = true;
-
     // プロパティ定義
     public PushdownStateMachine PushdownStack => pushdownStack;
     public MainStateMachine MainStateMachine => mainStateMachine;
@@ -51,6 +48,33 @@ public class GameLoop : Singleton<GameLoop>
             if (statesContainer == null)
             {
                 Debug.LogError("GameLoop: StatesContainerが見つかりません");
+            }
+        }
+
+        if (pushdownStack == null)
+        {
+            pushdownStack = FindObjectOfType<PushdownStateMachine>();
+            if (pushdownStack == null)
+            {
+                Debug.LogError("GameLoop: StatesContainerが見つかりません");
+            }
+        }
+
+        if (mainStateMachine == null)
+        {
+            mainStateMachine = FindObjectOfType<MainStateMachine>();
+            if (mainStateMachine == null)
+            {
+                Debug.LogError("GameLoop: StatesContainerが見つかりません");
+            }
+        }
+
+        if (novelEventScheduler == null)
+        {
+            novelEventScheduler = FindObjectOfType<NovelEventScheduler>();
+            if (novelEventScheduler == null)
+            {
+                Debug.LogError("GameLoop: NovelEventSchedulerが見つかりません");
             }
         }
 
@@ -122,6 +146,81 @@ public class GameLoop : Singleton<GameLoop>
                 else
                 {
                     Debug.LogError("GameLoop: StatesContainerが見つかりません");
+                }
+            }
+        }
+
+        // PushdownStackの再取得
+        if (pushdownStack == null)
+        {
+            // まずはオブジェクト名で検索
+            GameObject pushdownStackObj = GameObject.Find("PushdownStateMachine");
+            if (pushdownStackObj != null)
+            {
+                pushdownStack = pushdownStackObj.GetComponent<PushdownStateMachine>();
+                Debug.Log("GameLoop: PushdownStateMachineをオブジェクト名で再取得しました");
+            }
+            else
+            {
+                // オブジェクト名で見つからない場合は型で検索
+                pushdownStack = FindObjectOfType<PushdownStateMachine>();
+                if (pushdownStack != null)
+                {
+                    Debug.Log("GameLoop: PushdownStateMachineを型で再取得しました");
+                }
+                else
+                {
+                    Debug.LogError("GameLoop: PushdownStateMachineが見つかりません");
+                }
+            }
+        }
+
+        // MainStateMachineの再取得
+        if (mainStateMachine == null)
+        {
+            // まずはオブジェクト名で検索
+            GameObject mainStateMachineObj = GameObject.Find("MainStateMachine");
+            if (mainStateMachineObj != null)
+            {
+                mainStateMachine = mainStateMachineObj.GetComponent<MainStateMachine>();
+                Debug.Log("GameLoop: MainStateMachineをオブジェクト名で再取得しました");
+            }
+            else
+            {
+                // オブジェクト名で見つからない場合は型で検索
+                mainStateMachine = FindObjectOfType<MainStateMachine>();
+                if (mainStateMachine != null)
+                {
+                    Debug.Log("GameLoop: MainStateMachineを型で再取得しました");
+                }
+                else
+                {
+                    Debug.LogError("GameLoop: MainStateMachineが見つかりません");
+                }
+            }
+        }
+
+        // NovelEventSchedulerの再取得
+        if (novelEventScheduler == null)
+        {
+            // まずはオブジェクト名で検索
+            GameObject novelEventSchedulerObj = GameObject.Find("NovelEventScheduler");
+            if (novelEventSchedulerObj != null)
+            {
+                novelEventScheduler = novelEventSchedulerObj.GetComponent<NovelEventScheduler>();
+                Debug.Log("GameLoop: NovelEventSchedulerをオブジェクト名で再取得しました");
+            }
+            else
+            {
+                // オブジェクト名で見つからない場合は型で検索
+                novelEventScheduler = FindObjectOfType<NovelEventScheduler>();
+                if (novelEventScheduler != null)
+                {
+                    Debug.Log("GameLoop: NovelEventSchedulerを型で再取得しました");
+                }
+                else
+                {
+                    Debug.LogError("GameLoop: NovelEventSchedulerが見つかりません");
                 }
             }
         }
@@ -216,7 +315,7 @@ public class GameLoop : Singleton<GameLoop>
         yield return new WaitForEndOfFrame();
 
         // EventID = 1のイベントデータを取得
-        NovelEventData firstEvent = Resources.Load<NovelEventData>("Events/Event1");
+        NovelEventData firstEvent = Resources.Load<NovelEventData>("Events/1.出会い");
 
         if (firstEvent == null)
         {
@@ -369,9 +468,6 @@ public class GameLoop : Singleton<GameLoop>
         SetUICameraToState(statesContainer.GetMainState(StateID.Day) as StateBase);
         SetUICameraToState(statesContainer.GetMainState(StateID.Evening) as StateBase);
         SetUICameraToState(statesContainer.GetMainState(StateID.Night) as StateBase);
-
-        // 必要に応じてミニイベントステートなど他のステートにも設定
-        Debug.Log("GameLoop: 全ステートにUIカメラを設定しました");
     }
 
     // 個別ステートへのカメラ設定ヘルパーメソッド

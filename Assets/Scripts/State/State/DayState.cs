@@ -74,7 +74,6 @@ public class DayState : StateBase, IPausableState
             SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
 
             weekDayStateEventSO?.Raise();
-            Debug.Log("DayState: 今日は平日です。");
         }
         else
         {
@@ -83,7 +82,6 @@ public class DayState : StateBase, IPausableState
             SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
 
             holiDayStateEventSO?.Raise();
-            Debug.Log("DayState: 今日は休日です。");
         }
 
         // Live2Dモデルを初期化して表示
@@ -390,7 +388,6 @@ public class DayState : StateBase, IPausableState
                     stateData.live2DData != null && stateData.live2DData.enableTouch)
                 {
                     SetupLive2DTouchHandler(activeLive2DModel);
-                    Debug.Log($"モデル オブジェクトが見つかり、ハンドラーがアタッチされました: {modelObject.name}");
                 }
             }
             else

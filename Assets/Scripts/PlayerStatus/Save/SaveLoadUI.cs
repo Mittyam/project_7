@@ -87,8 +87,6 @@ public class SaveLoadUI : Singleton<SaveLoadUI>
             slotPanelCanvas.renderMode = RenderMode.ScreenSpaceCamera;
             slotPanelCanvas.worldCamera = mainCamera;
             slotPanelCanvas.planeDistance = planeDistance;
-
-            Debug.Log($"SaveLoadUI: Canvas {slotPanel.name} のレンダーモードをScreenSpaceCamera、カメラを {mainCamera.name} に設定しました");
         }
         else if (slotPanelCanvas != null && mainCamera == null)
         {

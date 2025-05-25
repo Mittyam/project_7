@@ -29,12 +29,6 @@ public static class ConditionEvaluator
             var value = StatusManager.Instance.GetStatus().day;
             return c.isGreaterThanOrEqual ? value >= c.threshold : value <= c.threshold;
         }},
-
-        // ステート判定
-        { ConditionType.CheckState    ,  c => {
-            var current = StateMachine.Instance.CurrentState;
-            return string.Equals(current, c.paramName, StringComparison.Ordinal);
-        }},
     };
 
     /// <summary>
