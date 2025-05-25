@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // シーン管理用に追加
-using System.Collections; // IEnumeratorを使用するため
 
 public class GameLoop : Singleton<GameLoop>
 {
@@ -17,6 +16,9 @@ public class GameLoop : Singleton<GameLoop>
     [Header("UI Settings")]
     [SerializeField] private Camera mainUICamera; // UI表示用メインカメラ
 
+    [Header("Initial Settings")]
+    [SerializeField] private bool startFromTitle = true;
+
     // プロパティ定義
     public PushdownStateMachine PushdownStack => pushdownStack;
     public MainStateMachine MainStateMachine => mainStateMachine;
@@ -26,6 +28,7 @@ public class GameLoop : Singleton<GameLoop>
 
     // シーン管理用の変数
     private string currentSceneName;
+    private string lastSceneName = "";
     private bool isInitialized = false;
 
     // 新規ゲーム開始フラグ
