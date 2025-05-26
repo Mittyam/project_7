@@ -9,12 +9,11 @@ public class SaveSlotManager : Singleton<SaveSlotManager>
     public SaveSlotUI[] saveSlotUIs;
 
     // シーン名を取得するため
-    private string currentSceneName;
+    // private string currentSceneName;
 
     private void Start()
     {
         // 現在のシーン名を取得
-        currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         RefreshSlots();
     }
 
@@ -61,7 +60,7 @@ public class SaveSlotManager : Singleton<SaveSlotManager>
             }
 
             // ここからデータが存在する場合の処理
-            if (currentSceneName == "TitleScene" || SceneManager.GetActiveScene().name == "TitleScene")
+            if (SceneManager.GetActiveScene().name == "TitleScene")
             {
                 // タイトル画面でロードした場合
                 // 選択されたスロット情報をPlayerPrefsに保存

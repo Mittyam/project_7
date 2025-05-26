@@ -28,6 +28,7 @@ public class UIEventPublisher : MonoBehaviour
         TouchSelect,        // タッチ選択ボタン
         ItemSelect,         // アイテム選択ボタン
         MemoryEventSelect,  // 思い出イベント選択ボタン
+        None,
 
         // 追加のイベントタイプをここに追加
     }

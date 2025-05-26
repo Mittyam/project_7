@@ -463,7 +463,7 @@ MonoBehaviour:
     seIndex: -1
     bgmIndex: -1
     imagePath: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -474,8 +474,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    live2DModelID: deletemodel
+    imagePath: "\u6905\u5B50"
+    live2DModelID: 
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -1448,7 +1448,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u6905\u5B50\u6A2A"
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -1736,10 +1736,10 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
+    imagePath: deleteimage
+    live2DModelID: "\u624B\u30B3\u30AD"
+    live2DScale: 12.5
+    live2DPosition: 0,0.28
     live2DAnimTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -1944,7 +1944,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: speed1
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 47
