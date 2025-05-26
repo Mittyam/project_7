@@ -41,6 +41,7 @@ public class DayState : StateBase, IPausableState
     {
         // ステートに入ったら現在の日付に1日加算
         StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
+        StatusManager.Instance.RecoverDailyActionPoints();
 
         // 曜日判定など
         var day = StatusManager.Instance.GetStatus().day;

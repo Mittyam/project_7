@@ -69,6 +69,10 @@ public class SaveSlotManager : Singleton<SaveSlotManager>
                 PlayerPrefs.SetInt("ShouldLoadOnStart", 1);
                 PlayerPrefs.Save();
 
+                // MainScene内でのロード
+                StatusManager.Instance.LoadStatus(slotName);
+                RefreshSlots();
+
                 // ロードパネルを閉じる
                 if (SaveLoadUI.Instance != null)
                 {

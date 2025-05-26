@@ -29,6 +29,7 @@ public class NightState : StateBase, IPausableState
     public override void OnEnter()
     {
         Debug.Log("NightStateに入ります。");
+        StatusManager.Instance.RecoverDailyActionPoints();
 
         // UI要素のセットアップと表示
         SetupUI();

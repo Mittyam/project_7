@@ -25,11 +25,11 @@ public class GameLoop : Singleton<GameLoop>
 
     // シーン管理用の変数
     private string currentSceneName;
-    private string lastSceneName = "";
     private bool isInitialized = false;
 
-    // 新規ゲーム開始フラグ
-    private static bool isNewGameStart = false;
+    // クラスのフィールドに追加
+    private static bool isLoadedFromTitle = false;
+    private static StateID loadedStateID = StateID.None;
 
     private void Awake()
     {
@@ -120,6 +120,14 @@ public class GameLoop : Singleton<GameLoop>
         }
 
         currentSceneName = SceneManager.GetActiveScene().name;
+    }
+
+    // タイトルからロードされたことを記録するメソッドを追加
+    public static void SetLoadedStateFromTitle(StateID stateID)
+    {
+        isLoadedFromTitle = true;
+        loadedStateID = stateID;
+        Debug.Log($"GameLoop: タイトルからのロード状態を記録 - StateID: {stateID}");
     }
 
     // ゲームコンポーネントの初期化（メインシーン専用）
@@ -235,7 +243,6 @@ public class GameLoop : Singleton<GameLoop>
             if (mainCameraObj != null)
             {
                 mainUICamera = mainCameraObj.GetComponent<Camera>();
-                Debug.Log("GameLoop: MainCameraを再取得しました");
             }
             else
             {
@@ -244,7 +251,6 @@ public class GameLoop : Singleton<GameLoop>
                 if (mainCameraObj != null)
                 {
                     mainUICamera = mainCameraObj.GetComponent<Camera>();
-                    Debug.Log("GameLoop: MainCameraをタグで再取得しました");
                 }
                 else
                 {
@@ -256,7 +262,31 @@ public class GameLoop : Singleton<GameLoop>
         if (mainStateMachine != null && !isInitialized && statesContainer != null)
         {
             isInitialized = true;
-            mainStateMachine.Initialize(StateID.Day);
+
+            // ロードされたデータがある場合はそのステートで初期化
+            StateID initialStateID = StateID.Day; // デフォルトはDay
+
+            if (isLoadedFromTitle && loadedStateID != StateID.None)
+            {
+                initialStateID = loadedStateID;
+                Debug.Log($"GameLoop: タイトルからロードされたステート {loadedStateID} で初期化します");
+
+                // フラグをリセット
+                isLoadedFromTitle = false;
+                loadedStateID = StateID.None;
+            }
+            else if (StatusManager.Instance != null && StatusManager.Instance.GetStatus() != null)
+            {
+                // StatusManagerに保存されたステートIDがあればそれを使用
+                var savedState = StatusManager.Instance.GetStatus().savedStateID;
+                if (savedState != StateID.None)
+                {
+                    initialStateID = savedState;
+                    Debug.Log($"GameLoop: 保存されたステート {savedState} で初期化します");
+                }
+            }
+
+            mainStateMachine.Initialize(initialStateID);
 
             // UIカメラが取得できていれば各ステートに設定
             if (mainUICamera != null)

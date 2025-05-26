@@ -19,6 +19,7 @@ public class StatusData
     public string saveDate; // セーブ日時
     public List<ItemData> ownedItems = new List<ItemData>();
     public List<EventStateData> eventStates = new List<EventStateData>();
+
     public StateID savedStateID = StateID.None; // セーブ時のメインステートID
 }
 

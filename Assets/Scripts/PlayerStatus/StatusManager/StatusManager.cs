@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class StatusManager : Singleton<StatusManager>
 {
@@ -23,15 +25,28 @@ public class StatusManager : Singleton<StatusManager>
     // アクションポイント更新時に発火するイベント
     public event Action<int, int> OnActionPointUpdated; // 現在値, 最大値
 
+    // 現在のシーン名を取得
+    private string currentSceneName; //SceneManager.GetActiveScene().name
+
     protected override void Awake()
     {
         base.Awake();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        currentSceneName = SceneManager.GetActiveScene().name;
 
         // 新規ゲーム開始時の初期化
         if (playerStatus == null)
         {
             Initialize();
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // シーン遷移後にカメラを再取得
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     // 初期化
@@ -88,12 +103,6 @@ public class StatusManager : Singleton<StatusManager>
         playerStatus.affection += affection;
         playerStatus.love += love;
         playerStatus.money += money;
-
-        // 日付が変わった場合は行動ポイントを回復
-        if (day > 0)
-        {
-            RecoverDailyActionPoints();
-        }
 
         // affectionとloveを0〜100の範囲に制限
         playerStatus.affection = Mathf.Clamp(playerStatus.affection, 0, 100);
@@ -238,11 +247,17 @@ public class StatusManager : Singleton<StatusManager>
 
             // ロード後、保存されていたステートへ遷移
             StateID loadedStateID = playerStatus.savedStateID;
-            if (loadedStateID != StateID.None && GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
-            {
-                // 現在のシーン名を取得
-                string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
+            // TitleSceneからロードした場合
+            if (currentSceneName == "TitleScene" && loadedStateID != StateID.None)
+            {
+                // GameLoopにロードされたステートを通知
+                GameLoop.SetLoadedStateFromTitle(loadedStateID);
+                Debug.Log($"TitleSceneからのロード: ステート {loadedStateID} を記録しました!!!!!!!!!!!!!!!!");
+            }
+            // MainSceneでロードした場合（既存の処理）
+            else if (loadedStateID != StateID.None && GameLoop.Instance != null && GameLoop.Instance.MainStateMachine != null)
+            {
                 // MainSceneの場合のみステート遷移を行う
                 if (currentSceneName == "MainScene")
                 {
@@ -305,5 +320,11 @@ public class StatusManager : Singleton<StatusManager>
             return currentState == StateID.Day || currentState == StateID.Night;
         }
         return false;
+    }
+
+    private void OnDestroy()
+    {
+        // シーン遷移イベントの解除
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
