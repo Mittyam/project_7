@@ -84,6 +84,8 @@ public class MiniEventState : StateBase, IPausableState
     {
         Debug.Log($"MiniEventState: {stateData?.displayName} を終了します");
 
+        ShouldAdvanceMainStateOnCompletion = false; // 終了時にフラグをリセット
+
         // ステータス変化の適用
         ApplyStatusChanges();
 

@@ -21,7 +21,7 @@ MonoBehaviour:
     threshold: 30
     paramName: 
     isGreaterThanOrEqual: 1
-  nextStateID: 2
+  nextStateID: 0
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1
   affectionChange: 0

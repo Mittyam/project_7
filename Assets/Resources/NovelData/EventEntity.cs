@@ -11,6 +11,7 @@ public class EventEntity
     public int seIndex = -1;
     public int bgmIndex = -1;
     public string imagePath;
+    public string isImageFade = "";
 
     public string live2DModelID = "";                   // モデルのリソースパス 
     public float live2DScale = 1.0f;                    // 表示倍率

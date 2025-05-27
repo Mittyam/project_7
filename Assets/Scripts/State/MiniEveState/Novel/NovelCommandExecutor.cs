@@ -84,7 +84,8 @@ public class NovelCommandExecutor : MonoBehaviour
             // 背景画像処理
             if (!string.IsNullOrEmpty(entity.imagePath))
             {
-                yield return HandleImageChange(entity.imagePath);
+                bool shouldFade = DetermineShouldFade(entity.isImageFade);
+                yield return HandleImageChange(entity.imagePath, shouldFade);
             }
 
             // ボイス音声処理
@@ -192,26 +193,36 @@ public class NovelCommandExecutor : MonoBehaviour
         return false;
     }
 
-    private IEnumerator HandleImageChange(string imagePath)
+    private IEnumerator HandleImageChange(string imagePath, bool shouldFade = true)
     {
         if (novelState?.BackgroundImage == null) yield break;
 
-        // 既存の画像のスプライト情報を取得
+        // 現在のスプライトを取得  
         Sprite previousSprite = novelState.BackgroundImage.sprite;
 
-        // "deleteImage" の場合は画像を削除
+        // "deleteImage" の場合、画像を削除  
         if (imagePath.ToLower() == "deleteimage")
         {
             if (previousSprite != null)
             {
-                // フェードアウトで画像を消去
-                yield return FadeOutImage(novelState.BackgroundImage, fadeOutDuration);
+                if (shouldFade)
+                {
+                    // フェードアウトで画像を削除  
+                    yield return FadeOutImage(novelState.BackgroundImage, fadeOutDuration);
+                }
+                else
+                {
+                    // 即座に画像を削除  
+                    Color color = novelState.BackgroundImage.color;
+                    color.a = 0f;
+                    novelState.BackgroundImage.color = color;
+                }
             }
             novelState.BackgroundImage.sprite = null;
             yield break;
         }
 
-        // Resourcesから画像を読み込み
+        // Resourcesから画像をロード  
         Sprite newSprite = Resources.Load<Sprite>($"Images/{imagePath}");
 
         if (newSprite == null)
@@ -220,19 +231,31 @@ public class NovelCommandExecutor : MonoBehaviour
             yield break;
         }
 
-        // 実際に画像が表示されているかをチェック（単にspriteがnullでない場合と、実際に表示中の場合を区別）
+        // 現在の画像が表示されているかをチェック  
         bool hasVisibleImage = previousSprite != null && novelState.BackgroundImage.color.a > 0f;
 
-        if (hasVisibleImage && previousSprite != newSprite)
+        if (shouldFade)
         {
-            // 異なる画像が既に表示されている場合はクロスフェード
-            yield return CrossFadeImages(novelState.BackgroundImage, previousSprite, newSprite, crossFadeDuration);
+            // フェードありの場合  
+            if (hasVisibleImage && previousSprite != newSprite)
+            {
+                // 現在の画像が異なる場合はクロスフェード  
+                yield return CrossFadeImages(novelState.BackgroundImage, previousSprite, newSprite, crossFadeDuration);
+            }
+            else
+            {
+                // 新規画像をフェードイン  
+                novelState.BackgroundImage.sprite = newSprite;
+                yield return FadeInImage(novelState.BackgroundImage, fadeInDuration);
+            }
         }
         else
         {
-            // 新規表示の場合、または同じ画像を再表示する場合はフェードイン
+            // フェードなしの場合（即座に切り替え）  
             novelState.BackgroundImage.sprite = newSprite;
-            yield return FadeInImage(novelState.BackgroundImage, fadeInDuration);
+            Color color = novelState.BackgroundImage.color;
+            color.a = 1f;
+            novelState.BackgroundImage.color = color;
         }
     }
 
@@ -446,5 +469,26 @@ public class NovelCommandExecutor : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// isImageFadeの文字列からフェードの有無を判定
+    /// </summary>
+    private bool DetermineShouldFade(string isImageFade)
+    {
+        // 空文字列の場合はtrueとして扱う
+        if (string.IsNullOrEmpty(isImageFade))
+        {
+            return true;
+        }
+
+        // "false"（大文字小文字区別なし）の場合のみfalse
+        if (isImageFade.ToLower() == "false")
+        {
+            return false;
+        }
+
+        // それ以外の文字列は無視してtrueを返す
+        return true;
     }
 }

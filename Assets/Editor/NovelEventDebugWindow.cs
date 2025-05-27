@@ -302,6 +302,17 @@ public class NovelEventDebugWindow : EditorWindow
     {
         if (!Application.isPlaying) return;
 
+        // NovelCommandExecutorを取得
+        var commandExecutor = GameObject.FindObjectOfType<NovelCommandExecutor>();
+        if (commandExecutor == null)
+        {
+            Debug.LogError("NovelEventDebugger: NovelCommandExecutorが見つかりません。");
+            return;
+        }
+
+        // NovelCommandExecutorのInitializeメソッドを呼び出して初期化
+        commandExecutor.Initialize();
+
         var gameLoop = GameLoop.Instance;
         if (gameLoop != null && !gameLoop.PushdownStack.IsEmpty)
         {

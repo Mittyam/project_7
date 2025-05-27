@@ -15,7 +15,7 @@ MonoBehaviour:
   eventID: 2
   eventName: "\u30D0\u30B0"
   eventDescription: 
-  triggerTiming: 3
+  triggerTiming: 1
   conditions:
   - conditionType: 0
     threshold: 20
