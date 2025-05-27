@@ -26,7 +26,7 @@ public class NovelCommandExecutor : MonoBehaviour
     [SerializeField] private float parameterTransitionTime = 0.5f; // パラメータ遷移時間
 
     private NovelState.PlaybackMode playbackMode = NovelState.PlaybackMode.Click;
-    private float autoAdvanceDelay = 2.0f;
+    private float autoAdvanceDelay = 3.0f;
     private string currentModelID = ""; // 現在表示中のLive2DモデルID
 
     private void Awake()
@@ -156,6 +156,9 @@ public class NovelCommandExecutor : MonoBehaviour
                         {
                             break;
                         }
+
+                        yield return new WaitForSeconds(0.3f);
+
                         yield break;
                     }
                     break;
