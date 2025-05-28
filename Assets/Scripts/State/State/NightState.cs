@@ -311,7 +311,7 @@ public class NightState : StateBase, IPausableState
         }
     }
 
-    // タッチハンドラーをアタッチするメソッド
+    // タッチハンドラーをアタッチするメソッド - 強化版
     private void SetupLive2DTouchHandler(GameObject live2DModel)
     {
         if (live2DModel == null)
@@ -321,7 +321,7 @@ public class NightState : StateBase, IPausableState
         }
 
         // モデルオブジェクトの情報を詳細にログ出力
-        Debug.Log($"Setting up touch handler for model: {live2DModel.name}, " +
+        Debug.Log($"モデルのタッチハンドラーを設定: {live2DModel.name}, " +
                   $"Active: {live2DModel.activeSelf}, " +
                   $"Path: {GetGameObjectPath(live2DModel)}");
 
@@ -329,18 +329,17 @@ public class NightState : StateBase, IPausableState
         CharacterTouchHandler existingHandler = live2DModel.GetComponent<CharacterTouchHandler>();
         if (existingHandler != null)
         {
-            Debug.Log("Removing existing touch handler");
             DestroyImmediate(existingHandler);
         }
 
         // 新規にハンドラーをアタッチ
         CharacterTouchHandler touchHandler = live2DModel.AddComponent<CharacterTouchHandler>();
 
-        // 即座に初期化を実行
+        // 即座に初期化を実行（コルーチンのタイミングに依存しない）
         if (touchHandler != null)
         {
             touchHandler.Initialize(currentModelID);
-            Debug.Log("Touch handler successfully attached and initialized");
+            // Debug.Log("Touch handler successfully attached and initialized");
         }
         else
         {

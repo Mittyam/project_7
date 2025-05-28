@@ -229,6 +229,7 @@ public class CharacterTouchHandler : MonoBehaviour
                     {
                         // 対応するタッチ領域が見つかった
                         OnAreaTouched(mapping.touchArea);
+                        Debug.Log("!!!!!!!!!!!!!!!");
                         return; // 最初に一致したもので反応
                     }
                 }
@@ -330,11 +331,11 @@ public class CharacterTouchHandler : MonoBehaviour
                     int affection = StatusManager.Instance.GetStatus().affection;
 
                     // 好感度に応じてオフセットを決定
-                    if (affection < 30) affectionOffset = 0;
-                    else if (affection < 60) affectionOffset = 1;
-                    else if (affection < 90) affectionOffset = 2;
-                    else if (affection < 100) affectionOffset = 3;
-                    else affectionOffset = 4; // 好感度が100の場合
+                    if (affection < 40) affectionOffset = 0;
+                    else if (affection < 80) affectionOffset = 1;
+                    else if (affection < 120) affectionOffset = 2;
+                    else if (affection < 160) affectionOffset = 3;
+                    else affectionOffset = 4;
                 }
 
                 // 最終的なインデックスを計算（ステートベース + 好感度オフセット）

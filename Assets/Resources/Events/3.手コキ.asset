@@ -18,10 +18,14 @@ MonoBehaviour:
   triggerTiming: 1
   conditions:
   - conditionType: 0
-    threshold: 30
+    threshold: 40
     paramName: 
     isGreaterThanOrEqual: 1
-  nextStateID: 0
+  - conditionType: 1
+    threshold: 40
+    paramName: 
+    isGreaterThanOrEqual: 1
+  nextStateID: 2
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1
   affectionChange: 0

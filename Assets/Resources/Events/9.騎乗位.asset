@@ -18,7 +18,7 @@ MonoBehaviour:
   triggerTiming: 0
   conditions:
   - conditionType: 0
-    threshold: 90
+    threshold: 160
     paramName: 
     isGreaterThanOrEqual: 1
   nextStateID: 0

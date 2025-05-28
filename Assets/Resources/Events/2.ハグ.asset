@@ -21,6 +21,10 @@ MonoBehaviour:
     threshold: 20
     paramName: 
     isGreaterThanOrEqual: 1
+  - conditionType: 1
+    threshold: 20
+    paramName: 
+    isGreaterThanOrEqual: 1
   nextStateID: 2
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1

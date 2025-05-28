@@ -105,8 +105,9 @@ public class StatusManager : Singleton<StatusManager>
         playerStatus.money += money;
 
         // affectionとloveを0〜100の範囲に制限
-        playerStatus.affection = Mathf.Clamp(playerStatus.affection, 0, 100);
-        playerStatus.love = Mathf.Clamp(playerStatus.love, 0, 100);
+        // 体験版なので35までにする
+        playerStatus.affection = Mathf.Clamp(playerStatus.affection, 0, 50);
+        playerStatus.love = Mathf.Clamp(playerStatus.love, 0, 50);
         // moneyがマイナスにならないように制限
         playerStatus.money = Mathf.Max(playerStatus.money, 0);
 

@@ -44,7 +44,7 @@ public class ItemDatabase : Singleton<ItemDatabase>
             1,
             "ちょっとエッチな本",
             1000,
-            "図書館で一緒に読むとエッチ度が１上がります。",
+            "図書館で一緒に読むとH度が１上がります。",
             false,   // 消費されない
             false,    // 一度だけ購入可能
             ItemData.ItemType.Book,
@@ -58,7 +58,7 @@ public class ItemDatabase : Singleton<ItemDatabase>
             2,
             "凄くエッチな本",
             2500,
-            "図書館で一緒に読むとエッチ度が３上がります。",
+            "図書館で一緒に読むとH度が３上がります。",
             false,   // 消費されない
             false,    // 一度だけ購入可能
             ItemData.ItemType.Book,
@@ -72,12 +72,12 @@ public class ItemDatabase : Singleton<ItemDatabase>
             3,
             "恋愛小説",
             2000,
-            "図書館で一緒に読むと好感度が２上がります。",
+            "図書館で一緒に読むと好感度が１、H度が２上がります。",
             false,   // 消費されない
             false,    // 一度だけ購入可能
             ItemData.ItemType.Book,
             1,    // 好感度上昇ボーナス
-            1,    // H度上昇ボーナス
+            2,    // H度上昇ボーナス
             0     // お金上昇ボーナス
         ));
 
@@ -86,7 +86,7 @@ public class ItemDatabase : Singleton<ItemDatabase>
             4,
             "エッチなゲーム",
             6000,
-            "使用するとエッチ度が３上がります。",
+            "使用すると好感度が１、H度が３上がります。",
             true,   // 消費されない
             true,    // 一度だけ購入可能
             ItemData.ItemType.Game,
