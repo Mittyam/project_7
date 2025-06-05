@@ -45,8 +45,8 @@ public class ItemDatabase : Singleton<ItemDatabase>
             "ちょっとエッチな本",
             1000,
             "図書館で一緒に読むとH度が１上がります。",
-            false,   // 消費されない
-            false,    // 一度だけ購入可能
+            false,   // 消費される
+            false,    // 再度購入可能
             ItemData.ItemType.Book,
             0,    // 好感度上昇ボーナス
             1,    // H度上昇ボーナス
@@ -59,8 +59,8 @@ public class ItemDatabase : Singleton<ItemDatabase>
             "凄くエッチな本",
             2500,
             "図書館で一緒に読むとH度が３上がります。",
-            false,   // 消費されない
-            false,    // 一度だけ購入可能
+            false,   // 消費される
+            false,    // 再度購入可能
             ItemData.ItemType.Book,
             0,    // 好感度上昇ボーナス
             3,    // H度上昇ボーナス
@@ -73,8 +73,8 @@ public class ItemDatabase : Singleton<ItemDatabase>
             "恋愛小説",
             2000,
             "図書館で一緒に読むと好感度が１、H度が２上がります。",
-            false,   // 消費されない
-            false,    // 一度だけ購入可能
+            false,   // 消費される
+            false,    // 再度購入可能
             ItemData.ItemType.Book,
             1,    // 好感度上昇ボーナス
             2,    // H度上昇ボーナス
@@ -105,6 +105,32 @@ public class ItemDatabase : Singleton<ItemDatabase>
             true,    // 一度だけ購入可能
             ItemData.ItemType.Game,
             3,    // 好感度上昇ボーナス
+            0,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
+        ));
+
+        allItems.Add(new ItemData(
+            6,
+            "精力剤",
+            3000,
+            "使用すると射精までの時間が短縮されます。",
+            false,   // 消費される
+            false,    // 再度購入可能
+            ItemData.ItemType.Medicine,  // 薬
+            0,    // 好感度上昇ボーナス
+            0,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
+        ));
+
+        allItems.Add(new ItemData(
+            7,
+            "媚薬",
+            3000,
+            "使用すると絶頂までの時間が短縮されます。",
+            false,   // 消費される
+            false,    // 再度購入可能
+            ItemData.ItemType.Medicine,  // 薬
+            1,    // 好感度上昇ボーナス
             0,    // H度上昇ボーナス
             0     // お金上昇ボーナス
         ));
