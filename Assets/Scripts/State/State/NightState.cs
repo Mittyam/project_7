@@ -29,7 +29,7 @@ public class NightState : StateBase, IPausableState
     public override void OnEnter()
     {
         Debug.Log("NightStateに入ります。");
-        StatusManager.Instance.RecoverDailyActionPoints();
+        StatusManager.Instance.OnStateChanged();
 
         // UI要素のセットアップと表示
         SetupUI();
@@ -215,7 +215,7 @@ public class NightState : StateBase, IPausableState
                 live2DController.ShowModel(
                     currentModelID,
                     live2DData.scale,
-                    live2DData.position.ToString()
+                    $"{live2DData.position.x},{live2DData.position.y}"
                 );
 
                 // アニメーション再生

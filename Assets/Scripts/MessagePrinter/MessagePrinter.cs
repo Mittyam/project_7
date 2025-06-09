@@ -76,6 +76,8 @@ public class MessagePrinter : MonoBehaviour
     {
         messageText.text = ""; // 表示をリセット
 
+        int seCounter = 0; // SEカウンター初期化
+
         // ConfigUIManagerから文字送り速度を取得
         float characterDelay = ConfigUIManager.Instance.TextSpeed;
 
@@ -83,6 +85,13 @@ public class MessagePrinter : MonoBehaviour
         foreach (char c in message)
         {
             messageText.text += c;
+
+            if (seCounter % 2 == 0)
+            { // 2文字ごとにSEを鳴らす
+                SoundManager.Instance.PlaySE(11);
+            }
+            seCounter++;
+
             yield return new WaitForSeconds(characterDelay);
         }
 

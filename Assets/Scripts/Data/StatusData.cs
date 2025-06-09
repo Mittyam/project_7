@@ -14,6 +14,12 @@ public class StatusData
     public int love;        // H度
     public int orgCount;    // 絶頂回数
     public int ejaCount;    // 射精回数
+
+    public int maxEjaCount = 1;
+    public int maxOrgCount = 2;
+    public int stateEjaCount = 0;   // 各ステートの射精回数
+    public int stateOrgCount = 0;   // 各ステートの絶頂回数
+
     public int money;       // 所持金
     public int actionPoint; // 行動ポイント追加
     public string saveDate; // セーブ日時

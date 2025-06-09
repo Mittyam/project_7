@@ -59,6 +59,18 @@ public class ItemManager : Singleton<ItemManager>
         // アイテムの種類によって効果を分岐
         switch (itemData.itemType)
         {
+            case ItemData.ItemType.Medicine:
+                if (itemId == 6)
+                {
+                    StatusManager.Instance.UpdateMaxEjaCount(2);
+                    Debug.Log($"{itemData.itemName}を使用しました。射精回数上限を2回増やしました。");
+                }
+                else if (itemId == 7)
+                {
+                    StatusManager.Instance.UpdateMaxOrgCount(3);
+                    Debug.Log($"{itemData.itemName}を使用しました。絶頂回数上限を3回増やしました。");
+                }
+                break;
             case ItemData.ItemType.Accessory:
                 // アクセサリーの効果例：好感度を上げる
                 StatusManager.Instance.UpdateStatus(0, 5, 0, 0);

@@ -13,6 +13,8 @@ public class StatusManager : Singleton<StatusManager>
     [SerializeField] private int maxActionPoints = 3;
     [SerializeField] private int dailyActionPointRecovery = 3;
 
+    
+
     // ステータス更新時に発火するイベント
     public event Action OnStatusUpdated;
 
@@ -49,7 +51,7 @@ public class StatusManager : Singleton<StatusManager>
         currentSceneName = SceneManager.GetActiveScene().name;
     }
 
-    // 初期化
+    // 初期化メソッドを拡張
     public void Initialize()
     {
         playerStatus = new StatusData
@@ -61,7 +63,11 @@ public class StatusManager : Singleton<StatusManager>
             actionPoint = maxActionPoints,
             saveDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
             ownedItems = new List<ItemData>(),
-            eventStates = new List<EventStateData>()
+            eventStates = new List<EventStateData>(),
+            maxEjaCount = 1,    // デフォルト1回
+            maxOrgCount = 2,    // デフォルト2回
+            stateEjaCount = 0,
+            stateOrgCount = 0
         };
     }
 
@@ -75,14 +81,22 @@ public class StatusManager : Singleton<StatusManager>
         return playerStatus.actionPoint >= amount;
     }
 
-    // 日付が変わったときにアクションポイントを回復する
-    public void RecoverDailyActionPoints()
+    // 既存のUpdateStatusメソッド内または日付変更時に呼び出す
+    public void OnStateChanged()
+    {
+        ResetStateCounts();         // State変更時に射精・絶頂回数をリセット
+        RecoverStateActionPoints(); // State変更時にアクションポイントを回復
+        // その他の日付変更時の処理
+    }
+
+    // Stateが変わったときにアクションポイントを回復する
+    public void RecoverStateActionPoints()
     {
         playerStatus.actionPoint = Mathf.Min(playerStatus.actionPoint + dailyActionPointRecovery, maxActionPoints);
         OnActionPointUpdated?.Invoke(playerStatus.actionPoint, maxActionPoints);
     }
 
-    // 既存のConsumeActionPointメソッドも残しておく
+    // アクションポイントを消費する
     public bool ConsumeActionPoint(int amount)
     {
         if (playerStatus.actionPoint >= amount)
@@ -115,12 +129,17 @@ public class StatusManager : Singleton<StatusManager>
         OnStatusUpdated?.Invoke();
     }
 
-    public void UpdateOrgCount()
+    // 射精可能かチェックして、可能なら回数を増やす
+    public bool CheckAndUpdateEjaCount()
     {
-        playerStatus.orgCount++;
-
-        // 絶頂回数が更新されたことを通知
-        OnOrgCountUpdated?.Invoke();
+        if (playerStatus.stateEjaCount < playerStatus.maxEjaCount)
+        {
+            playerStatus.stateEjaCount++;
+            // 累計射精回数も増やす
+            UpdateEjaCount();
+            return true;
+        }
+        return false;
     }
 
     public void UpdateEjaCount()
@@ -129,6 +148,63 @@ public class StatusManager : Singleton<StatusManager>
 
         // 射精回数が更新されたことを通知
         OnEjaCountUpdated?.Invoke();
+    }
+
+    // 絶頂可能かチェックして、可能なら回数を増やす
+    public bool CheckAndUpdateOrgCount()
+    {
+        if (playerStatus.stateOrgCount < playerStatus.maxOrgCount)
+        {
+            playerStatus.stateOrgCount++;
+            // 累計絶頂回数も増やす
+            UpdateOrgCount();
+            return true;
+        }
+        return false;
+    }
+
+    public void UpdateOrgCount()
+    {
+        playerStatus.orgCount++;
+
+        // 絶頂回数が更新されたことを通知
+        OnOrgCountUpdated?.Invoke();
+    }
+
+    // 射精回数の上限を更新
+    public void UpdateMaxEjaCount(int newMax)
+    {
+        playerStatus.maxEjaCount += newMax;
+        Debug.Log($"射精回数の上限が{newMax}回に変更されました");
+    }
+
+    // 絶頂回数の上限を更新
+    public void UpdateMaxOrgCount(int newMax)
+    {
+        playerStatus.maxOrgCount += newMax;
+        Debug.Log($"絶頂回数の上限が{newMax}回に変更されました");
+    }
+
+    // 日付変更時に射精・絶頂回数をリセット
+    public void ResetStateCounts()
+    {
+        playerStatus.stateEjaCount = 0;
+        playerStatus.stateOrgCount = 0;
+        playerStatus.maxEjaCount = 1;  // デフォルト値に戻す
+        playerStatus.maxOrgCount = 2;  // デフォルト値に戻す
+        Debug.Log("日付変更により射精・絶頂回数がリセットされました");
+    }
+
+    // 残りの射精回数を取得
+    public int GetRemainingEjaCount()
+    {
+        return Mathf.Max(0, playerStatus.maxEjaCount - playerStatus.stateEjaCount);
+    }
+
+    // 残りの絶頂回数を取得
+    public int GetRemainingOrgCount()
+    {
+        return Mathf.Max(0, playerStatus.maxOrgCount - playerStatus.stateOrgCount);
     }
 
     // アイテムをリストに追加、既に存在する場合は数量を増加させる

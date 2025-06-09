@@ -41,7 +41,7 @@ public class DayState : StateBase, IPausableState
     {
         // ステートに入ったら現在の日付に1日加算
         StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
-        StatusManager.Instance.RecoverDailyActionPoints();
+        StatusManager.Instance.OnStateChanged();
 
         // 曜日判定など
         var day = StatusManager.Instance.GetStatus().day;
@@ -320,7 +320,7 @@ public class DayState : StateBase, IPausableState
                 live2DController.ShowModel(
                     currentModelID,
                     live2DData.scale,
-                    live2DData.position.ToString()
+                    $"{live2DData.position.x},{live2DData.position.y}"
                 );
 
                 // モデル参照取得を確実に遅延させるためのコルーチンを開始

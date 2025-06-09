@@ -17,6 +17,11 @@ public class StateDebugWindow : EditorWindow
     private Vector2 saveListScrollPosition; // セーブリスト用のスクロール位置
     private bool showSaveLoadSection = true; // セーブ・ロードセクションの折りたたみ状態
 
+    // ProgressManager関連の変数
+    private bool showProgressSection = true; // ProgressManagerセクションの折りたたみ状態
+    private Vector2 progressScrollPosition; // イベントリスト用のスクロール位置
+    private Dictionary<int, string> eventNames = new Dictionary<int, string>(); // イベントID to 名前のマッピング
+
     // メインステート表示用
     private Dictionary<StateID, string> stateDisplayNames = new Dictionary<StateID, string>()
     {
@@ -36,6 +41,10 @@ public class StateDebugWindow : EditorWindow
         { StateID.PartJob, "バイト" },
         { StateID.Walk, "散歩" },
         { StateID.Game, "ゲーム" },
+        { StateID.Bath, "お風呂" },
+        { StateID.Touch, "お触り" },
+        { StateID.item, "アイテム" },
+        { StateID.Sleep, "睡眠" }
     };
 
     [MenuItem("Tools/State Debug Window")]
@@ -172,6 +181,9 @@ public class StateDebugWindow : EditorWindow
 
         // セーブ・ロードセクションを追加
         DrawSaveLoadSection();
+
+        // ProgressManagerセクションを追加
+        DrawProgressManagerSection();
     }
 
     // セーブ・ロードセクションの描画
@@ -359,6 +371,168 @@ public class StateDebugWindow : EditorWindow
                 Debug.LogWarning($"スロット「{saveSlotName}」のセーブデータが見つかりません。");
                 EditorUtility.DisplayDialog("エラー", $"スロット「{saveSlotName}」のセーブデータが見つかりません。", "OK");
             }
+        }
+    }
+
+    // ProgressManagerセクションの描画
+    private void DrawProgressManagerSection()
+    {
+        GUILayout.Space(10);
+
+        // 折りたたみヘッダー
+        showProgressSection = EditorGUILayout.Foldout(showProgressSection, "イベント進行管理", true, EditorStyles.foldoutHeader);
+
+        if (!showProgressSection)
+            return;
+
+        GUILayout.BeginVertical("box");
+
+        // ProgressManagerの存在確認
+        ProgressManager progressManager = ProgressManager.Instance;
+        if (progressManager == null)
+        {
+            EditorGUILayout.HelpBox("ProgressManagerが見つかりません。", MessageType.Error);
+            GUILayout.EndVertical();
+            return;
+        }
+
+        // 全体の統計情報
+        int totalEvents = progressManager.GetTotalEventCount();
+        int unlockedEvents = progressManager.GetUnlockedEventCount();
+        int completedEvents = progressManager.GetCompletedEventCount();
+
+        EditorGUILayout.LabelField("イベント統計:", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField($"総イベント数: {totalEvents}");
+        EditorGUILayout.LabelField($"解放済み: {unlockedEvents}");
+        EditorGUILayout.LabelField($"完了済み: {completedEvents}");
+
+        GUILayout.Space(5);
+
+        // 全イベントを一括操作するボタン
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("全イベントを解放", GUILayout.Height(25)))
+        {
+            UnlockAllEvents();
+        }
+        if (GUILayout.Button("全イベントを完了", GUILayout.Height(25)))
+        {
+            CompleteAllEvents();
+        }
+        if (GUILayout.Button("全イベントをリセット", GUILayout.Height(25)))
+        {
+            ResetAllEvents();
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.Space(10);
+
+        // 個別イベントの制御
+        EditorGUILayout.LabelField("個別イベント制御:", EditorStyles.boldLabel);
+
+        progressScrollPosition = EditorGUILayout.BeginScrollView(progressScrollPosition, GUILayout.Height(200));
+
+        // 既知のイベントID（1-20まで表示、必要に応じて拡張可能）
+        for (int eventId = 1; eventId <= 20; eventId++)
+        {
+            DrawEventControl(eventId);
+        }
+
+        EditorGUILayout.EndScrollView();
+
+        GUILayout.EndVertical();
+    }
+
+    // 個別イベントのコントロールを描画
+    private void DrawEventControl(int eventId)
+    {
+        EventState currentState = ProgressManager.Instance.GetEventState(eventId);
+
+        GUILayout.BeginHorizontal("box");
+
+        // イベントID表示
+        EditorGUILayout.LabelField($"イベント {eventId}:", GUILayout.Width(80));
+
+        // 現在の状態を色付きで表示
+        Color originalColor = GUI.color;
+        switch (currentState)
+        {
+            case EventState.Locked:
+                GUI.color = Color.gray;
+                break;
+            case EventState.Unlocked:
+                GUI.color = Color.yellow;
+                break;
+            case EventState.Completed:
+                GUI.color = Color.green;
+                break;
+        }
+
+        EditorGUILayout.LabelField(currentState.ToString(), GUILayout.Width(80));
+        GUI.color = originalColor;
+
+        // 状態変更ボタン
+        GUI.enabled = currentState != EventState.Locked;
+        if (GUILayout.Button("ロック", GUILayout.Width(60)))
+        {
+            ProgressManager.Instance.SetEventState(eventId, EventState.Locked);
+        }
+
+        GUI.enabled = currentState != EventState.Unlocked;
+        if (GUILayout.Button("解放", GUILayout.Width(60)))
+        {
+            ProgressManager.Instance.SetEventState(eventId, EventState.Unlocked);
+        }
+
+        GUI.enabled = currentState != EventState.Completed;
+        if (GUILayout.Button("完了", GUILayout.Width(60)))
+        {
+            ProgressManager.Instance.SetEventState(eventId, EventState.Completed);
+        }
+
+        GUI.enabled = true;
+
+        GUILayout.EndHorizontal();
+    }
+
+    // 全イベントを解放
+    private void UnlockAllEvents()
+    {
+        if (EditorUtility.DisplayDialog("確認",
+            "すべてのイベントを解放状態にしますか？",
+            "解放", "キャンセル"))
+        {
+            for (int i = 1; i <= 20; i++)
+            {
+                ProgressManager.Instance.SetEventState(i, EventState.Unlocked);
+            }
+            Debug.Log("StateDebugWindow: すべてのイベントを解放しました");
+        }
+    }
+
+    // 全イベントを完了
+    private void CompleteAllEvents()
+    {
+        if (EditorUtility.DisplayDialog("確認",
+            "すべてのイベントを完了状態にしますか？",
+            "完了", "キャンセル"))
+        {
+            for (int i = 1; i <= 20; i++)
+            {
+                ProgressManager.Instance.SetEventState(i, EventState.Completed);
+            }
+            Debug.Log("StateDebugWindow: すべてのイベントを完了しました");
+        }
+    }
+
+    // 全イベントをリセット
+    private void ResetAllEvents()
+    {
+        if (EditorUtility.DisplayDialog("確認",
+            "すべてのイベントをロック状態に戻しますか？",
+            "リセット", "キャンセル"))
+        {
+            ProgressManager.Instance.ResetAllEvents();
+            Debug.Log("StateDebugWindow: すべてのイベントをリセットしました");
         }
     }
 }

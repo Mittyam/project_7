@@ -57,17 +57,11 @@ public class GameEventHandler : MonoBehaviour
         });
     }
 
-    // 触れ合いボタン押下時の処理
+    // お触りボタン押下時の処理
     private void OnTouchButtonClicked(GameEvents.TouchButtonClicked eventData)
     {
         // 触れ合いはTouchStateに直接遷移（アクションポイント消費なし）
         GameLoop.Instance.PushMiniEvent(StateID.Touch);
-
-        // ボタン状態更新リクエスト
-        //TypedEventManager.Instance.Publish(new GameEvents.ButtonStateUpdateRequested
-        //{
-        //    CurrentStateID = GameLoop.Instance.MainStateMachine.CurrentStateID
-        //});
     }
 
     // アイテムボタン押下時の処理
@@ -99,8 +93,6 @@ public class GameEventHandler : MonoBehaviour
     // 閉じるボタン押下時の処理
     private void OnCloseButtonClicked(GameEvents.CloseButtonClicked eventData)
     {
-        // 閉じるボタンの処理（必要に応じて実装）
-        // Debug.Log($"閉じるボタンが押されました: {eventData.SourcePanelName}");
     }
 
     #endregion
