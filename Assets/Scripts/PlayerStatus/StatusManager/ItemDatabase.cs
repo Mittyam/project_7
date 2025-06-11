@@ -130,7 +130,33 @@ public class ItemDatabase : Singleton<ItemDatabase>
             false,   // 消費される
             false,    // 再度購入可能
             ItemData.ItemType.Medicine,  // 薬
-            1,    // 好感度上昇ボーナス
+            0,    // 好感度上昇ボーナス
+            0,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
+        ));
+
+        allItems.Add(new ItemData(
+            8,
+            "ローター",
+            3000,
+            "使用すると絶頂までの時間が短縮されます。",
+            true,   // 消費されない
+            true,    // 一度だけ購入可能
+            ItemData.ItemType.Toy,  // アクセサリー
+            0,    // 好感度上昇ボーナス
+            0,    // H度上昇ボーナス
+            0     // お金上昇ボーナス
+        ));
+
+        allItems.Add(new ItemData(
+            9,
+            "アイマスク",
+            2000,
+            "差分でアイマスクを表示出来るようになります。",
+            true,   // 消費されない
+            true,    // 一度だけ購入可能
+            ItemData.ItemType.Toy,  // アクセサリー
+            0,    // 好感度上昇ボーナス
             0,    // H度上昇ボーナス
             0     // お金上昇ボーナス
         ));

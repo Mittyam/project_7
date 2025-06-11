@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using static GameEvents;
 
 /// <summary>
 /// 夜ステート
 /// ・ステータス更新
-/// ・昼ならではのサブイベントの判定など
+/// ・夜ならではのサブイベントの判定など
 /// </summary>
 public class NightState : StateBase, IPausableState
 {
@@ -19,12 +20,22 @@ public class NightState : StateBase, IPausableState
     [Header("Events")]
     [SerializeField] private GameEvent nightStateEventSO;
 
+    [Header("Bath Button Settings")]
+    [SerializeField] private string bathButtonTag = "BathButton"; // お風呂ボタンのタグ
+    [SerializeField] private int bathEventID = 7; // お風呂イベントのID
+    private GameObject bathButton; // お風呂ボタンのGameObject（動的に取得）
+
     // Live2D関連フィールド追加
     private GameObject activeLive2DModel; // アクティブなLive2Dモデルへの参照
     private string currentModelID; // 現在表示中のモデルID
 
     // UI生成状態管理用フラグ
     private bool isUICreated = false;
+
+    // お風呂ボタン関連のコンポーネント参照
+    private UIEventPublisher bathEventPublisher;
+    private UISoundHandler bathSoundHandler;
+    private Image bathButtonImage;
 
     public override void OnEnter()
     {
@@ -35,6 +46,9 @@ public class NightState : StateBase, IPausableState
         SetupUI();
         ShowNightUI();
 
+        // お風呂ボタンの状態を更新
+        UpdateBathButtonState();
+
         // Index 2~4 のBGMをランダムに再生
         int randomIndex = Random.Range(8, 11);
         SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
@@ -44,11 +58,14 @@ public class NightState : StateBase, IPausableState
 
         // Live2Dモデルを初期化して表示
         SetupLive2DModel();
+
+        // ProgressManagerのイベント更新を監視
+        ProgressManager.Instance.OnProgressUpdated += OnProgressUpdated;
     }
 
     public override void OnUpdate()
     {
-        
+
     }
 
     public override void OnExit()
@@ -66,6 +83,9 @@ public class NightState : StateBase, IPausableState
 
         // UIの非表示化
         HideAllUI();
+
+        // イベント監視を解除
+        ProgressManager.Instance.OnProgressUpdated -= OnProgressUpdated;
 
         // 次の日への移行なので、ここでのノベルイベントチェック
         EventTriggerChecker.Check(TriggerTiming.NightToDay);
@@ -89,6 +109,9 @@ public class NightState : StateBase, IPausableState
         SetupUI();
         ShowNightUI();
 
+        // お風呂ボタンの状態を更新
+        UpdateBathButtonState();
+
         // Index 2~4 のBGMをランダムに再生
         int randomIndex = Random.Range(8, 11);
         SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
@@ -99,6 +122,199 @@ public class NightState : StateBase, IPausableState
     {
         return stateData != null ? stateData.nextStateID : StateID.Day;
     }
+
+    #region --- お風呂ボタン関連メソッド ---
+
+    // タグを使用してお風呂ボタンを検索
+    private void FindBathButton()
+    {
+        // タグでお風呂ボタンを検索
+        bathButton = GameObject.FindWithTag(bathButtonTag);
+
+        if (bathButton == null)
+        {
+            // タグで見つからない場合は、少し待ってから再試行するコルーチンを開始
+            StartCoroutine(DelayedFindBathButton());
+        }
+        else
+        {
+            Debug.Log($"NightState: お風呂ボタンを発見しました - {bathButton.name}");
+            // コンポーネント参照を初期化
+            InitializeBathButtonReferences();
+        }
+    }
+
+    // 遅延してお風呂ボタンを検索するコルーチン
+    private IEnumerator DelayedFindBathButton()
+    {
+        float maxWaitTime = 2.0f; // 最大待機時間
+        float elapsedTime = 0f;
+        float checkInterval = 0.1f; // チェック間隔
+
+        while (elapsedTime < maxWaitTime)
+        {
+            yield return new WaitForSeconds(checkInterval);
+            elapsedTime += checkInterval;
+
+            bathButton = GameObject.FindWithTag(bathButtonTag);
+            if (bathButton != null)
+            {
+                Debug.Log($"NightState: お風呂ボタンを遅延検索で発見しました - {bathButton.name}");
+                InitializeBathButtonReferences();
+                UpdateBathButtonState();
+                yield break;
+            }
+        }
+
+        Debug.LogWarning($"NightState: タグ '{bathButtonTag}' のお風呂ボタンが見つかりませんでした");
+    }
+
+    // お風呂ボタンのコンポーネント参照を取得
+    private void InitializeBathButtonReferences()
+    {
+        if (bathButton == null)
+        {
+            Debug.LogWarning("NightState: bathButtonが設定されていません");
+            return;
+        }
+
+        // 各コンポーネントの参照を取得
+        bathEventPublisher = bathButton.GetComponent<UIEventPublisher>();
+        bathSoundHandler = bathButton.GetComponent<UISoundHandler>();
+
+        // BathImageという名前の子オブジェクトからImageコンポーネントを取得
+        Transform bathImageTransform = bathButton.transform.Find("BathImage");
+        if (bathImageTransform != null)
+        {
+            bathButtonImage = bathImageTransform.GetComponent<Image>();
+        }
+        else
+        {
+            // GetComponentInChildrenで深い階層も含めて検索
+            bathButtonImage = bathButton.GetComponentInChildren<Image>();
+        }
+
+        if (bathEventPublisher == null)
+            Debug.LogWarning("NightState: UIEventPublisherが見つかりません");
+        if (bathSoundHandler == null)
+            Debug.LogWarning("NightState: UISoundHandlerが見つかりません");
+        if (bathButtonImage == null)
+            Debug.LogWarning("NightState: Imageコンポーネントが見つかりません");
+    }
+
+    // お風呂ボタンの状態を更新
+    private void UpdateBathButtonState()
+    {
+        // お風呂ボタンがまだ見つかっていない場合は検索を試みる
+        if (bathButton == null)
+        {
+            FindBathButton();
+            return;
+        }
+
+        // コンポーネント参照を初期化（まだ取得していない場合）
+        if (bathEventPublisher == null || bathSoundHandler == null || bathButtonImage == null)
+        {
+            InitializeBathButtonReferences();
+        }
+
+        // ProgressManagerからイベント7の状態を取得
+        EventState eventState = ProgressManager.Instance.GetEventState(bathEventID);
+
+        if (eventState == EventState.Completed)
+        {
+            // Completedの場合：ボタンを有効化
+            SetBathButtonCompleted();
+        }
+        else
+        {
+            // Complete前の場合：ボタンを無効化
+            SetBathButtonLocked();
+        }
+
+        Debug.Log($"NightState: お風呂ボタンの状態を更新 - Event {bathEventID} : {eventState}");
+    }
+
+    // お風呂ボタンをCompleted状態に設定
+    private void SetBathButtonCompleted()
+    {
+        // UIEventPublisher設定
+        if (bathEventPublisher != null)
+        {
+            bathEventPublisher.SetProperties(
+                UIEventPublisher.EventType.BathSelect,
+                0, // itemID
+                "", // itemName
+                0, // actionPointCost
+                "" // panelName
+            );
+        }
+
+        // UISoundHandler設定
+        if (bathSoundHandler != null)
+        {
+            bathSoundHandler.SetClickSoundType(UISoundHandler.SoundType.Minimal5);
+            bathSoundHandler.SetHoverSoundType(UISoundHandler.SoundType.start); // ホバー音も設定
+        }
+
+        // Image Color設定（白色）
+        if (bathButtonImage != null)
+        {
+            bathButtonImage.color = new Color(255f / 255f, 255f / 255f, 255f / 255f, 1f);
+        }
+
+        // ボタンは常に有効（interactableは変更しない）
+        Button buttonComponent = bathButton.GetComponent<Button>();
+        if (buttonComponent != null)
+        {
+            buttonComponent.interactable = true;
+        }
+    }
+
+    // お風呂ボタンをLocked状態に設定
+    private void SetBathButtonLocked()
+    {
+        // UIEventPublisher設定
+        if (bathEventPublisher != null)
+        {
+            bathEventPublisher.SetProperties(
+                UIEventPublisher.EventType.None,
+                0, // itemID
+                "", // itemName
+                0, // actionPointCost
+                "" // panelName
+            );
+        }
+
+        // UISoundHandler設定
+        if (bathSoundHandler != null)
+        {
+            bathSoundHandler.SetClickSoundType(UISoundHandler.SoundType.Cancel);
+            bathSoundHandler.SetHoverSoundType(UISoundHandler.SoundType.start); // ホバー音は通常の音
+        }
+
+        // Image Color設定（グレー）
+        if (bathButtonImage != null)
+        {
+            bathButtonImage.color = new Color(180f / 255f, 180f / 255f, 180f / 255f, 1f);
+        }
+
+        // ボタンは常に有効にして、見た目だけグレーにする
+        Button buttonComponent = bathButton.GetComponent<Button>();
+        if (buttonComponent != null)
+        {
+            buttonComponent.interactable = true; // 常にtrueにする
+        }
+    }
+
+    // ProgressManagerの更新イベントハンドラ
+    private void OnProgressUpdated()
+    {
+        // お風呂ボタンの状態を更新
+        UpdateBathButtonState();
+    }
+
+    #endregion
 
     #region --- UI関連メソッド ---
 
@@ -135,6 +351,9 @@ public class NightState : StateBase, IPausableState
 
             Debug.Log("NightState: UIプレハブを生成し、カメラ設定を適用しました");
         }
+
+        // UIが生成された後、お風呂ボタンを検索
+        FindBathButton();
 
         // 夜特有のUI設定や状態更新があればここで実行
         // 例: 夜の雰囲気エフェクト適用など

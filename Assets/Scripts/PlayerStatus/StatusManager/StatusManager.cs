@@ -175,6 +175,7 @@ public class StatusManager : Singleton<StatusManager>
     public void UpdateMaxEjaCount(int newMax)
     {
         playerStatus.maxEjaCount += newMax;
+        OnEjaCountUpdated?.Invoke();
         Debug.Log($"射精回数の上限が{newMax}回に変更されました");
     }
 
@@ -182,6 +183,7 @@ public class StatusManager : Singleton<StatusManager>
     public void UpdateMaxOrgCount(int newMax)
     {
         playerStatus.maxOrgCount += newMax;
+        OnOrgCountUpdated?.Invoke();
         Debug.Log($"絶頂回数の上限が{newMax}回に変更されました");
     }
 
