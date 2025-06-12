@@ -3,6 +3,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using static GameEvents;
 
+// 服装タイプのEnum（Live2DControllerと共有）
+public enum ClothingType
+{
+    Casual,     // 私服
+    Pajamas     // パジャマ
+}
+
 /// <summary>
 /// 夜ステート
 /// ・ステータス更新
@@ -25,6 +32,9 @@ public class NightState : StateBase, IPausableState
     [SerializeField] private int bathEventID = 7; // お風呂イベントのID
     private GameObject bathButton; // お風呂ボタンのGameObject（動的に取得）
 
+    [Header("Live2D Controller")]
+    [SerializeField] private Live2DController live2DController; // Live2Dモデルを制御するコンポーネント
+
     // Live2D関連フィールド追加
     private GameObject activeLive2DModel; // アクティブなLive2Dモデルへの参照
     private string currentModelID; // 現在表示中のモデルID
@@ -37,10 +47,14 @@ public class NightState : StateBase, IPausableState
     private UISoundHandler bathSoundHandler;
     private Image bathButtonImage;
 
+
     public override void OnEnter()
     {
         Debug.Log("NightStateに入ります。");
         StatusManager.Instance.OnStateChanged();
+
+        // StatusManagerに服装状態管理を有効化
+        StatusManager.Instance.EnableClothingState();
 
         // UI要素のセットアップと表示
         SetupUI();
@@ -59,8 +73,17 @@ public class NightState : StateBase, IPausableState
         // Live2Dモデルを初期化して表示
         SetupLive2DModel();
 
+        // StatusManagerから服装状態を取得して適用
+        ApplyClothingFromStatusManager();
+
         // ProgressManagerのイベント更新を監視
         ProgressManager.Instance.OnProgressUpdated += OnProgressUpdated;
+
+        // StatusManagerの服装変更イベントを購読
+        if (StatusManager.Instance != null)
+        {
+            StatusManager.Instance.OnClothingStateChanged += OnClothingStateChanged;
+        }
     }
 
     public override void OnUpdate()
@@ -71,6 +94,9 @@ public class NightState : StateBase, IPausableState
     public override void OnExit()
     {
         Debug.Log("NightState: 出ます。");
+
+        // StatusManagerに服装状態管理を無効化（私服にリセット）
+        StatusManager.Instance.DisableClothingState();
 
         // BGMを停止
         SoundManager.Instance.StopBGM();
@@ -87,7 +113,13 @@ public class NightState : StateBase, IPausableState
         // イベント監視を解除
         ProgressManager.Instance.OnProgressUpdated -= OnProgressUpdated;
 
-        // 次の日への移行なので、ここでのノベルイベントチェック
+        // StatusManagerの服装変更イベントの購読解除
+        if (StatusManager.Instance != null)
+        {
+            StatusManager.Instance.OnClothingStateChanged -= OnClothingStateChanged;
+        }
+
+        // 次の日への遷移なので、ここでのノベルイベントチェック
         EventTriggerChecker.Check(TriggerTiming.NightToDay);
     }
 
@@ -115,6 +147,9 @@ public class NightState : StateBase, IPausableState
         // Index 2~4 のBGMをランダムに再生
         int randomIndex = Random.Range(8, 11);
         SoundManager.Instance.PlayBGMWithFadeIn(randomIndex, 1f);
+
+        // StatusManagerから服装状態を取得して適用（BathStateから戻った場合など）
+        ApplyClothingFromStatusManager();
     }
 
     // 次のステートの取得メソッド
@@ -314,6 +349,37 @@ public class NightState : StateBase, IPausableState
         UpdateBathButtonState();
     }
 
+    // StatusManagerから服装状態を取得して適用
+    private void ApplyClothingFromStatusManager()
+    {
+        if (StatusManager.Instance != null)
+        {
+            ClothingType currentClothing = StatusManager.Instance.GetClothingState();
+            ApplyClothingToModel(currentClothing);
+        }
+    }
+
+    // StatusManagerの服装変更イベントハンドラ
+    private void OnClothingStateChanged(ClothingType newClothingType)
+    {
+        Debug.Log($"NightState: 服装変更イベントを受信 - {newClothingType}");
+        ApplyClothingToModel(newClothingType);
+    }
+
+    // モデルに服装を適用
+    private void ApplyClothingToModel(ClothingType clothingType)
+    {
+        if (string.IsNullOrEmpty(currentModelID))
+            return;
+
+        if (live2DController != null)
+        {
+            // Live2DControllerに服装変更を通知
+            live2DController.ApplyClothingToModel(currentModelID, clothingType);
+            Debug.Log($"NightState: モデルに服装 {clothingType} を適用しました");
+        }
+    }
+
     #endregion
 
     #region --- UI関連メソッド ---
@@ -422,9 +488,6 @@ public class NightState : StateBase, IPausableState
         // モデルプレハブがあれば生成
         if (live2DData.modelPrefab != null)
         {
-            // Live2DControllerコンポーネントを取得
-            Live2DController live2DController = FindLive2DController();
-
             if (live2DController != null)
             {
                 // モデルIDを保存
@@ -463,12 +526,11 @@ public class NightState : StateBase, IPausableState
 
         // Live2Dコントローラーから現在のモデルを直接取得
         GameObject modelObject = null;
-        Live2DController controller = FindLive2DController();
 
-        if (controller != null)
+        if (live2DController != null)
         {
             // コントローラーから現在のモデルオブジェクトを取得する新しいメソッドを使用
-            modelObject = controller.GetModelObject(currentModelID);
+            modelObject = live2DController.GetModelObject(currentModelID);
 
             if (modelObject != null)
             {
@@ -490,34 +552,11 @@ public class NightState : StateBase, IPausableState
         }
     }
 
-    // Live2DControllerを検索して取得
-    private Live2DController FindLive2DController()
-    {
-        // まずはGameLoopから取得を試みる
-        if (GameLoop.Instance != null)
-        {
-            // 1. 専用のLive2DContainerがある場合
-            GameObject container = GameObject.Find("Live2DContainer");
-            if (container != null)
-            {
-                Live2DController controller = container.GetComponent<Live2DController>();
-                if (controller != null) return controller;
-            }
-
-            // 2. シーン内を検索
-            return FindObjectOfType<Live2DController>();
-        }
-
-        return null;
-    }
-
     // Live2Dモデルのクリーンアップ
     private void CleanupLive2DModel()
     {
         if (!string.IsNullOrEmpty(currentModelID))
         {
-            // Live2DControllerを取得
-            Live2DController live2DController = FindLive2DController();
             if (live2DController != null)
             {
                 // モデルの非表示

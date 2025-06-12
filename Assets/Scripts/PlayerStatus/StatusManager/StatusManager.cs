@@ -13,7 +13,9 @@ public class StatusManager : Singleton<StatusManager>
     [SerializeField] private int maxActionPoints = 3;
     [SerializeField] private int dailyActionPointRecovery = 3;
 
-    
+    [Header("Clothing State")]
+    private ClothingType currentClothingState = ClothingType.Casual;
+    private bool isClothingStateActive = false; // NightStateがアクティブかどうか
 
     // ステータス更新時に発火するイベント
     public event Action OnStatusUpdated;
@@ -27,8 +29,11 @@ public class StatusManager : Singleton<StatusManager>
     // アクションポイント更新時に発火するイベント
     public event Action<int, int> OnActionPointUpdated; // 現在値, 最大値
 
+    // 服装変更時に発火するイベント
+    public event Action<ClothingType> OnClothingStateChanged;
+
     // 現在のシーン名を取得
-    private string currentSceneName; //SceneManager.GetActiveScene().name
+    private string currentSceneName;
 
     protected override void Awake()
     {
@@ -69,7 +74,79 @@ public class StatusManager : Singleton<StatusManager>
             stateEjaCount = 0,
             stateOrgCount = 0
         };
+
+        // 服装状態を初期化
+        currentClothingState = ClothingType.Casual;
+        isClothingStateActive = false;
     }
+
+    #region 服装状態管理
+
+    /// <summary>
+    /// NightStateの開始を通知（服装状態管理を有効化）
+    /// </summary>
+    public void EnableClothingState()
+    {
+        isClothingStateActive = true;
+        Debug.Log("StatusManager: 服装状態管理を有効化しました");
+    }
+
+    /// <summary>
+    /// NightStateの終了を通知（服装状態管理を無効化し、私服にリセット）
+    /// </summary>
+    public void DisableClothingState()
+    {
+        isClothingStateActive = false;
+        currentClothingState = ClothingType.Casual;
+        Debug.Log("StatusManager: 服装状態管理を無効化し、私服にリセットしました");
+
+        // 服装変更イベントを発火
+        OnClothingStateChanged?.Invoke(currentClothingState);
+    }
+
+    /// <summary>
+    /// 現在の服装状態を取得
+    /// </summary>
+    public ClothingType GetClothingState()
+    {
+        // 服装状態管理が無効の場合は常に私服を返す
+        if (!isClothingStateActive)
+        {
+            return ClothingType.Casual;
+        }
+        return currentClothingState;
+    }
+
+    /// <summary>
+    /// 服装状態を設定（NightStateアクティブ時のみ有効）
+    /// </summary>
+    public void SetClothingState(ClothingType clothingType)
+    {
+        if (!isClothingStateActive)
+        {
+            Debug.LogWarning("StatusManager: NightStateがアクティブでないため、服装変更は無効です");
+            return;
+        }
+
+        if (currentClothingState != clothingType)
+        {
+            currentClothingState = clothingType;
+            Debug.Log($"StatusManager: 服装を {clothingType} に変更しました");
+
+            // 服装変更イベントを発火
+            OnClothingStateChanged?.Invoke(currentClothingState);
+        }
+    }
+
+    /// <summary>
+    /// 服装状態管理が有効かどうかを取得
+    /// </summary>
+    public bool IsClothingStateActive()
+    {
+        return isClothingStateActive;
+    }
+
+    #endregion
 
     /// <summary>
     /// 十分なアクションポイントがあるかチェックする（消費はしない）

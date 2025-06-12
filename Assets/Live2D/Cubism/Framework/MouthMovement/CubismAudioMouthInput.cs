@@ -13,23 +13,28 @@ namespace Live2D.Cubism.Framework.MouthMovement
 {
     /// <summary>
     /// Real-time <see cref="CubismMouthController"/> input from <see cref="AudioSource"/>s.
+    /// Modified to support dual AudioSource input for crossfade.
     /// </summary>
     [RequireComponent(typeof(CubismMouthController))]
     public sealed class CubismAudioMouthInput : MonoBehaviour
     {
         /// <summary>
-        /// Audio source to sample.
+        /// First audio source to sample.
         /// </summary>
         [SerializeField]
-        public AudioSource AudioInput;
+        public AudioSource AudioInput1;
 
+        /// <summary>
+        /// Second audio source to sample (for crossfade).
+        /// </summary>
+        [SerializeField]
+        public AudioSource AudioInput2;
 
         /// <summary>
         /// Sampling quality.
         /// </summary>
         [SerializeField]
         public CubismAudioSamplingQuality SamplingQuality;
-
 
         /// <summary>
         /// Audio gain.
@@ -43,11 +48,31 @@ namespace Live2D.Cubism.Framework.MouthMovement
         [Range(0.0f, 1.0f)]
         public float Smoothing;
 
+        /// <summary>
+        /// How to combine audio from both sources.
+        /// </summary>
+        public enum CombineMode
+        {
+            Maximum,    // Use the maximum value from both sources
+            Average,    // Use the average of both sources
+            Sum        // Sum both sources (clamped to 1.0)
+        }
 
         /// <summary>
-        /// Current samples.
+        /// Method to combine audio from both sources.
         /// </summary>
-        private float[] Samples { get; set; }
+        [SerializeField]
+        public CombineMode AudioCombineMode = CombineMode.Maximum;
+
+        /// <summary>
+        /// Current samples for first audio source.
+        /// </summary>
+        private float[] Samples1 { get; set; }
+
+        /// <summary>
+        /// Current samples for second audio source.
+        /// </summary>
+        private float[] Samples2 { get; set; }
 
         /// <summary>
         /// Last root mean square.
@@ -65,15 +90,13 @@ namespace Live2D.Cubism.Framework.MouthMovement
         /// </summary>
         private CubismMouthController Target { get; set; }
 
-
         /// <summary>
         /// True if instance is initialized.
         /// </summary>
         private bool IsInitialized
         {
-            get { return Samples != null; }
+            get { return Samples1 != null && Samples2 != null; }
         }
-
 
         /// <summary>
         /// Makes sure instance is initialized.
@@ -86,36 +109,56 @@ namespace Live2D.Cubism.Framework.MouthMovement
                 return;
             }
 
-
-            // Initialize samples buffer.
+            // Initialize samples buffers.
+            int sampleSize;
             switch (SamplingQuality)
             {
                 case (CubismAudioSamplingQuality.VeryHigh):
-                {
-                        Samples = new float[256];
-
-
+                    {
+                        sampleSize = 256;
                         break;
                     }
                 case (CubismAudioSamplingQuality.Maximum):
-                {
-                    Samples = new float[512];
-
-
-                    break;
-                }
+                    {
+                        sampleSize = 512;
+                        break;
+                    }
                 default:
-                {
-                    Samples = new float[256];
-
-
-                    break;
-                }
+                    {
+                        sampleSize = 256;
+                        break;
+                    }
             }
 
+            Samples1 = new float[sampleSize];
+            Samples2 = new float[sampleSize];
 
             // Cache target.
             Target = GetComponent<CubismMouthController>();
+        }
+
+        /// <summary>
+        /// Processes audio data from a single source.
+        /// </summary>
+        private float ProcessAudioSource(AudioSource audioSource, float[] samples)
+        {
+            if (audioSource == null || !audioSource.isPlaying)
+            {
+                return 0f;
+            }
+
+            // Sample audio.
+            var total = 0f;
+            audioSource.GetOutputData(samples, 0);
+
+            for (var i = 0; i < samples.Length; ++i)
+            {
+                var sample = samples[i];
+                total += (sample * sample);
+            }
+
+            // Compute root mean square over samples.
+            return Mathf.Sqrt(total / samples.Length);
         }
 
         #region Unity Event Handling
@@ -125,48 +168,42 @@ namespace Live2D.Cubism.Framework.MouthMovement
         /// </summary>
         private void Update()
         {
-            // 'Fail' silently.
-            if (AudioInput == null)
+            // Process both audio sources
+            var rms1 = ProcessAudioSource(AudioInput1, Samples1);
+            var rms2 = ProcessAudioSource(AudioInput2, Samples2);
+
+            // Combine RMS values based on selected mode
+            float combinedRms;
+            switch (AudioCombineMode)
             {
-                return;
+                case CombineMode.Maximum:
+                    combinedRms = Mathf.Max(rms1, rms2);
+                    break;
+                case CombineMode.Average:
+                    combinedRms = (rms1 + rms2) * 0.5f;
+                    break;
+                case CombineMode.Sum:
+                    combinedRms = rms1 + rms2;
+                    break;
+                default:
+                    combinedRms = Mathf.Max(rms1, rms2);
+                    break;
             }
 
-
-            // Sample audio.
-            var total = 0f;
-
-
-            AudioInput.GetOutputData(Samples, 0);
-
-
-            for (var i = 0; i < Samples.Length; ++i)
-            {
-                var sample = Samples[i];
-
-
-                total += (sample * sample);
-            }
-
-
-            // Compute root mean square over samples.
-            var rms = Mathf.Sqrt(total / Samples.Length) * Gain;
-
+            // Apply gain
+            combinedRms *= Gain;
 
             // Clamp root mean square.
-            rms = Mathf.Clamp(rms, 0.0f, 1.0f);
-
+            combinedRms = Mathf.Clamp(combinedRms, 0.0f, 1.0f);
 
             // Smooth rms.
-            rms = Mathf.SmoothDamp(LastRms, rms, ref VelocityBuffer, Smoothing * 0.1f);
-
+            combinedRms = Mathf.SmoothDamp(LastRms, combinedRms, ref VelocityBuffer, Smoothing * 0.1f);
 
             // Set rms as mouth opening and store it for next evaluation.
-            Target.MouthOpening = rms;
+            Target.MouthOpening = combinedRms;
 
-
-            LastRms = rms;
+            LastRms = combinedRms;
         }
-
 
         /// <summary>
         /// Initializes instance.
@@ -174,6 +211,21 @@ namespace Live2D.Cubism.Framework.MouthMovement
         private void OnEnable()
         {
             TryInitialize();
+        }
+
+        #endregion
+
+        #region Backward Compatibility
+
+        /// <summary>
+        /// Legacy property for backward compatibility.
+        /// Sets AudioInput1 when assigned.
+        /// </summary>
+        [System.Obsolete("Use AudioInput1 instead")]
+        public AudioSource AudioInput
+        {
+            get { return AudioInput1; }
+            set { AudioInput1 = value; }
         }
 
         #endregion

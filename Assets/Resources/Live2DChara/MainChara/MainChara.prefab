@@ -7186,10 +7186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090aae4f094a5c641b26e9e4b9da2604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioInput: {fileID: 0}
+  AudioInput1: {fileID: 0}
+  AudioInput2: {fileID: 0}
   SamplingQuality: 0
   Gain: 10
   Smoothing: 0.8
+  AudioCombineMode: 0
 --- !u!114 &-2020020361655389763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7202,6 +7204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca5c065a816e0f44ba895f1b247f91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoBindFromSoundManager: 1
+  manualAudioSource1: {fileID: 0}
+  manualAudioSource2: {fileID: 0}
+  debugMode: 0
 --- !u!114 &4491412748409892278
 MonoBehaviour:
   m_ObjectHideFlags: 0
