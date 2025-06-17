@@ -18,6 +18,7 @@ public class EventEntity
     public string live2DPosition;  // 位置（UI座標系）
 
     public string live2DAnimTrigger;
+    public string live2DExpTrigger;
 
     // パラメータIDをカンマ区切り文字列として保存
     // 例: "n1,n2,n3"

@@ -227,6 +227,18 @@ public class StatusManager : Singleton<StatusManager>
         OnEjaCountUpdated?.Invoke();
     }
 
+    // 絶頂可能かのチェックのみ
+    public bool CanAchieveOrgasm()
+    {
+        return playerStatus.stateOrgCount < playerStatus.maxOrgCount;
+    }
+
+    // 射精可能かのチェックのみ
+    public bool CanAchieveEjaculation()
+    {
+        return playerStatus.stateEjaCount < playerStatus.maxEjaCount;
+    }
+
     // 絶頂可能かチェックして、可能なら回数を増やす
     public bool CheckAndUpdateOrgCount()
     {

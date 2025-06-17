@@ -190,7 +190,7 @@ public class SoundManager : Singleton<SoundManager>
     /// SEを再生する
     /// </summary>
     /// <param name="index">SEのインデックス</param>
-    public void PlaySE(int index)
+    public void PlaySE(int index, bool loop = false)
     {
         AudioClip clip = seData.GetClip(index);
 
@@ -201,6 +201,7 @@ public class SoundManager : Singleton<SoundManager>
             if (availableSource != null)
             {
                 availableSource.clip = clip;
+                availableSource.loop = loop;
                 availableSource.Play();
             }
             else

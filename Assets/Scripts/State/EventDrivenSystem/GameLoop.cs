@@ -31,6 +31,8 @@ public class GameLoop : Singleton<GameLoop>
     private static bool isLoadedFromTitle = false;
     private static StateID loadedStateID = StateID.None;
 
+    private static bool isReturningFromMemory = false;
+
     private void Awake()
     {
         base.Awake();
@@ -518,5 +520,30 @@ public class GameLoop : Singleton<GameLoop>
                 // Debug.Log($"Set UI camera to {state.GetType().Name}");
             }
         }
+    }
+
+    /// <summary>
+    /// メモリーからの復帰であることを設定
+    /// </summary>
+    public static void SetReturningFromMemory(bool returning)
+    {
+        isReturningFromMemory = returning;
+        Debug.Log($"GameLoop: メモリー復帰フラグを設定 - {returning}");
+    }
+
+    /// <summary>
+    /// メモリーからの復帰かどうかを取得
+    /// </summary>
+    public static bool IsReturningFromMemory()
+    {
+        return isReturningFromMemory;
+    }
+
+    /// <summary>
+    /// メモリー復帰フラグをリセット
+    /// </summary>
+    public static void ResetMemoryReturnFlag()
+    {
+        isReturningFromMemory = false;
     }
 }

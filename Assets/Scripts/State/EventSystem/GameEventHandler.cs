@@ -19,7 +19,7 @@ public class GameEventHandler : MonoBehaviour
     {
         // 特殊ボタン
         TypedEventManager.Instance.Subscribe<GameEvents.BathButtonClicked>(OnBathButtonClicked);
-        TypedEventManager.Instance.Subscribe<GameEvents.TouchButtonClicked>(OnTouchButtonClicked);
+        // TypedEventManager.Instance.Subscribe<GameEvents.TouchButtonClicked>(OnTouchButtonClicked);
         TypedEventManager.Instance.Subscribe<GameEvents.ItemButtonClicked>(OnItemButtonClicked);
         TypedEventManager.Instance.Subscribe<GameEvents.MemoryButtonClicked>(OnMemoryButtonClicked);
 
@@ -33,7 +33,7 @@ public class GameEventHandler : MonoBehaviour
 
         // 特殊ボタン
         TypedEventManager.Instance.Unsubscribe<GameEvents.BathButtonClicked>(OnBathButtonClicked);
-        TypedEventManager.Instance.Unsubscribe<GameEvents.TouchButtonClicked>(OnTouchButtonClicked);
+        // TypedEventManager.Instance.Unsubscribe<GameEvents.TouchButtonClicked>(OnTouchButtonClicked);
         TypedEventManager.Instance.Unsubscribe<GameEvents.ItemButtonClicked>(OnItemButtonClicked);
         TypedEventManager.Instance.Unsubscribe<GameEvents.MemoryButtonClicked>(OnMemoryButtonClicked);
 

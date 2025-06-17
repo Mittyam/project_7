@@ -39,9 +39,20 @@ public class DayState : StateBase, IPausableState
 
     public override void OnEnter()
     {
-        // ステートに入ったら現在の日付に1日加算
-        StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
-        StatusManager.Instance.OnStateChanged();
+        // メモリーからの復帰でない場合のみ日付をカウントアップ
+        if (!GameLoop.IsReturningFromMemory())
+        {
+            // ステートに入ったら現在の日付に1日加算
+            StatusManager.Instance.UpdateStatus(1, 0, 0, 0);
+            StatusManager.Instance.OnStateChanged();
+            Debug.Log("DayState: 日付をカウントアップしました");
+        }
+        else
+        {
+            // メモリー復帰フラグをリセット
+            GameLoop.ResetMemoryReturnFlag();
+            Debug.Log("DayState: 思い出からの復帰のため、日付カウントアップをスキップしました");
+        }
 
         // 曜日判定など
         var day = StatusManager.Instance.GetStatus().day;
