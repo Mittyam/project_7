@@ -22,9 +22,9 @@
 			"Name": "ハート目"
 		},
 		{
-			"Id": "sickFace",
+			"Id": "NightON",
 			"GroupId": "ParamGroup12",
-			"Name": "病み顔"
+			"Name": "夜ON"
 		},
 		{
 			"Id": "embFace",
@@ -375,6 +375,10 @@
 		}
 	],
 	"Parts": [
+		{
+			"Id": "Part20",
+			"Name": "正常位追加用.psd"
+		},
 		{
 			"Id": "Part",
 			"Name": "フォルダー 6"

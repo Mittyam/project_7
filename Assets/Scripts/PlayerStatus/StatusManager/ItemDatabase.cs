@@ -138,7 +138,7 @@ public class ItemDatabase : Singleton<ItemDatabase>
         allItems.Add(new ItemData(
             8,
             "ローター",
-            3000,
+            1500,
             "使用すると絶頂までの時間が短縮されます。",
             true,   // 消費されない
             true,    // 一度だけ購入可能
