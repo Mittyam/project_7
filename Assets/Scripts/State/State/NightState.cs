@@ -47,6 +47,9 @@ public class NightState : StateBase, IPausableState
     private UISoundHandler bathSoundHandler;
     private Image bathButtonImage;
 
+    // お風呂1日1回制限のための変数
+    private string lastBathDateKey = "LastBathDate"; // PlayerPrefsのキー
+    private string gameCurrentDateKey = "GameCurrentDate"; // ゲーム内現在日付のキー
 
     public override void OnEnter()
     {
@@ -76,7 +79,7 @@ public class NightState : StateBase, IPausableState
         // StatusManagerから服装状態を取得して適用
         ApplyClothingFromStatusManager();
 
-        // ProgressManagerのイベント更新を監視
+        // ProgressManagerのイベント更新を購読
         ProgressManager.Instance.OnProgressUpdated += OnProgressUpdated;
 
         // StatusManagerの服装変更イベントを購読
@@ -110,7 +113,7 @@ public class NightState : StateBase, IPausableState
         // UIの非表示化
         HideAllUI();
 
-        // イベント監視を解除
+        // イベント購読を解除
         ProgressManager.Instance.OnProgressUpdated -= OnProgressUpdated;
 
         // StatusManagerの服装変更イベントの購読解除
@@ -118,6 +121,9 @@ public class NightState : StateBase, IPausableState
         {
             StatusManager.Instance.OnClothingStateChanged -= OnClothingStateChanged;
         }
+
+        // 日付が変わったのでお風呂制限をリセット
+        ResetBathLimitForNewDay();
 
         // 次の日への遷移なので、ここでのノベルイベントチェック
         EventTriggerChecker.Check(TriggerTiming.NightToDay);
@@ -256,21 +262,88 @@ public class NightState : StateBase, IPausableState
         // ProgressManagerからイベント7の状態を取得
         EventState eventState = ProgressManager.Instance.GetEventState(bathEventID);
 
-        if (eventState == EventState.Completed)
+        // 今日既にお風呂に入ったかチェック
+        bool hasBathedToday = HasBathedToday();
+
+        if (eventState == EventState.Completed && !hasBathedToday)
         {
-            // Completedの場合：ボタンを有効化
+            // Completedかつ今日まだお風呂に入っていない場合：ボタンを有効化
             SetBathButtonCompleted();
         }
         else
         {
-            // Complete前の場合：ボタンを無効化
+            // Complete前または今日既にお風呂に入った場合：ボタンを無効化
             SetBathButtonLocked();
         }
 
-        Debug.Log($"NightState: お風呂ボタンの状態を更新 - Event {bathEventID} : {eventState}");
+        Debug.Log($"NightState: お風呂ボタンの状態を更新 - Event {bathEventID} : {eventState}, HasBathedToday: {hasBathedToday}");
     }
 
-    // お風呂ボタンをCompleted状態に設定
+    // 今日既にお風呂に入ったかチェック
+    private bool HasBathedToday()
+    {
+        string currentGameDate = GetCurrentGameDate();
+        string lastBathDate = PlayerPrefs.GetString(lastBathDateKey, "");
+
+        return lastBathDate == currentGameDate;
+    }
+
+    // ゲーム内の現在日付を取得
+    private string GetCurrentGameDate()
+    {
+        return PlayerPrefs.GetString(gameCurrentDateKey, "Day1");
+    }
+
+    // ゲーム内日付を更新（日が進んだ時に呼び出される）
+    private void UpdateGameDate()
+    {
+        string currentDate = GetCurrentGameDate();
+
+        // Day1, Day2, Day3... の形式で日付を管理
+        if (currentDate.StartsWith("Day"))
+        {
+            string numberPart = currentDate.Substring(3);
+            if (int.TryParse(numberPart, out int dayNumber))
+            {
+                dayNumber++;
+                string newDate = "Day" + dayNumber;
+                PlayerPrefs.SetString(gameCurrentDateKey, newDate);
+                PlayerPrefs.Save();
+                Debug.Log($"NightState: ゲーム内日付を更新しました - {currentDate} → {newDate}");
+            }
+        }
+        else
+        {
+            // 初回の場合はDay1から開始
+            PlayerPrefs.SetString(gameCurrentDateKey, "Day1");
+            PlayerPrefs.Save();
+            Debug.Log("NightState: ゲーム内日付を初期化しました - Day1");
+        }
+    }
+
+    // お風呂に入った日付を記録
+    public void RecordBathToday()
+    {
+        string currentGameDate = GetCurrentGameDate();
+        PlayerPrefs.SetString(lastBathDateKey, currentGameDate);
+        PlayerPrefs.Save();
+
+        Debug.Log($"NightState: ゲーム内日付({currentGameDate})のお風呂利用を記録しました");
+
+        // ボタン状態を即座に更新
+        UpdateBathButtonState();
+    }
+
+    // 新しい日のためにお風呂制限をリセット
+    private void ResetBathLimitForNewDay()
+    {
+        // ゲーム内日付を次の日に進める
+        UpdateGameDate();
+
+        Debug.Log("NightState: 新しい日になったためお風呂制限をリセットしました");
+    }
+
+    // お風呂ボタンをCompletedステートに設定
     private void SetBathButtonCompleted()
     {
         // UIEventPublisher設定
@@ -289,7 +362,7 @@ public class NightState : StateBase, IPausableState
         if (bathSoundHandler != null)
         {
             bathSoundHandler.SetClickSoundType(UISoundHandler.SoundType.Minimal5);
-            bathSoundHandler.SetHoverSoundType(UISoundHandler.SoundType.start); // ホバー音も設定
+            bathSoundHandler.SetHoverSoundType(UISoundHandler.SoundType.start); // ホバー音を設定
         }
 
         // Image Color設定（白色）
@@ -306,7 +379,7 @@ public class NightState : StateBase, IPausableState
         }
     }
 
-    // お風呂ボタンをLocked状態に設定
+    // お風呂ボタンをLockedステートに設定
     private void SetBathButtonLocked()
     {
         // UIEventPublisher設定

@@ -5238,7 +5238,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 26
@@ -5280,7 +5280,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_4
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 29
@@ -5309,8 +5309,8 @@ MonoBehaviour:
     live2DPosition: 
     live2DAnimTrigger: 
     live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DParamIDs: n22
+    live2DParamValues: 1
   - sectionID: 31
     text: "\u3042...\u3093...\u304A\u5144\u3061\u3083\u3093...\u3002"
     voiceIndex: 101
@@ -5322,7 +5322,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_6
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 32
@@ -5337,8 +5337,8 @@ MonoBehaviour:
     live2DPosition: 
     live2DAnimTrigger: 
     live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DParamIDs: n22
+    live2DParamValues: 0
   - sectionID: 33
     text: "\u306F\u308B\u304B...\u3044\u3044\u306E\uFF1F"
     voiceIndex: -1
@@ -5364,7 +5364,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_11
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 35
@@ -5448,7 +5448,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_12
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 41
@@ -5476,7 +5476,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_3
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 43
@@ -5559,8 +5559,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Insert
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 49
@@ -5588,7 +5588,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_6
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 51
@@ -5616,7 +5616,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_8
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 53
@@ -5657,8 +5657,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_1
+    live2DExpTrigger: Exp_1
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 56
@@ -5727,8 +5727,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_2
+    live2DExpTrigger: Exp_11
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 61
@@ -5756,7 +5756,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_10
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 63
@@ -5783,8 +5783,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_3
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 65
@@ -5858,8 +5858,8 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 70
-    text: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u91CD\u306A\u3063\u305F\u307E\u307E\u606F\u3092\u6574\u3048\u308B\u4E8C\u4EBA\u3002\u6C57\u3070\u3093\u3060\u4F53\u304C\u51B7\u3048\u3066\u304F\u308B\u3068\u3001\u4FFA\u306F\u306F\u308B\u304B\u306E\u96A3\u306B\u6A2A\u306B\u306A\u308A\u3001\u512A\u3057\u304F\u62B1\u304D\u3057\u3081\u308B\u3002"
-    voiceIndex: -1
+    text: 
+    voiceIndex: 294
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -5867,18 +5867,18 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Ejaculation
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 71
-    text: "\u304A\u5144\u3061\u3083\u3093...\u308F\u305F\u3057\u3001\u5E78\u305B...\u3002"
-    voiceIndex: 116
+    text: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u91CD\u306A\u3063\u305F\u307E\u307E\u606F\u3092\u6574\u3048\u308B\u4E8C\u4EBA\u3002\u6C57\u3070\u3093\u3060\u4F53\u304C\u51B7\u3048\u3066\u304F\u308B\u3068\u3001\u4FFA\u306F\u306F\u308B\u304B\u306E\u96A3\u306B\u6A2A\u306B\u306A\u308A\u3001\u512A\u3057\u304F\u62B1\u304D\u3057\u3081\u308B\u3002"
+    voiceIndex: 278
     seIndex: -1
     bgmIndex: -1
     imagePath: 
     isImageFade: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -5886,6 +5886,20 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 72
+    text: "\u304A\u5144\u3061\u3083\u3093...\u308F\u305F\u3057\u3001\u5E78\u305B...\u3002"
+    voiceIndex: 116
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u5973_5"
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 73
     text: "\u4FFA\u3082\u3002\u3053\u308C\u304B\u3089\u3082\u305A\u3063\u3068\u4E00\u7DD2\u3060\u305E\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -5899,12 +5913,12 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 73
+  - sectionID: 74
     text: "\u3046\u3093...\u305A\u3063\u3068\u3001\u305A\u3063\u3068...\u3002"
     voiceIndex: 117
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u5973_11"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -5913,7 +5927,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 74
+  - sectionID: 75
     text: "\u306F\u308B\u304B\u306E\u982D\u3092\u64AB\u3067\u306A\u304C\u3089\u3001\u4FFA\u306F\u3053\u306E\u95A2\u4FC2\u304C\u3053\u308C\u304B\u3089\u3069\u3046\u306A\u3063\u3066\u3044\u304F\u306E\u304B\u8003\u3048\u308B\u3002\u5E7C\u99B4\u67D3\u304B\u3089\u604B\u4EBA\u3078\u3001\u305D\u3057\u3066\u4ECA\u591C\u3001\u3088\u308A\u6DF1\u3044\u95A2\u4FC2\u306B\u306A\u3063\u305F\u4E8C\u4EBA\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -5927,8 +5941,22 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 75
+  - sectionID: 76
     text: "\u5927\u5B66\u751F\u6D3B\u306F\u307E\u3060\u59CB\u307E\u3063\u305F\u3070\u304B\u308A\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 77
+    text: 
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -7180,9 +7208,9 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: deleteimage
+    imagePath: 
     isImageFade: 
-    live2DModelID: deletemodel
+    live2DModelID: 
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -7194,11 +7222,11 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: deleteimage
     isImageFade: 
-    live2DModelID: "\u5BFE\u9762\u7ACB\u4F4D"
-    live2DScale: 15.7
-    live2DPosition: 0,0
+    live2DModelID: deletemodel
+    live2DScale: 1
+    live2DPosition: 
     live2DAnimTrigger: 
     live2DExpTrigger: 
     live2DParamIDs: 
@@ -7420,9 +7448,9 @@ MonoBehaviour:
     bgmIndex: -1
     imagePath: 
     isImageFade: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
+    live2DModelID: "\u5BFE\u9762\u7ACB\u4F4D"
+    live2DScale: 15.7
+    live2DPosition: 0,0
     live2DAnimTrigger: 
     live2DExpTrigger: 
     live2DParamIDs: 
@@ -7438,7 +7466,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_1
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 49
@@ -7466,7 +7494,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_3
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 51
@@ -7494,7 +7522,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_2
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 53
@@ -7508,7 +7536,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 54
@@ -7550,7 +7578,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_6
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 57
@@ -7592,7 +7620,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: Speed_2
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_1
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 60
@@ -7610,6 +7638,48 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 61
+    text: "\u3042\u2026\u306F\u3041\u2026\u3063\u3041\u2026"
+    voiceIndex: 280
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: Exp_5
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 62
+    text: "\u306F\u308B\u304B\u306E\u611B\u304F\u308B\u3057\u3044\u58F0\u3068\u6821\u5185\u3067\u3059\u308B\u884C\u70BA\u304C\u80CC\u5FB3\u611F\u3092\u717D\u308A\u3001\u666E\u6BB5\u3088\u308A\u3082\u6C17\u6301\u3061\u3088\u304F\u611F\u3058\u3066\u6211\u6162\u304C\u51FA\u6765\u306A\u3044\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 63
+    text: "\u3060\u3081\u2026"
+    voiceIndex: 277
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 64
     text: "\u306F\u308B\u304B\u2026\u3082\u3046\u2026\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7623,7 +7693,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 62
+  - sectionID: 65
     text: "\u3093\u3063\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u308F\u305F\u3057\u3082\u2026\u3082\u3046\u3059\u3050\u2026\u3002"
     voiceIndex: 155
     seIndex: -1
@@ -7637,7 +7707,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 63
+  - sectionID: 66
     text: "\u9AD8\u307E\u3063\u3066\u3044\u304F\u5FEB\u611F\u306B\u3001\u4E8C\u4EBA\u306E\u52D5\u304D\u304C\u6B21\u7B2C\u306B\u6FC0\u3057\u304F\u306A\u308B\u3002\u306F\u308B\u304B\u306E\u7518\u3044\u58F0\u304C\u5BA4\u5185\u306B\u97FF\u304D\u3001\u305D\u308C\u304C\u6F0F\u308C\u306A\u3044\u3088\u3046\u3001\u4FFA\u306F\u306F\u308B\u304B\u306E\u5507\u3092\u585E\u3050\u3088\u3046\u306B\u30AD\u30B9\u3092\u3059\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7648,10 +7718,10 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: Speed_3
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_7
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 64
+  - sectionID: 67
     text: "\u3093\u3063\u2026\uFF01"
     voiceIndex: 156
     seIndex: -1
@@ -7665,7 +7735,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 65
+  - sectionID: 68
     text: "\u30AD\u30B9\u306E\u5408\u9593\u306B\u6F0F\u308C\u308B\u5410\u606F\u3068\u5171\u306B\u3001\u306F\u308B\u304B\u306E\u4F53\u304C\u5927\u304D\u304F\u9707\u3048\u308B\u3002\u305D\u308C\u306B\u5408\u308F\u305B\u308B\u3088\u3046\u306B\u3001\u4FFA\u3082\u9650\u754C\u3092\u8FCE\u3048\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7679,7 +7749,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 66
+  - sectionID: 69
     text: "\u3042\u3063\u2026\uFF01\u304A\u5144\u3061\u3083\u3093\u2026\uFF01"
     voiceIndex: 157
     seIndex: -1
@@ -7690,10 +7760,10 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 67
+  - sectionID: 70
     text: "\u306F\u308B\u304B\u2026\uFF01"
     voiceIndex: -1
     seIndex: -1
@@ -7707,7 +7777,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 68
+  - sectionID: 71
     text: "\u7D76\u9802\u306E\u77AC\u9593\u3001\u4FFA\u306F\u5484\u55DF\u306B\u4F53\u3092\u96E2\u305D\u3046\u3068\u3059\u308B\u304C\u3001\u306F\u308B\u304B\u306E\u4E21\u8DB3\u304C\u4FFA\u306E\u8170\u306B\u3057\u3063\u304B\u308A\u3068\u7D61\u307F\u3064\u304D\u3001\u96E2\u3055\u306A\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7721,7 +7791,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 69
+  - sectionID: 72
     text: "\u5927\u4E08\u592B\u2026\u4ECA\u65E5\u306F\u2026\u5B89\u5168\u306A\u65E5\u2026\u3060\u304B\u3089\u2026\u3002"
     voiceIndex: 158
     seIndex: -1
@@ -7735,7 +7805,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 70
+  - sectionID: 73
     text: "\u305D\u306E\u304B\u7D30\u3044\u58F0\u306B\u5C0E\u304B\u308C\u308B\u307E\u307E\u3001\u4FFA\u306F\u306F\u308B\u304B\u306E\u4E2D\u3067\u5168\u3066\u3092\u89E3\u653E\u3059\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7749,9 +7819,9 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 71
+  - sectionID: 74
     text: 
-    voiceIndex: -1
+    voiceIndex: 294
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -7760,12 +7830,12 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: Ejaculation
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_4
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 72
+  - sectionID: 75
     text: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u4E8C\u4EBA\u306F\u7ACB\u3063\u305F\u307E\u307E\u4E92\u3044\u3092\u62B1\u304D\u3057\u3081\u3066\u3044\u305F\u3002\u306F\u308B\u304B\u306E\u982D\u3092\u512A\u3057\u304F\u64AB\u3067\u306A\u304C\u3089\u3001\u4FFA\u306F\u306F\u308B\u304B\u306B\u30AD\u30B9\u3092\u3059\u308B\u3002"
-    voiceIndex: -1
+    voiceIndex: 278
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -7777,7 +7847,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 73
+  - sectionID: 76
     text: "\u306F\u3041\u2026\u306F\u3041\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u3002"
     voiceIndex: 159
     seIndex: -1
@@ -7788,10 +7858,10 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: Return_To_Idle
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 74
+  - sectionID: 77
     text: "\u5927\u4E08\u592B\uFF1F\u7ACB\u3061\u3063\u3071\u306A\u3057\u3067\u8F9B\u304F\u306A\u304B\u3063\u305F\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -7805,7 +7875,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 75
+  - sectionID: 78
     text: "\u3046\u3046\u3093\u2026\u2026\u3059\u3054\u304F\u2026\u826F\u304B\u3063\u305F\u2026\u3002"
     voiceIndex: 160
     seIndex: -1
@@ -7819,22 +7889,8 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 76
+  - sectionID: 79
     text: "\u5C11\u3057\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u5FAE\u7B11\u3080\u306F\u308B\u304B\u3002\u6C57\u3067\u5C11\u3057\u6E7F\u3063\u305F\u524D\u9AEA\u304C\u3001\u306F\u308B\u304B\u306E\u9854\u306B\u3064\u3044\u3066\u3044\u308B\u3002\u305D\u308C\u3092\u512A\u3057\u304F\u6255\u3044\u306E\u3051\u306A\u304C\u3089\u3001\u4FFA\u306F\u306F\u308B\u304B\u306E\u982C\u306B\u30AD\u30B9\u3092\u3059\u308B\u3002"
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    isImageFade: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 77
-    text: "\u305D\u308D\u305D\u308D\u5E30\u308D\u3046\u304B\u3002\u3082\u3046\u8584\u6697\u304F\u306A\u3063\u3066\u304D\u305F\u3057\u3002"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
@@ -7847,9 +7903,9 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 78
-    text: "\u3046\u3093\u2026\u3067\u3082\u3001\u307E\u3060\u5C11\u3057\u2026\u3053\u306E\u307E\u307E\u3067\u3044\u305F\u3044\u2026\u3002"
-    voiceIndex: 161
+  - sectionID: 80
+    text: "\u305D\u308D\u305D\u308D\u5E30\u308D\u3046\u304B\u3002\u3082\u3046\u8584\u6697\u304F\u306A\u3063\u3066\u304D\u305F\u3057\u3002"
+    voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -7861,7 +7917,21 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 79
+  - sectionID: 81
+    text: "\u3046\u3093\u2026\u3067\u3082\u3001\u307E\u3060\u5C11\u3057\u2026\u3053\u306E\u307E\u307E\u3067\u3044\u305F\u3044\u2026\u3002"
+    voiceIndex: 161
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u5BFE\u9762\u7ACB\u4F4D3_1"
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 82
     text: "\u305D\u3046\u8A00\u3063\u3066\u3001\u306F\u308B\u304B\u306F\u4FFA\u306B\u3082\u305F\u308C\u304B\u304B\u308B\u3002\u305D\u306E\u5C0F\u3055\u306A\u4F53\u3092\u652F\u3048\u306A\u304C\u3089\u3001\u4FFA\u305F\u3061\u306F\u3086\u3063\u304F\u308A\u3068\u670D\u3092\u6574\u3048\u59CB\u3081\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7875,13 +7945,13 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 80
+  - sectionID: 83
     text: "\u304A\u5144\u3061\u3083\u3093\u2026\u307E\u305F\u3001\u3053\u3053\u306B\u6765\u3088\u3046\u2026\u3002"
     voiceIndex: 162
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u5BFE\u9762\u7ACB\u4F4D3_2"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -7889,7 +7959,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 81
+  - sectionID: 84
     text: "\u6065\u305A\u304B\u3057\u305D\u3046\u306B\u56C1\u304F\u306F\u308B\u304B\u306E\u8A00\u8449\u306B\u3001\u4FFA\u306F\u512A\u3057\u304F\u9837\u304F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7903,7 +7973,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 82
+  - sectionID: 85
     text: "\u3042\u3042\u3001\u3082\u3061\u308D\u3093\u3002\u4FFA\u3082\u307E\u305F\u3057\u305F\u3044\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7917,13 +7987,13 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 83
+  - sectionID: 86
     text: "\u2026\u3059\u3063\u3054\u304F\u6065\u305A\u304B\u3057\u3044\u3051\u3069\u2026\u306A\u3093\u304B\u3001\u30C9\u30AD\u30C9\u30AD\u3057\u3066\u2026\u697D\u3057\u304B\u3063\u305F\u2026\u3002"
     voiceIndex: 163
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u5BFE\u9762\u7ACB\u4F4D3_1"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -7931,7 +8001,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 84
+  - sectionID: 87
     text: "\u666E\u6BB5\u306F\u5927\u4EBA\u3057\u304F\u3001\u63A7\u3048\u3081\u306A\u306F\u308B\u304B\u304C\u3001\u3053\u3046\u3057\u3066\u5C11\u3057\u305A\u3064\u5927\u80C6\u306B\u306A\u3063\u3066\u3044\u304F\u69D8\u5B50\u306F\u3001\u4FFA\u306B\u3068\u3063\u3066\u4F55\u3088\u308A\u3082\u5B09\u3057\u3044\u3053\u3068\u3060\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7945,7 +8015,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 85
+  - sectionID: 88
     text: "\u5E7C\u3044\u9803\u304B\u3089\u305A\u3063\u3068\u5B88\u3063\u3066\u304D\u305F\u5E7C\u99B4\u67D3\u304C\u3001\u4ECA\u306F\u4E00\u4EBA\u306E\u306F\u308B\u304B\u3068\u3057\u3066\u4FFA\u306E\u96A3\u3067\u8F1D\u3044\u3066\u3044\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7959,7 +8029,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 86
+  - sectionID: 89
     text: "\u6B21\u306F\u2026\u3069\u3053\u304C\u3044\u3044\uFF1F"
     voiceIndex: -1
     seIndex: -1
@@ -7973,7 +8043,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 87
+  - sectionID: 90
     text: "\u8336\u76EE\u3063\u6C17\u305F\u3063\u3077\u308A\u306B\u5C0B\u306D\u308B\u3068\u3001\u306F\u308B\u304B\u306F\u9854\u3092\u771F\u3063\u8D64\u306B\u3057\u3066\u4FFA\u306E\u80F8\u306B\u9854\u3092\u57CB\u3081\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -7987,7 +8057,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 88
+  - sectionID: 91
     text: "\u3082\u3046\u2026\u304A\u5144\u3061\u3083\u3093\u3063\u2026\u3002"
     voiceIndex: 164
     seIndex: -1
@@ -8001,7 +8071,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 89
+  - sectionID: 92
     text: "\u3057\u304B\u3057\u3001\u305D\u306E\u58F0\u306B\u306F\u78BA\u304B\u306A\u671F\u5F85\u304C\u542B\u307E\u308C\u3066\u3044\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -8015,7 +8085,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 90
+  - sectionID: 93
     text: "\u6E96\u5099\u5BA4\u3092\u5F8C\u306B\u3059\u308B\u524D\u306B\u3001\u3082\u3046\u4E00\u5EA6\u4E8C\u4EBA\u306F\u6DF1\u3044\u30AD\u30B9\u3092\u4EA4\u308F\u3059\u3002\u8584\u6697\u304F\u306A\u308A\u3064\u3064\u3042\u308B\u30AD\u30E3\u30F3\u30D1\u30B9\u3092\u4E8C\u4EBA\u3067\u6B69\u304D\u306A\u304C\u3089\u3001\u30A2\u30D1\u30FC\u30C8\u3078\u3068\u5E30\u308B\u9053\u3059\u304C\u3089\u3001\u6642\u6298\u4E92\u3044\u306E\u624B\u3092\u63E1\u308A\u3057\u3081\u308B\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -8029,7 +8099,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 91
+  - sectionID: 94
     text: "\u3053\u306E\u65E5\u306E\u601D\u3044\u51FA\u304C\u3001\u4E8C\u4EBA\u306E\u95A2\u4FC2\u3092\u307E\u305F\u4E00\u6B69\u6DF1\u3081\u305F\u306E\u3060\u3063\u305F\u3002"
     voiceIndex: -1
     seIndex: -1
@@ -8043,7 +8113,7 @@ MonoBehaviour:
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
-  - sectionID: 92
+  - sectionID: 95
     text: 
     voiceIndex: -1
     seIndex: -1
@@ -8063,7 +8133,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u7537_1"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8091,8 +8161,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u7537_5"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8119,8 +8189,8 @@ MonoBehaviour:
     voiceIndex: 165
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u7537_3"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8175,8 +8245,8 @@ MonoBehaviour:
     voiceIndex: 166
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u7537_7"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8189,7 +8259,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "7.\u304A\u98A8\u5442/\u304A\u98A8\u5442\u524D1"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8301,7 +8371,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: deleteimage
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8315,7 +8385,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "9.\u9A0E\u4E57\u4F4D/\u9A0E\u4E57\u4F4D2_1"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8329,8 +8399,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "9.\u9A0E\u4E57\u4F4D/\u9A0E\u4E57\u4F4D2_4"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8399,7 +8469,7 @@ MonoBehaviour:
     voiceIndex: 170
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "9.\u9A0E\u4E57\u4F4D/\u9A0E\u4E57\u4F4D2_5"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8455,8 +8525,8 @@ MonoBehaviour:
     voiceIndex: 171
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "9.\u9A0E\u4E57\u4F4D/\u9A0E\u4E57\u4F4D2_6"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8511,8 +8581,8 @@ MonoBehaviour:
     voiceIndex: 172
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "9.\u9A0E\u4E57\u4F4D/\u9A0E\u4E57\u4F4D2_5"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -8693,15 +8763,15 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: deleteimage
     isImageFade: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
+    live2DModelID: "\u9A0E\u4E57\u4F4D"
+    live2DScale: 15.8
+    live2DPosition: 0,0
     live2DAnimTrigger: 
     live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DParamIDs: n1,n4
+    live2DParamValues: 1,1
   - sectionID: 47
     text: "\u5927\u4E08\u592B\uFF1F"
     voiceIndex: -1
@@ -8713,7 +8783,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_1
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 48
@@ -8727,7 +8797,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 49
@@ -8740,7 +8810,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_1
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -8769,7 +8839,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_3
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 52
@@ -8796,8 +8866,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_1_B
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 54
@@ -8825,7 +8895,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_9
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 56
@@ -8852,8 +8922,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_2_B
+    live2DExpTrigger: Exp_4
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 58
@@ -8867,9 +8937,9 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DExpTrigger: Exp_5
+    live2DParamIDs: n3
+    live2DParamValues: 0
   - sectionID: 59
     text: "\u306F\u308B\u304B\u2026\u3002"
     voiceIndex: -1
@@ -8880,7 +8950,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_2
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -8895,7 +8965,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_4
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 61
@@ -8936,10 +9006,10 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_3
     live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DParamIDs: n3
+    live2DParamValues: 0
   - sectionID: 64
     text: "\u304A\u5144\u3061\u3083\u3093\u2026\u308F\u305F\u3057\u2026\u3082\u3046\u2026\u3002"
     voiceIndex: 184
@@ -8951,7 +9021,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_3
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 65
@@ -8978,7 +9048,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_3_B
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9007,7 +9077,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_6
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 69
@@ -9020,7 +9090,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Ejaculation
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9048,7 +9118,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Return_To_Idle
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9073,7 +9143,7 @@ MonoBehaviour:
     bgmIndex: -1
     imagePath: 
     isImageFade: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -9085,7 +9155,7 @@ MonoBehaviour:
     voiceIndex: 189
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_4"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9113,8 +9183,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_5"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -9127,8 +9197,8 @@ MonoBehaviour:
     voiceIndex: 190
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_11"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -9197,7 +9267,7 @@ MonoBehaviour:
     voiceIndex: 191
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_7"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9225,8 +9295,8 @@ MonoBehaviour:
     voiceIndex: 192
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_3"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -9267,8 +9337,8 @@ MonoBehaviour:
     voiceIndex: 193
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "\u30BD\u30D5\u30A1/\u30BD\u30D5\u30A1\u5EA7\u308A\u591C\u7537_5"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -9497,7 +9567,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Night_Head_1
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9525,7 +9595,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Night_Leg_3
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9567,7 +9637,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Night_Head_5
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9595,7 +9665,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Night_Leg_2
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9609,7 +9679,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Night_Leg_3
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9637,7 +9707,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Holi_Head_5
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9679,7 +9749,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Holi_Leg_5
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -9688,9 +9758,9 @@ MonoBehaviour:
     voiceIndex: 201
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: deleteimage
     isImageFade: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -9954,7 +10024,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30443_1"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9996,7 +10066,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_3"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10094,8 +10164,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_1"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10122,8 +10192,8 @@ MonoBehaviour:
     voiceIndex: 212
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_2"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10234,8 +10304,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_1"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10262,7 +10332,7 @@ MonoBehaviour:
     voiceIndex: 216
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: deleteimage
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10296,7 +10366,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 72
@@ -10325,8 +10395,8 @@ MonoBehaviour:
     live2DPosition: 
     live2DAnimTrigger: 
     live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
+    live2DParamIDs: n1
+    live2DParamValues: 1
   - sectionID: 74
     text: "\u306F\u308B\u304B\u3082\u4FFA\u306E\u670D\u3092\u8131\u304C\u305B\u3001\u4E92\u3044\u306E\u4F53\u304C\u89E6\u308C\u5408\u3046\u305F\u3073\u306B\u3001\u5C0F\u3055\u306A\u9707\u3048\u304C\u8D70\u308B\u3002"
     voiceIndex: -1
@@ -10338,7 +10408,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_2
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 75
@@ -10351,8 +10421,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_1
+    live2DExpTrigger: Exp_5
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 76
@@ -10366,7 +10436,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_3
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 77
@@ -10379,22 +10449,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 78
-    text: "\u3042\u3093\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u3082\u3063\u3068\u2026\u3002"
-    voiceIndex: 219
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    isImageFade: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Idle
+    live2DExpTrigger: Exp_12
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 79
@@ -10422,7 +10478,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_10
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 81
@@ -10449,7 +10505,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_1
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -10463,8 +10519,22 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Speed_2
     live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 78
+    text: "\u3042\u3093\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u3082\u3063\u3068\u2026\u3002"
+    voiceIndex: 219
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: Exp_4
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 84
@@ -10478,7 +10548,7 @@ MonoBehaviour:
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DExpTrigger: Exp_7
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 85
@@ -10505,8 +10575,8 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
+    live2DAnimTrigger: Speed_3
+    live2DExpTrigger: Exp_6
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 87
@@ -10525,7 +10595,7 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 88
     text: "\u306F\u308B\u304B\u2026\uFF01\u4FFA\u3082\u2026\u3063\u3002"
-    voiceIndex: -1
+    voiceIndex: 266
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -10538,8 +10608,8 @@ MonoBehaviour:
     live2DParamIDs: 
     live2DParamValues: 
   - sectionID: 89
-    text: "\uFF08\u7D76\u9802\uFF09"
-    voiceIndex: -1
+    text: 
+    voiceIndex: 287
     seIndex: -1
     bgmIndex: -1
     imagePath: 
@@ -10547,7 +10617,7 @@ MonoBehaviour:
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
-    live2DAnimTrigger: 
+    live2DAnimTrigger: Ejaculation
     live2DExpTrigger: 
     live2DParamIDs: 
     live2DParamValues: 
@@ -10572,7 +10642,7 @@ MonoBehaviour:
     bgmIndex: -1
     imagePath: 
     isImageFade: 
-    live2DModelID: 
+    live2DModelID: deletemodel
     live2DScale: 1
     live2DPosition: 
     live2DAnimTrigger: 
@@ -10584,7 +10654,7 @@ MonoBehaviour:
     voiceIndex: 224
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_2"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10612,8 +10682,8 @@ MonoBehaviour:
     voiceIndex: 225
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_1"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10640,8 +10710,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_2"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10668,8 +10738,8 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
-    isImageFade: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30442_1"
+    isImageFade: false
     live2DModelID: 
     live2DScale: 1
     live2DPosition: 
@@ -10682,7 +10752,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "10.\u6C38\u9060\u306E\u8A93\u3044/\u6C38\u9060\u306E\u8A93\u30444_1"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10752,7 +10822,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "5.\u6DFB\u3044\u5BDD/\u661F\u7A7A"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10763,6 +10833,34 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 105
     text: "\u304B\u3064\u3066\u9670\u6C17\u3067\u4EBA\u898B\u77E5\u308A\u3060\u3063\u305F\u5E7C\u99B4\u67D3\u306F\u3001\u4ECA\u3084\u4FFA\u306E\u4EBA\u751F\u306E\u3059\u3079\u3066\u3068\u306A\u3063\u3066\u3044\u305F\u3002\u305D\u3057\u3066\u3001\u3053\u306E\u591C\u4EA4\u308F\u3057\u305F\u6C38\u9060\u306E\u8A93\u3044\u304C\u3001\u4E8C\u4EBA\u306E\u65B0\u305F\u306A\u7269\u8A9E\u306E\u59CB\u307E\u308A\u3068\u306A\u308B\u2014\u2014\u3002"
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 106
+    text: 
+    voiceIndex: -1
+    seIndex: -1
+    bgmIndex: -1
+    imagePath: 
+    isImageFade: 
+    live2DModelID: 
+    live2DScale: 1
+    live2DPosition: 
+    live2DAnimTrigger: 
+    live2DExpTrigger: 
+    live2DParamIDs: 
+    live2DParamValues: 
+  - sectionID: 107
+    text: "\uFF5E\u30B2\u30FC\u30E0\u30B7\u30CA\u30EA\u30AA\u5168\u958B\u653E\u5B8C\u4E86\uFF5E"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
