@@ -86,8 +86,8 @@ public class ItemDatabase : Singleton<ItemDatabase>
             4,
             "エッチなゲーム",
             6000,
-            "使用すると好感度が１、H度が３上がります。",
-            true,   // 消費されない
+            "使用すると好感度が１、H度が３上がります。(土日にプレイ可能)",
+            false,   // 消費されない
             true,    // 一度だけ購入可能
             ItemData.ItemType.Game,
             1,    // 好感度上昇ボーナス
@@ -100,8 +100,8 @@ public class ItemDatabase : Singleton<ItemDatabase>
             5,
             "パーティーゲーム",
             4000,
-            "使用すると好感度が３上がります。",
-            true,   // 消費されない
+            "使用すると好感度が３上がります。(土日にプレイ可能)",
+            false,   // 消費されない
             true,    // 一度だけ購入可能
             ItemData.ItemType.Game,
             3,    // 好感度上昇ボーナス
