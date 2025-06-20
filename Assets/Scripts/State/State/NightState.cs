@@ -158,6 +158,19 @@ public class NightState : StateBase, IPausableState
         ApplyClothingFromStatusManager();
     }
 
+    private void OnDestroy()
+    {
+        if (ProgressManager.Instance != null)
+        {
+            ProgressManager.Instance.OnProgressUpdated -= OnProgressUpdated;
+        }
+
+        if (StatusManager.Instance != null)
+        {
+            StatusManager.Instance.OnClothingStateChanged -= OnClothingStateChanged;
+        }
+    }
+
     // 次のステートの取得メソッド
     public StateID GetNextStateID()
     {
