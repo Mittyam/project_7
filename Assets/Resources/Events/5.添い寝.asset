@@ -15,8 +15,12 @@ MonoBehaviour:
   eventID: 5
   eventName: "\u6DFB\u3044\u5BDD"
   eventDescription: 
-  triggerTiming: 0
+  triggerTiming: 3
   conditions:
+  - conditionType: 0
+    threshold: 100
+    paramName: 
+    isGreaterThanOrEqual: 1
   - conditionType: 0
     threshold: 80
     paramName: 

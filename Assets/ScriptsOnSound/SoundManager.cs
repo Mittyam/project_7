@@ -309,6 +309,27 @@ public class SoundManager : Singleton<SoundManager>
     }
 
     /// <summary>
+    /// Voiceを連続再生する（音声間待機時間対応版）
+    /// </summary>
+    /// <param name="indices">再生するVoiceのインデックス配列</param>
+    /// <param name="randomize">ランダム再生するかどうか</param>
+    /// <param name="intervalTime">音声間の待機時間（秒）</param>
+    public void PlayVoiceSequenceWithInterval(int[] indices, bool randomize = false, float intervalTime = 0f)
+    {
+        if (indices == null || indices.Length == 0)
+        {
+            Debug.LogWarning("SoundManager: 再生するVoiceのインデックスが指定されていません。");
+            return;
+        }
+
+        // 既存の音声を停止
+        StopVoice();
+
+        // 音声シーケンスの再生開始（待機時間付き）
+        currentVoiceCoroutine = StartCoroutine(PlayVoiceSequenceRoutineWithInterval(indices, randomize, intervalTime));
+    }
+
+    /// <summary>
     /// 音声シーケンスを再生するコルーチン（クロスフェード対応版）
     /// </summary>
     private IEnumerator PlayVoiceSequenceRoutineWithCrossfade(int[] indices, bool randomize)
@@ -350,6 +371,75 @@ public class SoundManager : Singleton<SoundManager>
                 // 音声の長さからクロスフェード時間を引いた時間だけ待機
                 float waitTime = Mathf.Max(0.1f, clip.length - defaultCrossfadeDuration);
                 yield return new WaitForSeconds(waitTime);
+
+                // 次のインデックスを設定
+                if (randomize)
+                {
+                    // ランダム選択（ただし同じものは避ける）
+                    if (indices.Length > 1)
+                    {
+                        int prevIndex = currentIndex;
+                        do
+                        {
+                            currentIndex = UnityEngine.Random.Range(0, indices.Length);
+                        } while (currentIndex == prevIndex);
+                    }
+                }
+                else
+                {
+                    // 順番に次のインデックス
+                    currentIndex = (currentIndex + 1) % indices.Length;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"SoundManager: インデックス {indices[currentIndex]} のVoiceが見つかりません。");
+                // 無効なクリップの場合は次へ
+                currentIndex = (currentIndex + 1) % indices.Length;
+                yield return null;
+            }
+
+            // 再生中フラグが解除されていたら終了
+            if (!isVoicePlaying)
+                break;
+        }
+    }
+
+    /// <summary>
+    /// 音声シーケンスを再生するコルーチン（音声間待機時間対応版）
+    /// </summary>
+    private IEnumerator PlayVoiceSequenceRoutineWithInterval(int[] indices, bool randomize, float intervalTime)
+    {
+        isVoicePlaying = true;
+        int currentIndex = 0;
+
+        // インデックスの初期化（ランダムの場合）
+        if (randomize && indices.Length > 1)
+        {
+            currentIndex = UnityEngine.Random.Range(0, indices.Length);
+        }
+
+        while (isVoicePlaying)
+        {
+            // 現在のインデックスから音声クリップを取得
+            AudioClip clip = voiceData.GetClip(indices[currentIndex]);
+
+            if (clip != null)
+            {
+                Debug.Log($"SoundManager: 音声間待機時間付き連続Voice再生 - インデックス:{indices[currentIndex]}, クリップ:{clip.name}, 待機時間:{intervalTime}秒");
+
+                // 音声を再生（クロスフェード）
+                yield return StartCoroutine(CrossfadeToClip(clip, defaultCrossfadeDuration));
+
+                // 音声の長さだけ待機
+                yield return new WaitForSeconds(clip.length);
+
+                // 音声間の待機時間
+                if (intervalTime > 0f)
+                {
+                    Debug.Log($"SoundManager: 音声間待機中... {intervalTime}秒");
+                    yield return new WaitForSeconds(intervalTime);
+                }
 
                 // 次のインデックスを設定
                 if (randomize)

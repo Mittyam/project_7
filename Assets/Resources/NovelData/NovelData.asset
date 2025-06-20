@@ -7236,7 +7236,7 @@ MonoBehaviour:
     voiceIndex: 143
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98542\u30D1\u30B8\u30E3\u30DE"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -7250,7 +7250,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98545\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -7306,7 +7306,7 @@ MonoBehaviour:
     voiceIndex: 145
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98543\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -7376,7 +7376,7 @@ MonoBehaviour:
     voiceIndex: 147
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98545\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8595,7 +8595,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98548\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8637,7 +8637,7 @@ MonoBehaviour:
     voiceIndex: 174
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98549\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8665,7 +8665,7 @@ MonoBehaviour:
     voiceIndex: 175
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98545\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8707,7 +8707,7 @@ MonoBehaviour:
     voiceIndex: 176
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98542\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -8749,7 +8749,7 @@ MonoBehaviour:
     voiceIndex: 177
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98543\u88F8"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9772,7 +9772,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98546\u30D1\u30B8\u30E3\u30DE\u591C"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9814,7 +9814,7 @@ MonoBehaviour:
     voiceIndex: 203
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98547\u30D1\u30B8\u30E3\u30DE\u591C"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9884,7 +9884,7 @@ MonoBehaviour:
     voiceIndex: 205
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98548\u30D1\u30B8\u30E3\u30DE\u591C"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -9940,7 +9940,7 @@ MonoBehaviour:
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1
-    imagePath: 
+    imagePath: "8.\u5BFE\u9762\u7ACB\u4F4D/\u6A2A\u98541\u30D1\u30B8\u30E3\u30DE\u591C"
     isImageFade: 
     live2DModelID: 
     live2DScale: 1
@@ -10847,20 +10847,6 @@ MonoBehaviour:
     live2DParamValues: 
   - sectionID: 106
     text: 
-    voiceIndex: -1
-    seIndex: -1
-    bgmIndex: -1
-    imagePath: 
-    isImageFade: 
-    live2DModelID: 
-    live2DScale: 1
-    live2DPosition: 
-    live2DAnimTrigger: 
-    live2DExpTrigger: 
-    live2DParamIDs: 
-    live2DParamValues: 
-  - sectionID: 107
-    text: "\uFF5E\u30B2\u30FC\u30E0\u30B7\u30CA\u30EA\u30AA\u5168\u958B\u653E\u5B8C\u4E86\uFF5E"
     voiceIndex: -1
     seIndex: -1
     bgmIndex: -1

@@ -6223,6 +6223,7 @@ GameObject:
   - component: {fileID: -2020020361655389763}
   - component: {fileID: 4491412748409892278}
   - component: {fileID: 642794804475853216}
+  - component: {fileID: -1061078179193950880}
   m_Layer: 0
   m_Name: MainChara
   m_TagString: Untagged
@@ -7382,6 +7383,18 @@ MonoBehaviour:
   Mean: 4
   MaximumDeviation: 2.5
   Timescale: 10
+--- !u!114 &-1061078179193950880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362998852098367508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c76a64c1c1c5d4dab1e1a63ed0e0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3382062005721872870
 GameObject:
   m_ObjectHideFlags: 0

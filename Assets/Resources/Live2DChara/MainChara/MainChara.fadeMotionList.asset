@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
   m_Name: MainChara.fadeMotionList
   m_EditorClassIdentifier: 
-  MotionInstanceIds: 62eaffff2ceaffff04eaffffdce9ffffb4e9ffff8ce9ffff64e9ffff3ce9ffff14e9ffffece8ffffc4e8ffff9ce8ffff74e8ffff4ce8ffff24e8fffffce7ffffd4e7fffface7ffff84e7ffff5ce7ffff34e7ffff0ce7ffffe4e6ffffbce6ffff94e6ffff6ce6ffff44e6ffff1ce6fffff4e5ffffcce5ffffa4e5ffff7ce5ffff54e5ffff2ce5ffff04e5ffffdce4ffffb4e4ffff8ce4ffff64e4ffff3ce4ffff14e4ffffece3ffffc4e3ffff9ce3ffff74e3ffff4ce3ffff24baffff
+  MotionInstanceIds: 62eaffff2ceaffff04eaffffdce9ffffb4e9ffff8ce9ffff64e9ffff3ce9ffff14e9ffffece8ffffc4e8ffff9ce8ffff74e8ffff4ce8ffff24e8fffffce7ffffd4e7fffface7ffff84e7ffff5ce7ffff34e7ffff0ce7ffffe4e6ffffbce6ffff94e6ffff6ce6ffff44e6ffff1ce6fffff4e5ffffcce5ffffa4e5ffff7ce5ffff54e5ffff2ce5ffff04e5ffffdce4ffffb4e4ffff8ce4ffff64e4ffff3ce4ffff14e4ffffece3ffffc4e3ffff9ce3ffff74e3ffff4ce3ffff24baffff2a77f0ff
   CubismFadeMotionObjects:
   - {fileID: 11400000, guid: 1f4affae07e5dfc47a0993bd6b5d8937, type: 2}
   - {fileID: 11400000, guid: 81423f5737a56f346a67fb62df5de948, type: 2}
@@ -61,3 +61,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 85e417130bec6dc459f7f9d9b11f199d, type: 2}
   - {fileID: 11400000, guid: 8888e06e306d4dc44899c41de9ab8d4b, type: 2}
   - {fileID: 11400000, guid: 2f55a6e7f2aa8f64598aa90c77b1b0c9, type: 2}
+  - {fileID: 11400000, guid: 72b359b17c01adc42ab1d2e5abc6cfb9, type: 2}

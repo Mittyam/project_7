@@ -15,13 +15,17 @@ MonoBehaviour:
   eventID: 8
   eventName: "\u5BFE\u9762\u7ACB\u4F4D"
   eventDescription: 
-  triggerTiming: 0
+  triggerTiming: 3
   conditions:
   - conditionType: 0
-    threshold: 140
+    threshold: 160
     paramName: 
     isGreaterThanOrEqual: 1
-  nextStateID: 0
+  - conditionType: 1
+    threshold: 160
+    paramName: 
+    isGreaterThanOrEqual: 1
+  nextStateID: 1
   thumbnailImage: {fileID: 0}
   unlockAsMemory: 1
   affectionChange: 0
